@@ -1,0 +1,15 @@
+﻿<Window x:Class="CSharpProject.Views.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="359" Width="433">
+    <Canvas>
+        <Label Content="Lägg till en kategori:" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="123" Canvas.Left="23" Canvas.Top="22"/>
+        <TextBox Height="25" Canvas.Left="23" TextWrapping="Wrap" Text="TextBox" Canvas.Top="53" Width="168"/>
+        <ComboBox Height="34" Canvas.Left="23" Canvas.Top="138" Width="168"/>
+        <Label Content="Ange kategori att hantera:" Height="29" Canvas.Left="24" Canvas.Top="104" Width="167"/>
+        <Button Content="Ta bort" Height="27" Canvas.Left="24" Canvas.Top="272" Width="94"/>
+        <TextBox Height="27" Canvas.Left="24" TextWrapping="Wrap" Text="TextBox" Canvas.Top="210" Width="169"/>
+        <Button Content="Ändra namn" Height="27" Canvas.Left="207" Canvas.Top="210" Width="95"/>
+
+    </Canvas>
+</Window>
