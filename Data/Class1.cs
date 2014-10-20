@@ -12,7 +12,7 @@ namespace Data
 {
     internal class Class1
     {
-        private void ParseRssFile()
+        public ParseRssFile()
         {
 
             //test url kommer vara (Url i txtboken i xaml.cs samt att den kommer att visas upp i vår lisa
