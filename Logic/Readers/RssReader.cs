@@ -30,9 +30,17 @@ namespace Logic.Readers
                     
                     
                     feedItem.Title = item.Title.Text;
+                    
                 }
+                foreach (var link in feed.Links)
+                {
+                    feedItem.LinkUri = link.Uri.ToString();
+                }
+
                 rssFlow.Add(feedItem);
                 return rssFlow;
+
+                
 
             }
             catch
