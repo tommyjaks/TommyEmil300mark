@@ -20,36 +20,46 @@ namespace Logic.Readers
             {
                 List<FeedItem> rssFlow = new List<FeedItem>();
 
-               
+
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
                 FeedItem feedItem = new FeedItem();
                 foreach (SyndicationItem item in feed.Items)
                 {
-                    
-                    
+
+
                     feedItem.Title = item.Title.Text;
-                    
+
                 }
                 foreach (var link in feed.Links)
                 {
-                    feedItem.LinkUri = link.Uri.ToString();
+                    feedItem.Link = link.Uri;
                 }
-
                 rssFlow.Add(feedItem);
                 return rssFlow;
 
-                
+
 
             }
+
+
             catch
+            {
+            }
+
+
+
             {
                 throw new NotImplementedException();
             }
         }
     }
 }
+            
+        
+    
+
 
 
            
