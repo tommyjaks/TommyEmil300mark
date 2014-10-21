@@ -13,24 +13,26 @@ namespace Logic.Readers
 {
     internal class RssReader : IReader
     {
-        public IEnumerable<FeedItem> Read(string url)
+        public List<FeedItem> Read(string url)
         {
 
             try
             {
-                var rssFeed = new List<FeedItem>();
-                //test url kommer vara (Url i txtboken i xaml.cs samt att den kommer att visas upp i vår lisa
+                List<FeedItem> rssFlow = new List<FeedItem>();
 
+               
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
+                FeedItem feedItem = new FeedItem();
                 foreach (SyndicationItem item in feed.Items)
                 {
-                    String subject = item.Title.Text;
-                    String summary = item.Summary.Text;
+                    
+                    
+                    feedItem.Title = item.Title.Text;
                 }
-
-                return rssFeed;
+                rssFlow.Add(feedItem);
+                return rssFlow;
 
             }
             catch
