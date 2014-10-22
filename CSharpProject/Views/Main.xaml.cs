@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Net;
 using System.Windows;
+using Logic;
+using Logic.Service.Validation;
 
 namespace CSharpProject.Views
 {
@@ -10,14 +12,17 @@ namespace CSharpProject.Views
         
         public MainWindow()
         {
+           
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          
+            UrlValidator urlValidate = new UrlValidator();
+            urlValidate.Validate(tbURL.Text);
         }
 
         
+
     }
 }

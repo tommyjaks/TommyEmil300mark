@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 
 namespace Logic.Service.Validation
@@ -18,7 +19,7 @@ namespace Logic.Service.Validation
             }
             else if(!Regex.IsMatch(url, reg))
             {
-               
+                MessageBox.Show("Din angivna URL är inkorrekt");
             }
             return resultat;
         }
