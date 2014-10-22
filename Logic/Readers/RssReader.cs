@@ -11,63 +11,45 @@ using Logic.Entities;
 
 namespace Logic.Readers
 {
-    internal class RssReader : IReader
+    public class RssReader : IReader
     {
         public List<FeedItem> Read(string url)
         {
 
-            try
+            List<FeedItem> rssFlow = new List<FeedItem>();
+
+
+            XmlReader reader = XmlReader.Create(url);
+            SyndicationFeed feed = SyndicationFeed.Load(reader);
+            reader.Close();
+
+            foreach (SyndicationItem item in feed.Items)
             {
-                List<FeedItem> rssFlow = new List<FeedItem>();
 
-
-                XmlReader reader = XmlReader.Create(url);
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
-                reader.Close();
                 FeedItem feedItem = new FeedItem();
-                foreach (SyndicationItem item in feed.Items)
-                {
+                feedItem.Title = item.Title.Text;
 
 
-                    feedItem.Title = item.Title.Text;
-
-                }
                 foreach (var link in feed.Links)
                 {
-                    feedItem.Link = link.Uri;
+                    feedItem.Link = link.Uri.ToString();
                 }
-                rssFlow.Add(feedItem);
-                return rssFlow;
+                try
+                {
+                    rssFlow.Add(feedItem);
+
+                }
+                catch (Exception)
+                {
+                 
 
 
-
+                }
+                
             }
-
-
-            catch
-            {
-            }
-
-
-
-            {
-                throw new NotImplementedException();
-            }
+            return rssFlow;
         }
     }
 }
-            
-        
-    
 
-
-
-           
-      
-
-        
-
-    
-
-    
-
+                  

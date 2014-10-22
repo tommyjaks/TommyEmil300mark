@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.MainWindow"
         Title="MainWindow" Height="382" Width="auto" Background="#FF8B8282">
-    <Canvas Background="White">
+    <Canvas Background="White" Margin="0,0,-101,-254">
         <Label Content="Klistra in en URL:" Height="33" Canvas.Left="10" Canvas.Top="10" Width="133" FontSize="16" FontFamily="Trebuchet MS"/>
         <TextBox x:Name="tbURL"  Height="32" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="48" Width="317"/>
         <Label Content="Ange namn för flödet:" Height="31" Canvas.Left="10" Canvas.Top="85" Width="207" FontSize="16"/>
@@ -13,6 +13,7 @@
         <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="10" Canvas.Top="230" Width="192" FontSize="16" Click="Button_Click"/>
         <ComboBox Height="40" Canvas.Left="379" Canvas.Top="134" Width="136"/>
         <Label Content="Ange kategori:" Height="40" Canvas.Left="377" Canvas.Top="89" Width="136" FontSize="16"/>
-        
+        <ListBox x:Name="lbListBook" Height="268" Canvas.Left="301" Canvas.Top="305" Width="488" SelectionChanged="lbListBook_SelectionChanged"/>
+
     </Canvas>
 </Window>

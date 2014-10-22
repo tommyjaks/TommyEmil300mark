@@ -6,6 +6,6 @@ namespace Logic.Entities
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public Uri Link { get; set; }  
+        public string Link { get ; set; }  
     }
 }
