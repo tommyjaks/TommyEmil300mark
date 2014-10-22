@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Documents;
 using Logic.Readers;
 using Logic.Entities;
+using Logic.Service.Validation;
 
 namespace CSharpProject.Views
 {
@@ -22,9 +23,8 @@ namespace CSharpProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RssReader getRssReader = new RssReader();
-            List<FeedItem> yolo;
-            lbListBook.ItemsSource = getRssReader.Read(tbURL.Text);
+            UrlValidator urlValidate = new UrlValidator();
+            urlValidate.Validate(tbURL.Text);
 
             
 
