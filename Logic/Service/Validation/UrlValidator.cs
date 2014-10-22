@@ -1,5 +1,6 @@
 ﻿using System;
-using Logic.Exceptions;
+using System.Text.RegularExpressions;
+
 
 namespace Logic.Service.Validation
 {
@@ -7,7 +8,21 @@ namespace Logic.Service.Validation
     {
         public bool Validate(string url)
         {
-            throw new NotImplementedException();
+            bool resultat = false;
+            const string reg = @"^(ht|f|sf)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
+            
+            
+            if (Regex.IsMatch(url, reg))
+            {
+                resultat = true;
+            }
+            else if(!Regex.IsMatch(url, reg))
+            {
+               
+            }
+            return resultat;
         }
     }
+
+   
 }
