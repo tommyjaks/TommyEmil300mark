@@ -10,4 +10,8 @@ using System.Xml;
 
 namespace Data
 {
+    internal class Class1
+    {
+        
+    }
 }

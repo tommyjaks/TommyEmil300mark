@@ -23,10 +23,11 @@ namespace Logic.Readers
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             reader.Close();
 
+            FeedItem feedItem = new FeedItem();
             foreach (SyndicationItem item in feed.Items)
             {
 
-                FeedItem feedItem = new FeedItem();
+                
                 feedItem.Title = item.Title.Text;
 
 
@@ -36,8 +37,8 @@ namespace Logic.Readers
                 }
                 try
                 {
-                    rssFlow.Add(feedItem);
-
+                   
+                    return rssFlow.ToList();
                 }
                 catch (Exception)
                 {
@@ -47,7 +48,7 @@ namespace Logic.Readers
                 }
                 
             }
-            return rssFlow;
+            return rssFlow.ToList();
         }
     }
 }

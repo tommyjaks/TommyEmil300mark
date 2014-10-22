@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
 using System.Security.Policy;
@@ -22,10 +23,10 @@ namespace CSharpProject.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RssReader getRssReader = new RssReader();
-            
+            List<FeedItem> yolo;
             lbListBook.ItemsSource = getRssReader.Read(tbURL.Text);
 
-
+            
 
 
 
