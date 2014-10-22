@@ -12,22 +12,6 @@ namespace Data
 {
     internal class Class1
     {
-        public ParseRssFile()
-        {
-
-            //test url kommer vara (Url i txtboken i xaml.cs samt att den kommer att visas upp i vår lisa
-            string url = "http://tyngreradio.libsyn.com/rss";
-            XmlReader reader = XmlReader.Create(url);
-            SyndicationFeed feed = SyndicationFeed.Load(reader);
-            reader.Close();
-            foreach (SyndicationItem item in feed.Items)
-            {
-                String subject = item.Title.Text;
-                String summary = item.Summary.Text;
-
-            }
-            Console.WriteLine(feed.Title.Text);
-
-        }
+        
     }
 }
