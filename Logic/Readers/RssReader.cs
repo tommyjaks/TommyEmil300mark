@@ -12,7 +12,7 @@ using Data;
 
 namespace Logic.Readers
 {
-    public class RssReader : IReader
+    internal class RssReader : IReader
     {
         public IEnumerable<FeedItem> Read(string url)
         {

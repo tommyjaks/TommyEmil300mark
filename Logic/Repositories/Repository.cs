@@ -10,7 +10,7 @@ namespace Logic.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> = new Repository();  
+        protected XmlHandler<T> yoloHandler = new XmlHandler<T>();  
         public void Save()
         {
             try
