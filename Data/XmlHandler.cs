@@ -10,46 +10,37 @@ using System.Xml.Serialization;
 
 namespace Data
 {
-    public class XmlHandler
+    public class XmlHandler<T> where T : class
     {
-        internal string Sökväg;
+        //internal string Sökväg;
         internal XmlSerializer Xml;
-        
 
-        public XmlHandler(string sökväg)
+        public XmlHandler()
         {
-            Sökväg = sökväg;
-            Xml = new XmlSerializer(typeof(feedItem));
+            //Sökväg = sökväg;
+            Xml = new XmlSerializer(typeof (T));
         }
 
-        public T LoadData<T>()
+        public void Spara(T datatype, string path)
         {
-           XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-           using (TextReader reader = new StreamReader(settingsFileName))
-           {
-            return (T)xmlSerializer.Deserialize(reader);
-           }
-        
-        }
-
-        public void Spara(Bibliotek b)
-        {
-            using (var sw = new StreamWriter(Sökväg))
+            using (var streamWriter = new StreamWriter(path))
             {
-                Xml.Serialize(sw, b );
+                Xml.Serialize(streamWriter, datatype);
             }
         }
 
-        public Bibliotek Ladda()
+        public T Load(string path)
         {
-            if (!File.Exists(Sökväg))
-            {
-                return new Bibliotek();
-            }
+            // if (!File.Exists(path))
+            //{
+            //  return new Bibliotek();
+            //}
             //Xml = new XmlSerializer(b.GetType());
-            using (var sr = new StreamReader(Sökväg))
+
+            using (var streamReader = new StreamReader(path))
             {
-                return Xml.Deserialize(sr) as Bibliotek;// deserialize skickar tillbaka som objekt, därför skriver man bibliotek
+                return Xml.Deserialize(streamReader) as T;
             }
+        }
     }
 }
