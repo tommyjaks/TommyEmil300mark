@@ -8,15 +8,16 @@ using System.Security.Policy;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using Logic.Entities;
+using Data;
 
 namespace Logic.Readers
 {
     public class RssReader : IReader
     {
-        public List<FeedItem> Read(string url)
+        public IEnumerable<FeedItem> Read(string url)
         {
 
-            List<FeedItem> rssFlow = new List<FeedItem>();
+            IEnumerable<FeedItem> rssFlow = new List<FeedItem>();
 
 
             XmlReader reader = XmlReader.Create(url);
@@ -48,7 +49,7 @@ namespace Logic.Readers
                 }
                 
             }
-            return rssFlow.ToList();
+            return rssFlow;
         }
     }
 }
