@@ -13,7 +13,7 @@ namespace Data
     public class XmlHandler<T> where T : class
     {
         //internal string Sökväg;
-        internal XmlSerializer Xml;
+        internal static XmlSerializer Xml;
 
         public XmlHandler()
         {
@@ -21,11 +21,11 @@ namespace Data
             Xml = new XmlSerializer(typeof (T));
         }
 
-        public void Spara(T datatype, string path)
+        public static void SaveXml(T data, string path)
         {
             using (var streamWriter = new StreamWriter(path))
             {
-                Xml.Serialize(streamWriter, datatype);
+                Xml.Serialize(streamWriter, data);
             }
         }
 
