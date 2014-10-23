@@ -11,6 +11,6 @@ namespace Logic.Repositories
         void Delete(T item);
         T Add(T item);
         T Find(Guid id);
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
     }
 }
