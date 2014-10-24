@@ -1,5 +1,6 @@
 ﻿
 using System.Windows;
+using Logic.Service.Feed;
 using Logic.Service.Validation;
 using Logic.Readers;
 
@@ -7,7 +8,6 @@ namespace CSharpProject.Views
 {
     public partial class MainWindow : Window
     {
-        RssReader getRssFeed = new RssReader();
 
         public MainWindow()
         {
@@ -22,7 +22,7 @@ namespace CSharpProject.Views
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
 
-
+            FeedService.getRssItems(minUrl);
 
 
 

@@ -10,12 +10,12 @@ using Logic.Repositories;
 
 namespace Logic.Service.Feed
 {
-    class FeedService 
+    public class FeedService 
     {
         RssReader feedReader = new RssReader();
 
 
-        private void getRssItems(string url)
+        public void getRssItems(string url)
         {
 
             feedReader.Read(url);
