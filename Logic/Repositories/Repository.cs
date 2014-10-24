@@ -10,19 +10,20 @@ namespace Logic.Repositories
 {
     public class FeedRepository : Repository<Feed>
     {
-        public void Hej()
+        public void GetFeed()
         {
-            GetAll().Where(b => b.Items);
+            GetAll().Where(b => b.Items != null);
         }   
     }
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> yoloHandler = new XmlHandler<T>();  
+        protected XmlHandler<T> YoloHandler = new XmlHandler<T>();  
+
         public void Save(List<T> value)
         {
             try
             {
-               yoloHandler.SaveXml(value,"hej.xml");
+               YoloHandler.SaveXml(value,"hej.xml");
             }
             catch (Exception ex)
             {
@@ -32,6 +33,10 @@ namespace Logic.Repositories
             
         }
 
+        public void Load(List<T> value)
+        {
+            
+        }
         public void Update(T item)
         {
             throw new NotImplementedException();
@@ -54,7 +59,7 @@ namespace Logic.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            yoloHandler.Load("hej.xml");
+            YoloHandler.Load("hej.xml");
             
         }
     }

@@ -52,6 +52,7 @@
     <Compile Include="Readers\RssReader.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Service\Feed\FeedService.cs" />
     <Compile Include="Service\Validation\FeedValidator.cs" />
     <Compile Include="Service\Validation\UrlValidator.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
