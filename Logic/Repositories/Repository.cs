@@ -8,23 +8,28 @@ using Logic.Entities;
 
 namespace Logic.Repositories
 {
+    public class FeedRepository : Repository<Feed>
+    {
+        public void Hej()
+        {
+            GetAll().Where(b => b.Items);
+        }   
+    }
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> XmlHandler = new XmlHandler<T>();
-
-        public void Save()
+        protected XmlHandler<T> yoloHandler = new XmlHandler<T>();  
+        public void Save(List<T> value)
         {
             try
             {
-               
-
+               yoloHandler.SaveXml(value,"hej.xml");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw new NotImplementedException();
             }
-
+            
         }
 
         public void Update(T item)
@@ -49,8 +54,8 @@ namespace Logic.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            // Don't really know what to return in order to make it work
-            return null; 
+            yoloHandler.Load("hej.xml");
+            
         }
     }
 

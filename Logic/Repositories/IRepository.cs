@@ -6,7 +6,7 @@ namespace Logic.Repositories
 {
     internal interface IRepository<T> where T : IEntity
     {
-        void Save();
+        void Save(List<T> items);
         void Update(T item);
         void Delete(T item);
         T Add(T item);

@@ -12,16 +12,16 @@ namespace Data
 {
     public class XmlHandler<T> where T : class 
     {
-        //internal string Sökväg;
-        internal static XmlSerializer Xml;
+       
+        internal XmlSerializer Xml;
 
         public XmlHandler()
         {
-            //Sökväg = sökväg;
-            Xml = new XmlSerializer(typeof (T));
+           
+            Xml = new XmlSerializer(typeof (List<T>));
         }
 
-        public static void SaveXml(T datatyp, string path)
+        public void SaveXml(List<T> datatyp, string path)
         {
             using (var streamWriter = new StreamWriter(path))
             {
@@ -29,11 +29,11 @@ namespace Data
             }
         }
 
-        public T Load(string path)
+        public List<T> Load(string path)
         {
             using (var streamReader = new StreamReader(path))
             {
-                return Xml.Deserialize(streamReader) as T;
+                return Xml.Deserialize(streamReader) as List<T>;
             }
         }
 
