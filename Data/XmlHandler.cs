@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace Data
 {
-    public class XmlHandler<T> where T : class
+    public class XmlHandler<T> where T : class 
     {
         //internal string Sökväg;
         internal static XmlSerializer Xml;
@@ -21,26 +21,22 @@ namespace Data
             Xml = new XmlSerializer(typeof (T));
         }
 
-        public static void SaveXml(T data, string path)
+        public static void SaveXml(T datatyp, string path)
         {
             using (var streamWriter = new StreamWriter(path))
             {
-                Xml.Serialize(streamWriter, data);
+                Xml.Serialize(streamWriter, datatyp);
             }
         }
 
         public T Load(string path)
         {
-            // if (!File.Exists(path))
-            //{
-            //  return new Bibliotek();
-            //}
-            //Xml = new XmlSerializer(b.GetType());
-
             using (var streamReader = new StreamReader(path))
             {
                 return Xml.Deserialize(streamReader) as T;
             }
         }
+
+      
     }
 }
