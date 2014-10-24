@@ -10,12 +10,13 @@ namespace Logic.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> yoloHandler = new XmlHandler<T>();  
+        protected XmlHandler<T> XmlHandler = new XmlHandler<T>();
+
         public void Save()
         {
             try
             {
-
+               
 
             }
             catch (Exception)
@@ -23,7 +24,7 @@ namespace Logic.Repositories
 
                 throw new NotImplementedException();
             }
-            
+
         }
 
         public void Update(T item)
@@ -46,9 +47,12 @@ namespace Logic.Repositories
             throw new NotImplementedException();
         }
 
-        public List<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            // Don't really know what to return in order to make it work
+            return null; 
         }
     }
+
+
 }
