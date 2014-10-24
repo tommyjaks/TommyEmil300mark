@@ -10,20 +10,21 @@ namespace Logic.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> DataTable;
+        protected XmlHandler<T> XmlHandler = new XmlHandler<T>();
 
         public void Save()
         {
             try
             {
-                XmlHandler<T>.SaveXml(T value,"hej.xml");
+               
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw new NotImplementedException();
             }
-            
+
         }
 
         public void Update(T item)
@@ -48,7 +49,10 @@ namespace Logic.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            // Don't really know what to return in order to make it work
+            return null; 
         }
     }
+
+
 }

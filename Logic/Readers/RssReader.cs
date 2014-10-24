@@ -17,14 +17,14 @@ namespace Logic.Readers
         public IEnumerable<FeedItem> Read(string url)
         {
 
-            IEnumerable<FeedItem> rssFlow = new List<FeedItem>();
+            List<FeedItem> rssFlow = new List<FeedItem>();
 
 
             XmlReader reader = XmlReader.Create(url);
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             reader.Close();
 
-            FeedItem feedItem = new FeedItem();
+            var feedItem = new FeedItem();
             foreach (SyndicationItem item in feed.Items)
             {
 
@@ -38,10 +38,10 @@ namespace Logic.Readers
                 }
                 try
                 {
-                   
-                    return rssFlow.ToList();
+
+                    rssFlow.Add(feedItem);
                 }
-                catch (Exception)
+                catch (Exception exceptio)
                 {
                  
 
