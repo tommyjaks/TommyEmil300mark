@@ -22,7 +22,7 @@ namespace CSharpProject.Views
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
 
-            FeedService.getRssItems(minUrl);
+            FeedService.GetRssItems(minUrl);
 
 
 

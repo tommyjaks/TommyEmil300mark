@@ -8,29 +8,28 @@ using Logic.Entities;
 
 namespace Logic.Repositories
 {
-    public class FeedRepository : Repository<Feed>
-    {
-        public void GetFeed()
-        {
-            GetAll().Where(b => b.Items != null);
-        }   
-    }
+    ////public class FeedRepository : Repository<Feed>
+    //{
+    //    public void GetFeed()
+    //    {
+    //        GetAll().Where(b => b.Items != null);
+    //    }   
+    //}
+    
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
         protected XmlHandler<T> YoloHandler = new XmlHandler<T>();  
 
-        public void Save(List<T> value)
+        public void Save(List<T> value, string path)
         {
             try
             {
-               YoloHandler.SaveXml(value,"hej.xml");
+               YoloHandler.SaveXml(value, path);
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException();
             }
-            
         }
 
         public void Load(List<T> value)
@@ -57,7 +56,7 @@ namespace Logic.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> GetAll()
+        public void GetAll()
         {
             YoloHandler.Load("hej.xml");
             

@@ -12,15 +12,13 @@ namespace Logic.Service.Feed
 {
     public class FeedService 
     {
-        RssReader feedReader = new RssReader();
+        static RssReader feedReader = new RssReader();
 
 
-        public void getRssItems(string url)
+        public static void GetRssItems(string url)
         {
 
             feedReader.Read(url);
-
-
 
         }
     }
