@@ -28,9 +28,9 @@ namespace CSharpProject.Views
 
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
-            
+            string path = "yolo.xml";
             List<FeedItem>feedData = yoloReader.Read(minUrl);
-           repository.Save(feedData, minUrl);
+           repository.Save(feedData, path);
 
              
 
