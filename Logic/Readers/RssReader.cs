@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Policy;
+
 using System.ServiceModel.Syndication;
 using System.Xml;
 using Logic.Entities;
-using Data;
+
 
 namespace Logic.Readers
 {
-    internal class RssReader : IReader
+    public class RssReader : IReader
     {
-        public IEnumerable<FeedItem> Read(string url)
+        public List<FeedItem> Read(string url)
         {
 
             List<FeedItem> rssFlow = new List<FeedItem>();
@@ -41,7 +38,7 @@ namespace Logic.Readers
 
                     rssFlow.Add(feedItem);
                 }
-                catch (Exception exceptio)
+                catch (Exception)
                 {
                  
 

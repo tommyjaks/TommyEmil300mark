@@ -1,13 +1,20 @@
 ﻿
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using Logic.Entities;
+
 using Logic.Service.Validation;
 using Logic.Readers;
+
+
 
 namespace CSharpProject.Views
 {
     public partial class MainWindow : Window
     {
-        RssReader getRssFeed = new RssReader();
+      RssReader yoloReader = new RssReader();
+       
 
         public MainWindow()
         {
@@ -21,9 +28,18 @@ namespace CSharpProject.Views
 
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
+            
+            List<FeedItem>feedData = yoloReader.Read(minUrl);
+            Console.WriteLine(feedData);
+
+             
+
+            var save = new save
 
 
 
+
+            // FeedService.getRssItems();
 
 
         }
