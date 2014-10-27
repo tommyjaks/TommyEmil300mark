@@ -11,9 +11,9 @@
         <ComboBox Height="34" Canvas.Left="377" Canvas.Top="48" Width="138"/>
         <Label Content="Ange intervall för uppdatering: (min)" Height="31" Canvas.Left="377" Canvas.Top="8" Width="273" FontSize="16"/>
         <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="10" Canvas.Top="230" Width="192" FontSize="16" Click="Button_Click"/>
-        <ComboBox Height="40" Canvas.Left="379" Canvas.Top="134" Width="136"/>
+        <ComboBox x:Name="cbCategory" Height="40" Canvas.Left="379" Canvas.Top="134" Width="136"/>
         <Label Content="Ange kategori:" Height="40" Canvas.Left="377" Canvas.Top="89" Width="136" FontSize="16"/>
-        <ListBox x:Name="lbListBook" Height="268" Canvas.Left="301" Canvas.Top="305" Width="488" SelectionChanged="lbListBook_SelectionChanged"/>
+        <ListBox x:Name="lbListBook" Height="268" Canvas.Left="301" Canvas.Top="305" Width="488"/>
 
     </Canvas>
 </Window>

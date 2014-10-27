@@ -4,7 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Xml;
 using System.Xml.Serialization;
+
 
 
 
@@ -37,6 +40,27 @@ namespace Data
             }
         }
 
+
+        public void FyllCombobox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
+        {
+
+            var doc = new XmlDocument();
+            doc.Load(xmlFil);
+            var nodeList = doc.SelectNodes(valjNoder);
+
+            foreach (XmlNode node in nodeList)
+                if (!cb.Items.Contains(node.SelectSingleNode(valjEnstakaNodAttFyllaBoxMed).InnerText))
+                {
+                    cb.Items.Add(node.SelectSingleNode(valjEnstakaNodAttFyllaBoxMed).InnerText);
+                }
+
+        }
+
+        }
+
+
+
       
     }
-}
+
+

@@ -1,7 +1,9 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using Logic.Entities;
 using Logic.Repositories;
 using Logic.Service.Validation;
@@ -18,23 +20,26 @@ namespace CSharpProject.Views
 
         public MainWindow()
         {
-           
+          
             InitializeComponent();
+            string path = "yolo.xml";
+            ComboBox yoloBox = cbCategory;
+            string valjEnstakaNod = "ArrayOfFeedItem/FeedItem";
+            string nodeToFill = "Title";
+            repository.fillComboBox(yoloBox, path, valjEnstakaNod, nodeToFill);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var minUrl = tbURL.Text;
-
+            string path = "FeedItems.Xml";
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
-            string path = "yolo.xml";
             List<FeedItem>feedData = yoloReader.Read(minUrl);
            repository.Save(feedData, path);
+            
+            
 
-             
-
-        
 
 
 
@@ -44,11 +49,21 @@ namespace CSharpProject.Views
 
         }
 
-        private void lbListBook_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-        }
+        //private void FormMovieLookUp_Load_1(object sender, EventArgs e)
+        //{
+        //    string path = "yolo.xml";
+        //ComboBox yoloBox = cbCategory;
+        // string valjEnstakaNod = "ArrayOfFeedItem/FeedItem";
+        //           string nodeToFill = "Title";
+        //           repository.fillComboBox(yoloBox, path, valjEnstakaNod, nodeToFill);
+        //}
+       
+         
+         
+       }
+    }
+        
 
         
-    }
-}
+    
+

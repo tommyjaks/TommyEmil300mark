@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Data;
 using Logic.Entities;
+using ComboBox = System.Windows.Controls.ComboBox;
 
 namespace Logic.Repositories
 {
@@ -61,6 +63,14 @@ namespace Logic.Repositories
             YoloHandler.Load("hej.xml");
             
         }
+
+        public void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
+        {
+            YoloHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
+        }
+    
+        
+    
     }
 
 
