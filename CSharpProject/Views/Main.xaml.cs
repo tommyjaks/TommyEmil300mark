@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using Logic.Entities;
-
+using Logic.Repositories;
 using Logic.Service.Validation;
 using Logic.Readers;
 
@@ -14,7 +14,7 @@ namespace CSharpProject.Views
     public partial class MainWindow : Window
     {
       RssReader yoloReader = new RssReader();
-       
+      private Repository<FeedItem> repository = new Repository<FeedItem>();
 
         public MainWindow()
         {
@@ -30,11 +30,11 @@ namespace CSharpProject.Views
             urlValidate.Validate(minUrl);
             
             List<FeedItem>feedData = yoloReader.Read(minUrl);
-            Console.WriteLine(feedData);
+           repository.Save(feedData, minUrl);
 
              
 
-            var save = new save
+        
 
 
 

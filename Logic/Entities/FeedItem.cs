@@ -2,7 +2,7 @@ using System;
 
 namespace Logic.Entities
 {
-    public class FeedItem
+    public class FeedItem : IEntity
     {
         public string Id { get; set; }
         public string Title { get; set; }
