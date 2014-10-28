@@ -42,9 +42,9 @@ namespace CSharpProject.Views
         {
                 CategoryFiller fillCategory = new CategoryFiller();
           var newCategoryName =  tbNewCategoryName.Text;
-         //   var selectedItem = cbCategory.SelectedItem.ToString();
+        var selectedItem = cbCategory.SelectedItem.ToString();
 
-            fillCategory.editCategory();
+            fillCategory.editCategory(selectedItem, newCategoryName);
         }
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -21,22 +21,20 @@ namespace Logic.Readers
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             reader.Close();
 
-            var feedItem = new FeedItem();
+           
             foreach (SyndicationItem item in feed.Items)
             {
-
+                var feedItem = new FeedItem();
                 
                 feedItem.Title = item.Title.Text;
+                feedItem.Link = item.Links[0].Uri.ToString();
 
 
-                foreach (var link in feed.Links)
-                {
-                    feedItem.Link = link.Uri.ToString();
-                }   
+                
                 try
                 {
 
-                    rssFlow.Add(feedItem);
+                    feedItem.Author = item.Authors[0].Name;
                 }
                 catch (Exception)
                 {
@@ -44,6 +42,7 @@ namespace Logic.Readers
 
 
                 }
+                rssFlow.Add(feedItem);
                 
             }
             return rssFlow;

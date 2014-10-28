@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 
@@ -83,6 +84,12 @@ namespace Data
                 }
               
             }
+
+        public void deleteCategory(string xmlFile)
+        {
+           // deleteKod Inc Y0
+           
+        }
             
         }
 

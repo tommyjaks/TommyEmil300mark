@@ -16,7 +16,11 @@ namespace Logic.Service.Feed
         public void getRssItems(string url)
         {
             string path = "Feed.xml";
-            List<FeedItem> feedData = feedReader.Read(url);
+            List<FeedItem> feedData = new List<FeedItem>();
+
+            if (feedReader != null) feedData = feedReader.Read(url);
+
+
             repository.Save(feedData, path);
         }
 

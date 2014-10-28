@@ -43,13 +43,12 @@ namespace Logic
            repository.Save(categoryData, path);
        }
 
-       public void editCategory()
+       public void editCategory(string selectedCategory, string newNode)
     {
-        string xmlFile = "Categories.xml";
+        string xmlFile = "Category.xml";
         string chooseNode = "ArrayOfCategory/Category";
         string chooseSingleNode = "Name";
-        string selectedCategory = "Nyheter";
-           string newNode = "Fisk";
+        
 
         repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, newNode);
     }
