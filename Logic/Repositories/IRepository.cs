@@ -9,7 +9,7 @@ namespace Logic.Repositories
     internal interface IRepository<T> where T : IEntity
     {
         void Save(List<T> items, string path);
-        void Load(List<T> items);
+        void Load(string path);
         void Update(T item);
         void Delete(T item);
         void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);

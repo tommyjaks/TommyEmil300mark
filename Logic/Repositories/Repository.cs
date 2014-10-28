@@ -34,9 +34,9 @@ namespace Logic.Repositories
             }
         }
 
-        public void Load(List<T> value)
+        public void Load(string path)
         {
-            
+            YoloHandler.Load(path);
         }
         public void Update(T item)
         {
