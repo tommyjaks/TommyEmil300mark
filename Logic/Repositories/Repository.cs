@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Data;
 using Logic.Entities;
 using ComboBox = System.Windows.Controls.ComboBox;
@@ -38,9 +39,11 @@ namespace Logic.Repositories
         {
             YoloHandler.Load(path);
         }
-        public void Update(T item)
+        public void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string newNode)
         {
-            throw new NotImplementedException();
+            YoloHandler.updateXML(xmlFile, chooseNode, chooseSingleNode, selectedCategory, newNode);
+            
+         
         }
 
         public void Delete(T item)

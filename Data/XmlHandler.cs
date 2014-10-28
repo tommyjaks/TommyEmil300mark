@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
 using System.Xml.Serialization;
@@ -56,11 +57,40 @@ namespace Data
 
         }
 
+        public void updateXML(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string newNode)
+        {
+            
+            
+                XmlDocument xml = new XmlDocument();
+
+                xml.Load(xmlFile);
+
+                foreach (XmlElement element in xml.SelectNodes(chooseNode))
+                {
+                    foreach (XmlElement element1 in element)
+                    {
+                        if (element.SelectSingleNode(chooseSingleNode).InnerText == selectedCategory)
+                        {
+
+                            XmlNode newvalue = xml.CreateElement("Name");
+                            newvalue.InnerText = newNode;
+                            element.ReplaceChild(newvalue, element1.NextSibling);
+                            xml.Save(xmlFile);
+                           
+                        }
+                        xml.Save(xmlFile);
+                    }
+                }
+              
+            }
+            
+        }
+
         }
 
 
 
       
-    }
+    
 
 

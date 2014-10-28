@@ -58,8 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\Category.xaml.cs">
-      <DependentUpon>Category.xaml</DependentUpon>
+    <Compile Include="Views\WindowCategory.xaml.cs">
+      <DependentUpon>WindowCategory.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Details.xaml">
       <SubType>Designer</SubType>
@@ -80,7 +80,7 @@
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Category.xaml">
+    <Page Include="Views\WindowCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -32,7 +32,7 @@ namespace Logic.Readers
                 foreach (var link in feed.Links)
                 {
                     feedItem.Link = link.Uri.ToString();
-                }
+                }   
                 try
                 {
 

@@ -5,12 +5,12 @@
     <Canvas>
         <Label Content="Lägg till en kategori:" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="123" Canvas.Left="23" Canvas.Top="22"/>
         <TextBox x:Name="tbCategory" Height="25" Canvas.Left="23" TextWrapping="Wrap" Text="TextBox" Canvas.Top="53" Width="168"/>
-        <ComboBox Height="34" Canvas.Left="23" Canvas.Top="138" Width="168"/>
+        <ComboBox x:Name="cbCategory" Height="34" Canvas.Left="23" Canvas.Top="138" Width="168" SelectionChanged="cbCategory_SelectionChanged"/>
         <Label Content="Ange kategori att hantera:" Height="29" Canvas.Left="24" Canvas.Top="104" Width="167"/>
         <Button Content="Ta bort" Height="27" Canvas.Left="24" Canvas.Top="272" Width="94"/>
-        <TextBox Height="27" Canvas.Left="24" TextWrapping="Wrap" Text="TextBox" Canvas.Top="210" Width="169"/>
-        <Button Content="Ändra namn" Height="27" Canvas.Left="207" Canvas.Top="210" Width="95"/>
-        <Button x:Name="btnAddCategory" Content="Lägg till" Height="25" Canvas.Left="207" Canvas.Top="53" Width="95"/>
+        <TextBox x:Name="tbNewCategoryName" Height="27" Canvas.Left="24" TextWrapping="Wrap" Text="TextBox" Canvas.Top="210" Width="169"/>
+        <Button x:Name="btnEditName" Content="Ändra namn" Height="27" Canvas.Left="207" Canvas.Top="210" Width="95" Click="btnEditName_Click"/>
+        <Button x:Name="btnAddCategory" Content="Lägg till" Height="25" Canvas.Left="207" Canvas.Top="53" Width="95" Click="btnAddCategory_Click"/>
 
     </Canvas>
 </Window>
