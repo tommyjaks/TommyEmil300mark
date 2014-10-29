@@ -18,7 +18,7 @@
         </ComboBox>
         <Label Content="Ange intervall för uppdatering: (min)" Height="31" Canvas.Left="377" Canvas.Top="8" Width="273" FontSize="16"/>
         <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="10" Canvas.Top="230" Width="192" FontFamily="Khmer UI" FontSize="16" Click="Button_Click" Background="White" BorderBrush="Black"/>
-        <ComboBox x:Name="cbCategory" Height="40" Canvas.Left="379" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE"/>
+        <ComboBox x:Name="cbCategory" Height="40" Canvas.Left="379" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE" DropDownOpened="cbCategory_DropDownOpened_1"/>
         <Label Content="Ange kategori:" Height="40" Canvas.Left="377" Canvas.Top="89" Width="136" FontSize="16"/>
         <Button x:Name="btnCategory" Content="Kategorier"  Canvas.Left="690" Canvas.Top="47" Width="114" Click="btnCategory_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
         <Button Content="bibliotek" Height="58" Canvas.Left="690" Canvas.Top="134" Width="114" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5">

@@ -18,7 +18,7 @@ namespace CSharpProject.Views
 {
     public partial class MainWindow : Window
     {
-       CategoryFiller fillCategories = new CategoryFiller();
+       CategoryService fillCategories = new CategoryService();
         FeedService getFeeds = new FeedService();
         private ListOfFeeds skapaFeeds = new ListOfFeeds();
         private Repository<ListOfFeeds> xml2 = new Repository<ListOfFeeds>(); 
@@ -33,8 +33,7 @@ namespace CSharpProject.Views
             InitializeComponent();
             
             
-            ComboBox cbBoxBox = cbCategory;
-             fillCategories.GetCategory(cbBoxBox);
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,11 +64,13 @@ namespace CSharpProject.Views
             
         }
 
-        private void cbCategory_DropDownOpened(object sender, EventArgs e)
+   
+
+        private void cbCategory_DropDownOpened_1(object sender, EventArgs e)
         {
-           cbCategory.Items.Clear();
-           ComboBox cbBoxBox = cbCategory;
-           fillCategories.GetCategory(cbBoxBox);
+            cbCategory.Items.Clear();
+            ComboBox cbBoxBox = cbCategory;
+            fillCategories.GetCategory(cbBoxBox);
         }
 
         //private void FormMovieLookUp_Load_1(object sender, EventArgs e)

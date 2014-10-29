@@ -9,7 +9,7 @@ namespace Logic.Service
     public class FeedService
     {
         private Repository<ListOfFeeds> repository = new Repository<ListOfFeeds>();
-        private ListOfFeeds skapaFeeds = new ListOfFeeds();
+        private ListOfFeeds createFeeds = new ListOfFeeds();
         private RssReader feedReader = new RssReader();
         
       
@@ -18,9 +18,10 @@ namespace Logic.Service
         public void getRssItems(string url, string name, string category)
         {
             string path = "Feed.xml";
-           
-            skapaFeeds = repository.Load(path);
-            repository.Save(skapaFeeds, path);
+
+
+            repository.Save(createFeeds, path);
+                createFeeds = repository.Load(path);
             
          
 
@@ -36,21 +37,21 @@ namespace Logic.Service
 
 
             };
-          skapaFeeds.AddFeedToList(feed);
+        createFeeds.AddFeedToList(feed);
            
         
 
         
            
 
-            repository.Save(skapaFeeds, path);
+            repository.Save(createFeeds, path);
         }
         public void EditCategoryInFeedXmlFile(string selectedCategory, string newNode)
         {
             string xmlFile = "Feed.xml";
             string chooseNode = "ArrayOfFeedItem/FeedItem";
-            string chooseSingleNode = "Category";
-            string elementToCreate = "Category";
+            string chooseSingleNode = "CategoryName";
+            string elementToCreate = "CategoryName";
 
            
             repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);

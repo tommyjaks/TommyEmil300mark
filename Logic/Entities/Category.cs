@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Logic.Entities
 {
@@ -6,5 +7,14 @@ namespace Logic.Entities
     {
         public Guid Id { get; set; }
         public string CategoryName { get; set; }
+
+     
+
+
+
+
     }
 }
+    
+
+

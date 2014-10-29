@@ -48,6 +48,7 @@ namespace Data
 
             var doc = new XmlDocument();
             doc.Load(xmlFil);
+           
             var nodeList = doc.SelectNodes(valjNoder);
 
             foreach (XmlNode node in nodeList)
@@ -84,7 +85,7 @@ namespace Data
                 }
               
             }
-        public void Uppdatera(string path, string valdFeed, string nyttNamn, string nyUrl, string nyttIntervall, string nyKategori)
+        public void updateFeed(string path, string valdFeed, string nyttNamn, string nyUrl, string nyttIntervall, string nyKategori)
         {
             var doc = new XmlDocument();
             doc.Load(path);
@@ -109,11 +110,37 @@ namespace Data
 
         }
 
-        public void deleteCategory(string xmlFile)
+        public void removeData(string choosenObj, string path, string selectedNodeToRemove, string cbItem)
         {
-           // deleteKod Inc Y0
-           
+
+            XDocument doc = XDocument.Load(path);
+            var q = from node in doc.Descendants(selectedNodeToRemove)
+                    let attr = node.Element(cbItem)
+                    where attr != null && attr.Value == choosenObj
+                    select node;
+            q.ToList().ForEach(b => b.Remove());
+            doc.Save(path);
+
+            
+
         }
+
+
+        public void FyllListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
+        {
+            var doc = new XmlDocument();
+            doc.Load(xmlFil);
+            var nodeList = doc.SelectNodes(valjNoder);
+
+            foreach (XmlNode node in nodeList)
+                if (!lv.Items.Contains(node.SelectSingleNode(singleNodeFill).InnerText))
+                {
+                    lv.Items.Add(node.SelectSingleNode(singleNodeFill).InnerText);
+                }
+        }
+
+
+
             
         }
 

@@ -10,18 +10,18 @@ namespace Logic.Entities
     public class ListOfFeeds : IEntity
     {
         public Guid Id { get; set; }
-        public List<Feed> ListaAvFeeds { get; set; }
+        public List<Feed> FeedList{ get; set; }
 
         public ListOfFeeds()
         {
-            ListaAvFeeds = new List<Feed>();
+            FeedList = new List<Feed>();
 
 
             }
 
         public void AddFeedToList(Feed feed)
         {
-            ListaAvFeeds.Add(feed);
+            FeedList.Add(feed);
         }
         }
     }

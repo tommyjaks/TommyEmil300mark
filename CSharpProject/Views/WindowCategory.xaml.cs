@@ -22,6 +22,7 @@ namespace CSharpProject.Views
     /// </summary>
     public partial class Window1 : Window
     {
+        CategoryService fillCategory = new CategoryService();
         public Window1()
         {
             InitializeComponent();
@@ -31,14 +32,14 @@ namespace CSharpProject.Views
         private void btnAddCategory_Click(object sender, RoutedEventArgs e)
         {
 
-            CategoryFiller fillCategory = new CategoryFiller();
+          
             var tbText = tbCategory.Text;
             fillCategory.saveCatgories(tbText);
         }
 
         private void btnEditName_Click(object sender, RoutedEventArgs e)
         {
-            CategoryFiller fillCategory = new CategoryFiller();
+            
             FeedService changeXmlCategory = new FeedService();
             var newCategoryName = tbNewCategoryName.Text;
             var selectedItem = cbCategory.SelectedItem.ToString();
@@ -69,7 +70,7 @@ namespace CSharpProject.Views
 
         private void cbCategory_DropDownOpened(object sender, EventArgs e)
         {
-            CategoryFiller fillCategory = new CategoryFiller();
+           
             ComboBox cbBoxBox = cbCategory;
             fillCategory.GetCategory(cbBoxBox);
             string selected = cbCategory.Text;

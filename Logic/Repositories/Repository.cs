@@ -8,6 +8,7 @@ using System.Xml;
 using Data;
 using Logic.Entities;
 using ComboBox = System.Windows.Controls.ComboBox;
+using ListView = System.Windows.Controls.ListView;
 
 namespace Logic.Repositories
 {
@@ -21,13 +22,13 @@ namespace Logic.Repositories
     
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> YoloHandler = new XmlHandler<T>();  
+        protected XmlHandler<T> XmlHandler = new XmlHandler<T>();  
 
         public void Save(T value, string path)
         {
             try
             {
-               YoloHandler.SaveXml(value, path);
+               XmlHandler.SaveXml(value, path);
             }
             catch (Exception ex)
             {
@@ -37,11 +38,11 @@ namespace Logic.Repositories
 
         public T Load(string path)
         {
-           return YoloHandler.Load(path);
+           return XmlHandler.Load(path);
         }
         public void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory,string elementToCreate, string newNode)
         {
-            YoloHandler.updateXML(xmlFile, chooseNode, chooseSingleNode, selectedCategory,elementToCreate, newNode);
+            XmlHandler.updateXML(xmlFile, chooseNode, chooseSingleNode, selectedCategory,elementToCreate, newNode);
             
          
         }
@@ -49,6 +50,11 @@ namespace Logic.Repositories
         public void Delete(T item)
         {
             throw new NotImplementedException();
+        }
+
+        public void RemoveData(string choosenObj, string path, string selectedNodeToRemove, string cbItem)
+        {
+            XmlHandler.removeData(choosenObj, path, selectedNodeToRemove, cbItem);
         }
 
         public T Add(T item)
@@ -69,16 +75,18 @@ namespace Logic.Repositories
 
         public void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
         {
-            YoloHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
+            XmlHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
         }
-
-
-
-
-        internal void Save(ListOfCategories createCategories, string xmlFilPathpath)
+        public void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
         {
-            throw new NotImplementedException();
+            XmlHandler.FyllListView(lv, xmlFil, valjNoder, singleNodeFill);
         }
+    
+
+
+
+
+       
     }
 
 

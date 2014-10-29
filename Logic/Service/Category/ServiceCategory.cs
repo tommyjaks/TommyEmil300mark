@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using Logic.Entities;
 using Logic.Repositories;
-namespace Logic
+namespace Logic.Service
+
 {
    
-   public class CategoryFiller
+   public class CategoryService
     {
-        private Repository<Category> repository = new Repository<Category>();
+        private Repository<ListOfCategories> repository = new Repository<ListOfCategories>();
         private ListOfCategories createCategories = new ListOfCategories();
 
 
@@ -21,9 +22,9 @@ namespace Logic
             
         {
             string path = "Category.xml";
-            
-            string valjEnstakaNod = "ArrayOfCategory/Category";
-            string nodeToFill = "Name";
+
+            string valjEnstakaNod = "ListOfCategories/CategoryList/Category";
+            string nodeToFill = "CategoryName";
             repository.fillComboBox(Category, path, valjEnstakaNod, nodeToFill);
         }
 
@@ -44,7 +45,14 @@ namespace Logic
        public void saveCatgories(string tbCategory)
        {
            string xmlFilPathpath = "Category.xml";
+           createCategories = repository.Load(xmlFilPathpath);
+           repository.Save(createCategories, xmlFilPathpath);
+               
+           
+
            var newCategory = new Category()
+
+
            {
                Id = Guid.NewGuid(),
                CategoryName =  tbCategory
@@ -65,12 +73,19 @@ namespace Logic
        public void editCategory(string selectedCategory, string newNode)
     {
         string xmlFile = "Category.xml";
-        string chooseNode = "ArrayOfCategory/Category";
-        string chooseSingleNode = "Name";
-           string elementToCreate = "Name";
+        string chooseNode = "ListOfCategories/CategoryList/Category";
+        string chooseSingleNode = "CategoryName";
+           string elementToCreate = "CategoryName";
         
 
         repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
     }
+
+       public void removeData(string choosenObj, string cbItem)
+       {
+           string path = "Category.xml";
+           string selectedNodeToRemove = "CategoryName";
+           repository.RemoveData(choosenObj, path, selectedNodeToRemove, cbItem);
+       }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic.Entities;
 using ComboBox = System.Windows.Controls.ComboBox;
+using ListView = System.Windows.Controls.ListView;
 
 namespace Logic.Repositories
 {
@@ -12,6 +13,8 @@ namespace Logic.Repositories
         T Load(string path);
         void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string elementToCreate, string newNode);
         void Delete(T item);
+        void RemoveData(string choosenObj, string path, string selectedNodeToRemove, string cbItem);
+        void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
         T Add(T item);
         T Find(Guid id);

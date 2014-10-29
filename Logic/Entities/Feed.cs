@@ -27,7 +27,7 @@ namespace Logic.Entities
 
         public void SetIT(Guid id)
         {
-            id = id;
+            id = Id;
         }
     }
 

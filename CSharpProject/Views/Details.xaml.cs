@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Linq;
 using Logic;
 using System.Xml.XPath;
+using Logic.Service;
 using ComboBox = System.Windows.Controls.ComboBox;
 using ListView = System.Windows.Controls.ListView;
 
@@ -17,7 +18,7 @@ namespace CSharpProject.Views
     public partial class Details : Window
     {
 
-        private CategoryFiller fillCategories = new CategoryFiller();
+        private CategoryService fillCategories = new CategoryService();
     //  private FeedListFiller fillFeed = new FeedListFiller();
 
         public Details()
