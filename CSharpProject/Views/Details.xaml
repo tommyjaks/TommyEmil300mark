@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.Details"
         Title="Details" Height="536" Width="595.537">
     <Canvas Margin="0,0,2,-3">
-        <Label Content="Bibliotek" Height="62" Canvas.Left="16" Canvas.Top="10" Width="214" FontSize="48" FontFamily="Ebrima"/>
+        <Label Content="Bibliotek" Height="72" Canvas.Left="16" Canvas.Top="10" Width="214" FontSize="48" FontFamily="Ebrima"/>
         <ComboBox x:Name="cbCategory" Height="27" Canvas.Left="221" Canvas.Top="149" Width="180"/>
         <ListView x:Name="listFlow" Height="249" Canvas.Left="22" Canvas.Top="149" Width="129" SelectionChanged="listFlow_SelectionChanged">
             <ListView.View>
@@ -23,7 +23,7 @@
         <Label Content="Flöden:" Height="28" Canvas.Left="22" Canvas.Top="117" Width="100"/>
         <Label Content="Avsnitt:" Height="26" Canvas.Left="217" Canvas.Top="181" Width="128"/>
         <Label Content="Sortera efter kategori:" Height="27" Canvas.Left="217" Canvas.Top="117" Width="177"/>
-        <Button Content="Spela upp" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340"/>
+        <Button Content="Spela upp" x:Name="BtnPlay" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340" Click="Button_Click"/>
         <TextBlock Height="110" Canvas.Left="444" TextWrapping="Wrap" Canvas.Top="50" Width="132" Text="TextBlock"/>
         <Label Content="Info:" Height="25" Canvas.Left="444" Canvas.Top="21" Width="119"/>
     </Canvas>

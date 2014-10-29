@@ -1,14 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿
+using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Linq;
-using Logic;
-using System.Xml.XPath;
 using Logic.Service;
+using WMPLib;
 using ComboBox = System.Windows.Controls.ComboBox;
 using ListView = System.Windows.Controls.ListView;
+
 
 namespace CSharpProject.Views
 {
@@ -18,6 +18,7 @@ namespace CSharpProject.Views
 
         private CategoryService fillCategories = new CategoryService();
         private FeedService fillFeed = new FeedService();
+        private PlayUrl sounds = new PlayUrl();
 
         public Details()
         {
@@ -58,17 +59,40 @@ namespace CSharpProject.Views
                 
         }
 
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string path = "http://traffic.libsyn.com/sweclockers/sweclockers_podcast_20140418.mp3";
+            Process.Start("wmplayer.exe", path );
+
+
+
+            //  string flow = listEpisode.SelectedItem.ToString();
+            //  var doc = new XmlDocument();
+            //  doc.Load("Feed.xml");
+            //  XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+            //  WMPLib.WindowsMediaPlayer axMusicPlayer = new WMPLib.WindowsMediaPlayer();
+
+
+            //  foreach (XmlNode node in selectedNodes)
+            //{
+            //    if (node.SelectSingleNode("Title").InnerText == flow)
+            //    {
+            //        XmlNode feedItem = node.SelectSingleNode("Items");
+
+
+            //        for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+            //        {
+            //           var sound = feedItem.ChildNodes.Item(i).LastChild.InnerText;
+
+            //        }
+            //    }
+            //}
+        }
+
        
 
-            //public void SelectFeed()
-            //{
-            //    string flow = listFlow.SelectedIndex.ToString();
-
-            //    var xdoc = XDocument.Load("Feed.xml");
-            //    var type = (string)xdoc.XPathSelectElement("//FeedItem[Name="+flow+"]/Title");
-
-            //    listEpisode.Items.Add(type);
-            //}
+            
 
 
         }
