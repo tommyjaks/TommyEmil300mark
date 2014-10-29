@@ -58,7 +58,7 @@ namespace Data
 
         }
 
-        public void updateXML(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string newNode)
+        public void updateXML(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory,string elementToCreate, string newNode)
         {
             
             
@@ -73,7 +73,7 @@ namespace Data
                         if (element.SelectSingleNode(chooseSingleNode).InnerText == selectedCategory)
                         {
 
-                            XmlNode newvalue = xml.CreateElement("Name");
+                            XmlNode newvalue = xml.CreateElement(elementToCreate);
                             newvalue.InnerText = newNode;
                             element.ReplaceChild(newvalue, element1.NextSibling);
                             xml.Save(xmlFile);

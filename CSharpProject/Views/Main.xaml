@@ -7,7 +7,7 @@
         <Label Content="Klistra in en URL:" Height="33" Canvas.Left="10" Canvas.Top="10" Width="133" FontSize="16" FontFamily="Trebuchet MS"/>
         <TextBox x:Name="tbURL"  Height="32" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="48" Width="317"/>
         <Label Content="Ange namn för flödet:" Height="31" Canvas.Left="10" Canvas.Top="85" Width="207" FontSize="16"/>
-        <TextBox x:Name="tbFlow" Height="34" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="134" Width="317"/>
+        <TextBox x:Name="tbFlowName" Height="34" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="134" Width="317"/>
         <ComboBox Height="34" Canvas.Left="377" Canvas.Top="48" Width="138"/>
         <Label Content="Ange intervall för uppdatering: (min)" Height="31" Canvas.Left="377" Canvas.Top="8" Width="273" FontSize="16"/>
         <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="10" Canvas.Top="230" Width="192" FontSize="16" Click="Button_Click"/>

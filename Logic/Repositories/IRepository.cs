@@ -10,7 +10,7 @@ namespace Logic.Repositories
     {
         void Save(List<T> items, string path);
         void Load(string path);
-        void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string newNode);
+        void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string elementToCreate, string newNode);
         void Delete(T item);
         void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
         T Add(T item);

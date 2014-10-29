@@ -48,9 +48,10 @@ namespace Logic
         string xmlFile = "Category.xml";
         string chooseNode = "ArrayOfCategory/Category";
         string chooseSingleNode = "Name";
+           string elementToCreate = "Name";
         
 
-        repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, newNode);
+        repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
     }
     }
 }

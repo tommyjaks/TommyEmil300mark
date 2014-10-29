@@ -13,12 +13,12 @@ namespace Logic.Service.Feed
         private Repository<FeedItem> repository = new Repository<FeedItem>();
         
 
-        public void getRssItems(string url)
+        public void getRssItems(string url, string name, string category)
         {
             string path = "Feed.xml";
             List<FeedItem> feedData = new List<FeedItem>();
-
-            if (feedReader != null) feedData = feedReader.Read(url);
+            
+            if (feedReader != null) feedData = feedReader.Read(url, name, category);
 
 
             repository.Save(feedData, path);

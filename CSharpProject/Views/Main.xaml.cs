@@ -34,9 +34,11 @@ namespace CSharpProject.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var minUrl = tbURL.Text;
+            var name = tbFlowName.Text;
+            var category = cbCategory.SelectedItem.ToString();
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
-            getFeeds.getRssItems(minUrl);
+            getFeeds.getRssItems(minUrl, name, category);
 
         
             

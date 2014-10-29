@@ -39,9 +39,9 @@ namespace Logic.Repositories
         {
             YoloHandler.Load(path);
         }
-        public void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string newNode)
+        public void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory,string elementToCreate, string newNode)
         {
-            YoloHandler.updateXML(xmlFile, chooseNode, chooseSingleNode, selectedCategory, newNode);
+            YoloHandler.updateXML(xmlFile, chooseNode, chooseSingleNode, selectedCategory,elementToCreate, newNode);
             
          
         }
