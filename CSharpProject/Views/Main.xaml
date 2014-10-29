@@ -21,7 +21,7 @@
         <ComboBox x:Name="cbCategory" Height="40" Canvas.Left="379" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE" DropDownOpened="cbCategory_DropDownOpened_1"/>
         <Label Content="Ange kategori:" Height="40" Canvas.Left="377" Canvas.Top="89" Width="136" FontSize="16"/>
         <Button x:Name="btnCategory" Content="Kategorier"  Canvas.Left="690" Canvas.Top="47" Width="114" Click="btnCategory_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
-        <Button Content="bibliotek" Height="58" Canvas.Left="690" Canvas.Top="134" Width="114" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5">
+        <Button Content="bibliotek" Height="58" Canvas.Left="690" Canvas.Top="134" Width="114" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -39,6 +39,7 @@
         </Button>
         <Label Content="RSS" Height="93" Canvas.Left="489" Canvas.Top="257" Width="315" FontFamily="Vrinda" FontSize="72" Background="White" Foreground="#FF7E7E7E" FontWeight="Bold"/>
         <Label Content="READER" Height="57" Canvas.Left="636" Canvas.Top="293" Width="185" FontFamily="Vrinda" FontSize="36" Background="White" Foreground="#FFE6A77C" HorizontalAlignment="Left"/>
+        <Button x:Name="btnChangeFeed" Content="Ändra Flöde"  Canvas.Left="690" Canvas.Top="201" Width="114" Click="btnChangeFeed_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
 
     </Canvas>
 </Window>

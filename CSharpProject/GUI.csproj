@@ -58,12 +58,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\changeFeed.xaml.cs">
+      <DependentUpon>changeFeed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowCategory.xaml.cs">
       <DependentUpon>WindowCategory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowEditCategory.xaml.cs">
       <DependentUpon>WindowEditCategory.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\changeFeed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

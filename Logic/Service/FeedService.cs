@@ -19,9 +19,9 @@ namespace Logic.Service
         {
             string path = "Feed.xml";
 
-
+            createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
-                createFeeds = repository.Load(path);
+                
             
          
 

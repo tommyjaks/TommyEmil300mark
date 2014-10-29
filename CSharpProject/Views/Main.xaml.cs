@@ -73,6 +73,16 @@ namespace CSharpProject.Views
             fillCategories.GetCategory(cbBoxBox);
         }
 
+        private void btnChangeFeed_Click(object sender, RoutedEventArgs e)
+        {
+            new changeFeed().Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            new Details().Show();
+        }
+
         //private void FormMovieLookUp_Load_1(object sender, EventArgs e)
         //{
         //    string path = "yolo.xml";
