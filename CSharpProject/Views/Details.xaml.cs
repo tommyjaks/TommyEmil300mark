@@ -12,14 +12,12 @@ using ListView = System.Windows.Controls.ListView;
 
 namespace CSharpProject.Views
 {
-    /// <summary>
-    /// Interaction logic for Details.xaml
-    /// </summary>
+   
     public partial class Details : Window
     {
 
         private CategoryService fillCategories = new CategoryService();
-    //  private FeedListFiller fillFeed = new FeedListFiller();
+        private FeedService fillFeed = new FeedService();
 
         public Details()
         {
@@ -29,29 +27,31 @@ namespace CSharpProject.Views
             fillCategories.GetCategory(cbBoxBox);
 
             ListView listOfFeed = listFlow;
-        //  fillFeed.GetFeedItem(listOfFeed);
+            fillFeed.GetFeed(listOfFeed);
 
         }
 
         private void listFlow_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-              listEpisode.Items.Clear();
-              string flow = listFlow.SelectedItem.ToString();
-              var doc = new XmlDocument();
-              doc.Load("Feed.xml");
-              XmlNodeList selectedNodes = doc.SelectNodes("ArrayOfFeedItem");
-              
-              foreach (XmlNode node in selectedNodes)
-              {
-                  if (node.SelectSingleNode("Name").InnerText == flow)
-                  {
-                      XmlNode feedItem = node.SelectSingleNode("FeedItem");
-                      for (int i = 0; i < feedItem.ChildNodes.Count; i++)
-                      {
-                          listEpisode.Items.Add(feedItem.ChildNodes.Item(i).LastChild.InnerText);
-                      }
-                  }
-              }
+            listEpisode.Items.Clear();
+            string flow = listFlow.SelectedItem.ToString();
+            var doc = new XmlDocument();
+            doc.Load("Feed.xml");
+            string xpath = "/root/set[position() = 2]";
+            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+ 
+            foreach (XmlNode node in selectedNodes)
+            {
+                if (node.SelectSingleNode("Namn").InnerText == flow)
+                {
+                    XmlNode feedItem = node.SelectSingleNode("Items");
+                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+                    {
+                        listEpisode.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
+                    }
+                }
+            }
+             
                 
 
               
