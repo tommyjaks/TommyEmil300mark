@@ -12,8 +12,13 @@ namespace Logic
    
    public class CategoryFiller
     {
-        private Repository<Category> repository = new Repository<Category>(); 
+        private Repository<Category> repository = new Repository<Category>();
+        private ListOfCategories createCategories = new ListOfCategories();
+
+
+
         public void GetCategory(ComboBox Category)
+            
         {
             string path = "Category.xml";
             
@@ -38,9 +43,23 @@ namespace Logic
 
        public void saveCatgories(string tbCategory)
        {
-           string path = "Category.xml";
-           List<Category> categoryData = setCategories(tbCategory);
-           repository.Save(categoryData, path);
+           string xmlFilPathpath = "Category.xml";
+           var newCategory = new Category()
+           {
+               Id = Guid.NewGuid(),
+               CategoryName =  tbCategory
+         
+
+
+
+           };
+           createCategories.AddCategory(newCategory);
+           repository.Save(createCategories, xmlFilPathpath);
+
+
+
+
+         
        }
 
        public void editCategory(string selectedCategory, string newNode)

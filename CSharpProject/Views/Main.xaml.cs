@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using Logic;
 using Logic.Entities;
 using Logic.Repositories;
-using Logic.Service.Feed;
+
 using Logic.Service.Validation;
 using Logic.Readers;
 using Logic.Service;
@@ -20,9 +20,15 @@ namespace CSharpProject.Views
     {
        CategoryFiller fillCategories = new CategoryFiller();
         FeedService getFeeds = new FeedService();
+        private ListOfFeeds skapaFeeds = new ListOfFeeds();
+        private Repository<ListOfFeeds> xml2 = new Repository<ListOfFeeds>(); 
+
+       
+      
         
         public MainWindow()
         {
+
           
             InitializeComponent();
             
@@ -57,6 +63,13 @@ namespace CSharpProject.Views
         {
             new Window1().Show();
             
+        }
+
+        private void cbCategory_DropDownOpened(object sender, EventArgs e)
+        {
+           cbCategory.Items.Clear();
+           ComboBox cbBoxBox = cbCategory;
+           fillCategories.GetCategory(cbBoxBox);
         }
 
         //private void FormMovieLookUp_Load_1(object sender, EventArgs e)

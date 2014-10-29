@@ -47,6 +47,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ListOfCategories.cs" />
+    <Compile Include="Entities\ListOfFeeds.cs" />
     <Compile Include="Service\Category\CategoryFiller.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Feed.cs" />
@@ -57,7 +59,7 @@
     <Compile Include="Readers\RssReader.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Service\Feed\FeedService.cs" />
+    <Compile Include="Service\FeedService.cs" />
     <Compile Include="Service\Validation\FeedValidator.cs" />
     <Compile Include="Service\Validation\UrlValidator.cs" />
     <Compile Include="Entities\ValidationException.cs" />
@@ -72,6 +74,7 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Extensions\" />
     <Folder Include="Mapping\" />
+    <Folder Include="Service\Feed\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

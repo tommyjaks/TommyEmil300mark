@@ -23,7 +23,7 @@ namespace Logic.Repositories
     {
         protected XmlHandler<T> YoloHandler = new XmlHandler<T>();  
 
-        public void Save(List<T> value, string path)
+        public void Save(T value, string path)
         {
             try
             {
@@ -35,9 +35,9 @@ namespace Logic.Repositories
             }
         }
 
-        public void Load(string path)
+        public T Load(string path)
         {
-            YoloHandler.Load(path);
+           return YoloHandler.Load(path);
         }
         public void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory,string elementToCreate, string newNode)
         {
@@ -63,7 +63,7 @@ namespace Logic.Repositories
 
         public void GetAll()
         {
-            YoloHandler.Load("hej.xml");
+            //YoloHandler.Load("hej.xml");
             
         }
 
@@ -71,9 +71,14 @@ namespace Logic.Repositories
         {
             YoloHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
         }
-    
-        
-    
+
+
+
+
+        internal void Save(ListOfCategories createCategories, string xmlFilPathpath)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logic;
+using Logic.Service;
+
 
 namespace CSharpProject.Views
 {
@@ -23,11 +25,7 @@ namespace CSharpProject.Views
         public Window1()
         {
             InitializeComponent();
-             CategoryFiller fillCategory = new CategoryFiller();
-            ComboBox cbBoxBox = cbCategory;
-            fillCategory.GetCategory(cbBoxBox);
-            string selected = cbCategory.Text;
-            tbNewCategoryName.Text = selected;
+            
         }
 
         private void btnAddCategory_Click(object sender, RoutedEventArgs e)
@@ -40,23 +38,44 @@ namespace CSharpProject.Views
 
         private void btnEditName_Click(object sender, RoutedEventArgs e)
         {
-                CategoryFiller fillCategory = new CategoryFiller();
-          var newCategoryName =  tbNewCategoryName.Text;
-        var selectedItem = cbCategory.SelectedItem.ToString();
+            CategoryFiller fillCategory = new CategoryFiller();
+            FeedService changeXmlCategory = new FeedService();
+            var newCategoryName = tbNewCategoryName.Text;
+            var selectedItem = cbCategory.SelectedItem.ToString();
 
             fillCategory.editCategory(selectedItem, newCategoryName);
+            changeXmlCategory.EditCategoryInFeedXmlFile(selectedItem, newCategoryName);
+            cbCategory.Items.Clear();
+
+
+            
         }
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
 
-            if (cbCategory.SelectedIndex == -1) {
-    tbNewCategoryName.Text = string.Empty;
-  } else {
-    tbNewCategoryName.Text = cbCategory.SelectedItem.ToString();
-  }
-}  
+
+
+
+            if (cbCategory.SelectedIndex == -1)
+            {
+                tbNewCategoryName.Text = string.Empty;
+            }
+            else
+            {
+                tbNewCategoryName.Text = cbCategory.SelectedItem.ToString();
+            }
+        }
+
+        private void cbCategory_DropDownOpened(object sender, EventArgs e)
+        {
+            CategoryFiller fillCategory = new CategoryFiller();
+            ComboBox cbBoxBox = cbCategory;
+            fillCategory.GetCategory(cbBoxBox);
+            string selected = cbCategory.Text;
+            tbNewCategoryName.Text = selected;
+
         }
     }
+}
 

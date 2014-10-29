@@ -23,10 +23,10 @@ namespace Data
         public XmlHandler()
         {
            
-            Xml = new XmlSerializer(typeof (List<T>));
+            Xml = new XmlSerializer(typeof (T));
         }
 
-        public void SaveXml(List<T> datatyp, string path)
+        public void SaveXml(T datatyp, string path)
         {
             using (var streamWriter = new StreamWriter(path))
             {
@@ -34,11 +34,11 @@ namespace Data
             }
         }
 
-        public List<T> Load(string path)
+        public T Load(string path)
         {
             using (var streamReader = new StreamReader(path))
             {
-                return Xml.Deserialize(streamReader) as List<T>;
+                return Xml.Deserialize(streamReader) as T;
             }
         }
 
@@ -84,6 +84,30 @@ namespace Data
                 }
               
             }
+        public void Uppdatera(string path, string valdFeed, string nyttNamn, string nyUrl, string nyttIntervall, string nyKategori)
+        {
+            var doc = new XmlDocument();
+            doc.Load(path);
+            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/ListaAvFeeds/FeedItem");
+
+            foreach (XmlNode node in selectedNodes)
+            {
+
+                if (node.SelectSingleNode("FeedName").InnerText == valdFeed)
+                {
+                    XmlNode feedNamn = node.SelectSingleNode("FeedName");
+                    XmlNode feedUrl = node.SelectSingleNode("FeedUrl");
+                    XmlNode feedUpIntervall = node.SelectSingleNode("UpInterval");
+                    XmlNode feedValdKategori = node.SelectSingleNode("ValdKategori");
+                    feedNamn.InnerText = nyttNamn;
+                    feedUrl.InnerText = nyUrl;
+                    feedUpIntervall.InnerText = nyttIntervall;
+                    feedValdKategori.InnerText = nyKategori;
+                    doc.Save(path);
+                }
+            }
+
+        }
 
         public void deleteCategory(string xmlFile)
         {
