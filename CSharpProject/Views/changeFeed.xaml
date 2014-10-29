@@ -14,7 +14,7 @@
                 " Height="27" Width="95"  Canvas.Left="216" Canvas.Top="332" Click="btnEditCategory_Click"/>
         <TextBox x:Name="tbName" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange ett nytt namn" Canvas.Top="103" Width="168"/>
         <TextBox x:Name="tbUrl" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange en ny url" Canvas.Top="175" Width="168"/>
-        <Button x:Name="btnRemoveFeed" Content="Ta bort feed" Height="27" Canvas.Left="455" Canvas.Top="43" Width="95" />
+        <Button x:Name="btnRemoveFeed" Content="Ta bort feed" Height="27" Canvas.Left="455" Canvas.Top="43" Width="95" Click="btnRemoveFeed_Click" />
 
     </Canvas>
 </Window>

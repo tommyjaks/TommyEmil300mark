@@ -13,7 +13,7 @@ namespace Logic.Repositories
         T Load(string path);
         void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string elementToCreate, string newNode);
         void Delete(T item);
-        void RemoveData(string choosenObj, string path, string selectedNodeToRemove, string cbItem);
+        void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement);
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
         void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory);
