@@ -37,7 +37,7 @@ namespace CSharpProject.Views
             string flow = listFlow.SelectedItem.ToString();
             var doc = new XmlDocument();
             doc.Load("Feed.xml");
-            string xpath = "/root/set[position() = 2]";
+            
             XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
  
             foreach (XmlNode node in selectedNodes)
