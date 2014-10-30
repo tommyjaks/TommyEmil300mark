@@ -2,8 +2,11 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 using Logic.Service;
 using WMPLib;
 using ComboBox = System.Windows.Controls.ComboBox;
@@ -62,19 +65,31 @@ namespace CSharpProject.Views
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string path = "http://traffic.libsyn.com/sweclockers/sweclockers_podcast_20140418.mp3";
-            Process.Start("wmplayer.exe", path );
+            //string path = "http://traffic.libsyn.com/sweclockers/sweclockers_podcast_20140418.mp3";
+
+            XDocument doc = XDocument.Load("Feed.xml");
+            string flow = listEpisode.SelectedItem.ToString();
+
+            var values = doc.Descendants("FeedItem")
+                         .Where(i => i.Element("Title").Value == flow)
+                         .Select(i => i.Element("Link").Value)
+                         .Distinct().ToString();
+
+            Process.Start("wmplayer.exe", values);
+
+            
+            
+            //doc.Load("Feed.xml");
+            //XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+
+            //var q = from node in doc.Descendants("ListOfFeeds/FeedList/Feed/Items/FeedItem")
+            //        let attr = node.Element("Link")
+            //        where attr != null && attr.Value == flow
+            //        select node;
 
 
-
-            //  string flow = listEpisode.SelectedItem.ToString();
-            //  var doc = new XmlDocument();
-            //  doc.Load("Feed.xml");
-            //  XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
-            //  WMPLib.WindowsMediaPlayer axMusicPlayer = new WMPLib.WindowsMediaPlayer();
-
-
-            //  foreach (XmlNode node in selectedNodes)
+            //Process.Start("wmplayer.exe", q);
+            //foreach (XmlNode node in selectedNodes)
             //{
             //    if (node.SelectSingleNode("Title").InnerText == flow)
             //    {
@@ -83,11 +98,12 @@ namespace CSharpProject.Views
 
             //        for (int i = 0; i < feedItem.ChildNodes.Count; i++)
             //        {
-            //           var sound = feedItem.ChildNodes.Item(i).LastChild.InnerText;
-
+            //            var sound = feedItem.ChildNodes.Item(i).LastChild.InnerText;
+            //            Process.Start("wmplayer.exe", sound);
             //        }
-            //    }
-            //}
+               // }
+           // }
+            
         }
 
        
