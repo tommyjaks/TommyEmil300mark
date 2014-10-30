@@ -2,29 +2,29 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.Details"
-        Title="Details" Height="536" Width="503">
+        Title="Details" Height="536" Width="595.537">
     <Canvas Margin="0,0,2,-3">
-        <Label Content="Bibliotek" Height="40" Canvas.Left="16" Canvas.Top="10" Width="214" FontSize="22" FontFamily="Ebrima"/>
-        <ComboBox x:Name="cbCategory" Height="27" Canvas.Left="22" Canvas.Top="97" Width="180"/>
-        <ListView x:Name="listFlow" Height="184" Canvas.Left="22" Canvas.Top="214" Width="129" SelectionChanged="listFlow_SelectionChanged">
+        <Label Content="Bibliotek" Height="62" Canvas.Left="16" Canvas.Top="10" Width="214" FontSize="48" FontFamily="Ebrima"/>
+        <ComboBox x:Name="cbCategory" Height="27" Canvas.Left="221" Canvas.Top="149" Width="180"/>
+        <ListView x:Name="listFlow" Height="249" Canvas.Left="22" Canvas.Top="149" Width="129" SelectionChanged="listFlow_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="238">
+        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Flöden:" Height="28" Canvas.Left="18" Canvas.Top="181" Width="100"/>
+        <Label Content="Flöden:" Height="28" Canvas.Left="22" Canvas.Top="117" Width="100"/>
         <Label Content="Avsnitt:" Height="26" Canvas.Left="217" Canvas.Top="181" Width="128"/>
-        <Label Content="Sortera efter kategori:" Height="27" Canvas.Left="19" Canvas.Top="65" Width="177"/>
-        <Button Content="Spela upp" Height="61" Canvas.Left="221" Canvas.Top="420" Width="238"/>
-        <TextBlock Height="110" Canvas.Left="327" TextWrapping="Wrap" Canvas.Top="50" Width="132" Text="TextBlock"/>
-        <Label Content="Info:" Height="25" Canvas.Left="325" Canvas.Top="20" Width="119"/>
+        <Label Content="Sortera efter kategori:" Height="27" Canvas.Left="217" Canvas.Top="117" Width="177"/>
+        <Button Content="Spela upp" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340"/>
+        <TextBlock Height="110" Canvas.Left="444" TextWrapping="Wrap" Canvas.Top="50" Width="132" Text="TextBlock"/>
+        <Label Content="Info:" Height="25" Canvas.Left="444" Canvas.Top="21" Width="119"/>
     </Canvas>
 </Window>

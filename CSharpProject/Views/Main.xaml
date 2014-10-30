@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.MainWindow"
         Title="MainWindow" Height="453.642" Width="841.134" Background="#FF8B8282">
     <Canvas Margin="0,0,2,4" Background="White">
-        <Label Content="Klistra in en URL:" Height="33" Canvas.Left="10" Canvas.Top="10" Width="133" FontSize="16" FontFamily="Trebuchet MS"/>
-        <TextBox x:Name="tbURL"  Height="32" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="48" Width="317" Background="#FFF3F1F1" FontSize="18"/>
-        <Label Content="Ange namn för flödet:" Height="31" Canvas.Left="10" Canvas.Top="85" Width="207" FontSize="16"/>
-        <TextBox x:Name="tbFlowName" Height="34" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="134" Width="317" Background="#FFF1F1F1" FontSize="18"/>
-        <ComboBox Height="34" Canvas.Left="377" Canvas.Top="48" Width="138" BorderBrush="#FFE4E4E4">
+        <Label Content="Klistra in en URL:" Height="33" Canvas.Left="25" Canvas.Top="10" Width="133" FontSize="16" FontFamily="Trebuchet MS"/>
+        <TextBox x:Name="tbURL"  Height="32" Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="48" Width="317" Background="#FFF3F1F1" FontSize="18"/>
+        <Label Content="Ange namn för flödet:" Height="31" Canvas.Left="25" Canvas.Top="85" Width="207" FontSize="16"/>
+        <TextBox x:Name="tbFlowName" Height="34" Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="134" Width="317" Background="#FFF1F1F1" FontSize="18"/>
+        <ComboBox Height="34" Canvas.Left="397" Canvas.Top="48" Width="138" BorderBrush="#FFE4E4E4">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -16,12 +16,12 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <Label Content="Ange intervall för uppdatering: (min)" Height="31" Canvas.Left="377" Canvas.Top="8" Width="273" FontSize="16"/>
-        <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="10" Canvas.Top="230" Width="192" FontFamily="Khmer UI" FontSize="16" Click="Button_Click" Background="White" BorderBrush="Black"/>
-        <ComboBox x:Name="cbCategory" Height="40" Canvas.Left="379" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE" DropDownOpened="cbCategory_DropDownOpened_1"/>
-        <Label Content="Ange kategori:" Height="40" Canvas.Left="377" Canvas.Top="89" Width="136" FontSize="16"/>
-        <Button x:Name="btnCategory" Content="Kategorier"  Canvas.Left="690" Canvas.Top="47" Width="114" Click="btnCategory_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
-        <Button Content="bibliotek" Height="58" Canvas.Left="690" Canvas.Top="134" Width="114" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1">
+        <Label Content="Ange intervall för uppdatering: (min)" Height="31" Canvas.Left="397" Canvas.Top="8" Width="273" FontSize="16"/>
+        <Button x:Name="btnSpara" Content="... spara" Height="76" Canvas.Left="25" Canvas.Top="201" Width="192" FontFamily="Khmer UI" FontSize="16" Click="Button_Click" Background="White" BorderBrush="Black"/>
+        <ComboBox x:Name="cbCategory" Height="34" Canvas.Left="397" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE" DropDownOpened="cbCategory_DropDownOpened_1"/>
+        <Label Content="Ange kategori:" Height="40" Canvas.Left="397" Canvas.Top="89" Width="136" FontSize="16"/>
+        <Button x:Name="btnCategory" Content="Kategorier"  Canvas.Left="690" Canvas.Top="46" Width="114" Click="btnCategory_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
+        <Button Content="bibliotek" Height="58" Canvas.Left="690" Canvas.Top="133" Width="114" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -37,9 +37,9 @@
                 </LinearGradientBrush>
             </Button.BorderBrush>
         </Button>
-        <Label Content="RSS" Height="93" Canvas.Left="489" Canvas.Top="257" Width="315" FontFamily="Vrinda" FontSize="72" Background="White" Foreground="#FF7E7E7E" FontWeight="Bold"/>
-        <Label Content="READER" Height="57" Canvas.Left="636" Canvas.Top="293" Width="185" FontFamily="Vrinda" FontSize="36" Background="White" Foreground="#FFE6A77C" HorizontalAlignment="Left"/>
-        <Button x:Name="btnChangeFeed" Content="Ändra Flöde"  Canvas.Left="690" Canvas.Top="201" Width="114" Click="btnChangeFeed_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
+        <Label Content="RSS" Height="93" Canvas.Left="25" Canvas.Top="316" Width="315" FontFamily="Vrinda" FontSize="72" Background="White" Foreground="#FF7E7E7E" FontWeight="Bold"/>
+        <Label Content="READER" Height="57" Canvas.Left="170" Canvas.Top="352" Width="185" FontFamily="Vrinda" FontSize="36" Background="White" Foreground="#FFE6A77C" HorizontalAlignment="Left"/>
+        <Button x:Name="btnChangeFeed" Content="Ändra Flöde"  Canvas.Left="690" Canvas.Top="221" Width="114" Click="btnChangeFeed_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
 
     </Canvas>
 </Window>
