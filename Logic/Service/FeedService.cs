@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
+using Data;
 using Logic.Entities;
 using Logic.Readers;
 using Logic.Repositories;
@@ -11,6 +13,7 @@ namespace Logic.Service
         private Repository<ListOfFeeds> repository = new Repository<ListOfFeeds>();
         private ListOfFeeds createFeeds = new ListOfFeeds();
         private RssReader feedReader = new RssReader();
+        string path = "Feed.xml";
         
       
         
@@ -21,6 +24,8 @@ namespace Logic.Service
 
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
+           
+           
                 
             
          
@@ -56,6 +61,37 @@ namespace Logic.Service
            
             repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
         }
+        public void SetFeed(ComboBox feed)
+        {
+            string path = "Feed.xml";
+
+            string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
+            string nodeToFill = "Namn";
+            repository.fillComboBox(feed, path, valjEnstakaNod, nodeToFill);
+        }
+
+        public void getFeedUpdateInfo(string selectedFeed, string newName, string newUrl, string newCategory)
+        {
+            
+
+            repository.UpdateFeed(path, selectedFeed, newName, newUrl, newCategory);
+        }
+
+        public void GetFeedToRemove(string choosenObj)
+        {
+          repository.RemoveData(choosenObj, path, selectedNodeToRemove, cbItem);  
+        }
+
+
+        public void GetFeed(ListView feed)
+        {
+          
+
+            string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
+            string nodeToFill = "Namn";
+            repository.FillListView(feed, path, valjEnstakaNod, nodeToFill);
+        }
+
 
     }
 }

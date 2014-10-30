@@ -1,8 +1,20 @@
-﻿<Window x:Class="CSharpProject.Views.changeFeed"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="changeFeed" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.changeFeed"
+        Title="changeFeed" Height="415.896" Width="617.91">
+    <Canvas>
+        <ComboBox x:Name="cbFeed" Height="34" Canvas.Left="216" Canvas.Top="43" Width="168" DropDownOpened="cbFeed_DropDownOpened" />
+        <Label Content="Välj en feed att ändra" Canvas.Left="33" Canvas.Top="43" Width="137"/>
+        <Label Content="Nytt Namn" Canvas.Left="33" Canvas.Top="104" Width="137"/>
+        <Label Content="Ny Url" Canvas.Left="33" Canvas.Top="176" Width="137"/>
+        <Label Content="Ny kategori" Canvas.Left="33" Canvas.Top="268" Width="137"/>
+        <ComboBox x:Name="cbCategories" Height="34" Canvas.Left="216" Canvas.Top="268" Width="168" DropDownOpened="cbCategories_DropDownOpened" />
+        <Button x:Name="btnEditCategory" Content="Ändra
+                " Height="27" Width="95"  Canvas.Left="216" Canvas.Top="332" Click="btnEditCategory_Click"/>
+        <TextBox x:Name="tbName" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange ett nytt namn" Canvas.Top="103" Width="168"/>
+        <TextBox x:Name="tbUrl" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange en ny url" Canvas.Top="175" Width="168"/>
+        <Button x:Name="btnRemoveFeed" Content="Ta bort feed" Height="27" Canvas.Left="455" Canvas.Top="43" Width="95" />
+
+    </Canvas>
 </Window>

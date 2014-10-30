@@ -16,6 +16,7 @@ namespace Logic.Repositories
         void RemoveData(string choosenObj, string path, string selectedNodeToRemove, string cbItem);
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
+        void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory);
         T Add(T item);
         T Find(Guid id);
         void GetAll();

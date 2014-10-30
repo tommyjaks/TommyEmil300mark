@@ -45,8 +45,10 @@ namespace Logic.Service
        public void saveCatgories(string tbCategory)
        {
            string xmlFilPathpath = "Category.xml";
-           createCategories = repository.Load(xmlFilPathpath);
+            createCategories = repository.Load(xmlFilPathpath);
+          
            repository.Save(createCategories, xmlFilPathpath);
+          
                
            
 

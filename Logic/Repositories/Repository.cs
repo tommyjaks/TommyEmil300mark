@@ -47,6 +47,11 @@ namespace Logic.Repositories
          
         }
 
+        public void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory)
+        {
+            XmlHandler.updateFeed(path, selectedFeed, newName, newUrl, newCategory);
+        }
+
         public void Delete(T item)
         {
             throw new NotImplementedException();

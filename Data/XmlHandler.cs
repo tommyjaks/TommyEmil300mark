@@ -85,25 +85,27 @@ namespace Data
                 }
               
             }
-        public void updateFeed(string path, string valdFeed, string nyttNamn, string nyUrl, string nyttIntervall, string nyKategori)
+        public void updateFeed(string path, string selectedFeed, string newName, string  newUrl, string newCategory)
         {
             var doc = new XmlDocument();
             doc.Load(path);
-            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/ListaAvFeeds/FeedItem");
+            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
 
             foreach (XmlNode node in selectedNodes)
             {
 
-                if (node.SelectSingleNode("FeedName").InnerText == valdFeed)
+                if (node.SelectSingleNode("Namn").InnerText == selectedFeed)
                 {
-                    XmlNode feedNamn = node.SelectSingleNode("FeedName");
-                    XmlNode feedUrl = node.SelectSingleNode("FeedUrl");
-                    XmlNode feedUpIntervall = node.SelectSingleNode("UpInterval");
-                    XmlNode feedValdKategori = node.SelectSingleNode("ValdKategori");
-                    feedNamn.InnerText = nyttNamn;
-                    feedUrl.InnerText = nyUrl;
-                    feedUpIntervall.InnerText = nyttIntervall;
-                    feedValdKategori.InnerText = nyKategori;
+                    XmlNode feedName = node.SelectSingleNode("Namn");
+                    XmlNode feedUrl = node.SelectSingleNode("Url");
+                   
+                    XmlNode feedSelectedCategory = node.SelectSingleNode("Category");
+                    feedUrl.InnerText = newUrl;
+                    feedSelectedCategory.InnerText = newCategory;
+                    feedName.InnerText = newName;
+                    
+               
+                
                     doc.Save(path);
                 }
             }

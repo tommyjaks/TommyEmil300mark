@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Logic.Service;
 
 namespace CSharpProject.Views
 {
@@ -19,9 +20,37 @@ namespace CSharpProject.Views
     /// </summary>
     public partial class changeFeed : Window
     {
+        CategoryService serviceCategory = new CategoryService();
+        FeedService serviceFeeds = new FeedService();
         public changeFeed()
         {
             InitializeComponent();
+        }
+
+       
+
+        private void cbCategories_DropDownOpened(object sender, EventArgs e)
+        {
+            cbCategories.Items.Clear();
+            ComboBox cbBoxBox = cbCategories;
+            serviceCategory.GetCategory(cbBoxBox);
+        }
+
+        private void cbFeed_DropDownOpened(object sender, EventArgs e)
+        {
+            cbFeed.Items.Clear();
+            ComboBox cbBox = cbFeed;
+            serviceFeeds.SetFeed(cbBox);
+        }
+
+        private void btnEditCategory_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedFeed = cbFeed.SelectedItem.ToString();
+            var newName = tbName.Text;
+            var newUrl = tbUrl.Text;
+            var newCategory = cbCategories.SelectedItem.ToString();
+
+            serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newCategory);
         }
     }
 }
