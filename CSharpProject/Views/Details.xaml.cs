@@ -73,10 +73,24 @@ namespace CSharpProject.Views
             var values = doc.Descendants("FeedItem")
                          .Where(i => i.Element("Title").Value == flow)
                          .Select(i => i.Element("Link").Value)
-                         .Distinct().ToString();
-
+                         .ToString();
+            
             Process.Start("wmplayer.exe", values);
             
+        }
+
+        private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            
+            XDocument doc = XDocument.Load("Feed.xml");
+            string category = cbCategory.SelectedItem.ToString();
+
+            var values = doc.Descendants("Feed")
+                         .Where(i => i.Element("Category").Value == category)
+                         .Select(i => i.Element("Namn").Value)
+                         .Distinct();
+            
+            listFlow.Items.Add(values);
         }
 
        

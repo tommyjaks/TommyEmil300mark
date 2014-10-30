@@ -5,7 +5,7 @@
         Title="Details" Height="536" Width="595.537">
     <Canvas Margin="0,0,2,-3">
         <Label Content="Bibliotek" Height="72" Canvas.Left="16" Canvas.Top="10" Width="214" FontSize="48" FontFamily="Ebrima"/>
-        <ComboBox x:Name="cbCategory" Height="27" Canvas.Left="221" Canvas.Top="149" Width="180"/>
+        <ComboBox x:Name="cbCategory" Height="27" Canvas.Left="221" Canvas.Top="149" Width="180" SelectionChanged="cbCategory_SelectionChanged"/>
         <ListView x:Name="listFlow" Height="249" Canvas.Left="22" Canvas.Top="149" Width="129" SelectionChanged="listFlow_SelectionChanged">
             <ListView.View>
                 <GridView>
