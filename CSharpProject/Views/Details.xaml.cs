@@ -76,33 +76,6 @@ namespace CSharpProject.Views
                          .Distinct().ToString();
 
             Process.Start("wmplayer.exe", values);
-
-            
-            
-            //doc.Load("Feed.xml");
-            //XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
-
-            //var q = from node in doc.Descendants("ListOfFeeds/FeedList/Feed/Items/FeedItem")
-            //        let attr = node.Element("Link")
-            //        where attr != null && attr.Value == flow
-            //        select node;
-
-
-            //Process.Start("wmplayer.exe", q);
-            //foreach (XmlNode node in selectedNodes)
-            //{
-            //    if (node.SelectSingleNode("Title").InnerText == flow)
-            //    {
-            //        XmlNode feedItem = node.SelectSingleNode("Items");
-
-
-            //        for (int i = 0; i < feedItem.ChildNodes.Count; i++)
-            //        {
-            //            var sound = feedItem.ChildNodes.Item(i).LastChild.InnerText;
-            //            Process.Start("wmplayer.exe", sound);
-            //        }
-               // }
-           // }
             
         }
 
