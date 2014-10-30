@@ -15,6 +15,7 @@ using Logic;
 using Logic.Service;
 
 
+
 namespace CSharpProject.Views
 {
     /// <summary>
@@ -31,7 +32,7 @@ namespace CSharpProject.Views
 
         private void btnAddCategory_Click(object sender, RoutedEventArgs e)
         {
-
+           
           
             var tbText = tbCategory.Text;
             fillCategory.saveCatgories(tbText);
@@ -70,12 +71,19 @@ namespace CSharpProject.Views
 
         private void cbCategory_DropDownOpened(object sender, EventArgs e)
         {
+            cbCategory.Items.Clear();
            
             ComboBox cbBoxBox = cbCategory;
             fillCategory.GetCategory(cbBoxBox);
             string selected = cbCategory.Text;
             tbNewCategoryName.Text = selected;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCategoryToRemove = cbCategory.SelectedItem.ToString();
+            fillCategory.removeData(selectedCategoryToRemove);
         }
     }
 }

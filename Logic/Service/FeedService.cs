@@ -77,9 +77,12 @@ namespace Logic.Service
             repository.UpdateFeed(path, selectedFeed, newName, newUrl, newCategory);
         }
 
-        public void GetFeedToRemove(string choosenObj)
+        public void GetFeedToRemove(string selectedFeed)
         {
-          repository.RemoveData(choosenObj, path, selectedNodeToRemove, cbItem);  
+            string selectedNodeToRemove = "Feed";
+            string selectedElement = "Namn";
+
+            repository.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);  
         }
 
 

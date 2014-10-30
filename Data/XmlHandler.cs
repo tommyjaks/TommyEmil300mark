@@ -112,13 +112,13 @@ namespace Data
 
         }
 
-        public void removeData(string choosenObj, string path, string selectedNodeToRemove, string cbItem)
+        public void removeData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement)
         {
 
             XDocument doc = XDocument.Load(path);
             var q = from node in doc.Descendants(selectedNodeToRemove)
-                    let attr = node.Element(cbItem)
-                    where attr != null && attr.Value == choosenObj
+                    let attr = node.Element(selectedElement)
+                    where attr != null && attr.Value == selectedFeed
                     select node;
             q.ToList().ForEach(b => b.Remove());
             doc.Save(path);

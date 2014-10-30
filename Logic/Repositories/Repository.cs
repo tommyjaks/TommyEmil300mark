@@ -57,9 +57,9 @@ namespace Logic.Repositories
             throw new NotImplementedException();
         }
 
-        public void RemoveData(string choosenObj, string path, string selectedNodeToRemove, string cbItem)
+        public void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement)
         {
-            XmlHandler.removeData(choosenObj, path, selectedNodeToRemove, cbItem);
+            XmlHandler.removeData(selectedFeed, path, selectedNodeToRemove, selectedElement);
         }
 
         public T Add(T item)

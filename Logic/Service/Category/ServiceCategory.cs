@@ -15,6 +15,7 @@ namespace Logic.Service
     {
         private Repository<ListOfCategories> repository = new Repository<ListOfCategories>();
         private ListOfCategories createCategories = new ListOfCategories();
+       private string path = "Category.xml";
 
 
 
@@ -44,10 +45,10 @@ namespace Logic.Service
 
        public void saveCatgories(string tbCategory)
        {
-           string xmlFilPathpath = "Category.xml";
-            createCategories = repository.Load(xmlFilPathpath);
           
-           repository.Save(createCategories, xmlFilPathpath);
+            createCategories = repository.Load(path);
+          
+           repository.Save(createCategories, path);
           
                
            
@@ -64,7 +65,7 @@ namespace Logic.Service
 
            };
            createCategories.AddCategory(newCategory);
-           repository.Save(createCategories, xmlFilPathpath);
+           repository.Save(createCategories, path);
 
 
 
@@ -83,11 +84,12 @@ namespace Logic.Service
         repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
     }
 
-       public void removeData(string choosenObj, string cbItem)
+       public void removeData(string selectedFeed)
        {
-           string path = "Category.xml";
-           string selectedNodeToRemove = "CategoryName";
-           repository.RemoveData(choosenObj, path, selectedNodeToRemove, cbItem);
+           string selectedNodeToRemove = "Category";
+           string selectedElement = "CategoryName";
+
+           repository.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
        }
     }
 }

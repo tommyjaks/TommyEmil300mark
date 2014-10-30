@@ -52,5 +52,12 @@ namespace CSharpProject.Views
 
             serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newCategory);
         }
+
+        private void btnRemoveFeed_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedFeedToRemove= cbFeed.SelectedItem.ToString();
+           
+            serviceFeeds.GetFeedToRemove(selectedFeedToRemove);
+        }
     }
 }
