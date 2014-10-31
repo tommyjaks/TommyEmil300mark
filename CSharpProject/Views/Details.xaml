@@ -13,7 +13,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340">
+        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340" SelectionChanged="listEpisode_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -24,7 +24,8 @@
         <Label Content="Avsnitt:" Height="26" Canvas.Left="217" Canvas.Top="181" Width="128"/>
         <Label Content="Sortera efter kategori:" Height="27" Canvas.Left="29" Canvas.Top="106" Width="177"/>
         <Button Content="Spela upp" x:Name="BtnPlay" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340" Click="Button_Click"/>
-        <TextBlock Height="110" Canvas.Left="444" TextWrapping="Wrap" Canvas.Top="50" Width="132" Text="TextBlock"/>
         <Label Content="Info:" Height="25" Canvas.Left="444" Canvas.Top="21" Width="119"/>
+        <Label x:Name="lblDate" Content="datum" Height="27" Canvas.Left="444" Canvas.Top="46" Width="177"/>
+        <Label x:Name="lblPlayed" Content=">" Height="27" Canvas.Left="444" Canvas.Top="73" Width="177"/>
     </Canvas>
 </Window>
