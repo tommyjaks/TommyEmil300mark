@@ -66,11 +66,11 @@ namespace CSharpProject.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //string path = "http://traffic.libsyn.com/sweclockers/sweclockers_podcast_20140418.mp3";
-
-            XDocument doc = XDocument.Load("Feed.xml");
             string flow = listEpisode.SelectedItem.ToString();
+            XDocument doc = XDocument.Load("Feed.xml");
+           
 
-            var values = doc.Descendants("FeedItem")
+            var values = doc.Descendants("Feed")
                          .Where(i => i.Element("Title").Value == flow)
                          .Select(i => i.Element("Link").Value)
                          .ToString();
@@ -82,15 +82,30 @@ namespace CSharpProject.Views
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             
-            XDocument doc = XDocument.Load("Feed.xml");
+            //XDocument doc = XDocument.Load("Feed.xml");
             string category = cbCategory.SelectedItem.ToString();
-
-            var values = doc.Descendants("Feed")
-                         .Where(i => i.Element("Category").Value == category)
-                         .Select(i => i.Element("Namn").Value)
-                         .Distinct();
             
-            listFlow.Items.Add(values);
+            var doc = new XmlDocument();
+            doc.Load("Feed.xml");
+            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+
+            foreach (XmlNode node in selectedNodes)
+            {
+                if (node.SelectSingleNode("Category").InnerText == category)
+                {
+                    XmlNode feedItem = node.SelectSingleNode("Namn");
+                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+                    {
+                        listFlow.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[3].InnerText);
+                    }
+                }
+            }
+
+            
+            //values.ToList().ForEach(b => b.());
+           
+
+           // listFlow.Items.Add(values);
         }
 
        
