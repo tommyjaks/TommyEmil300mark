@@ -77,36 +77,21 @@ namespace CSharpProject.Views
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            listFlow.Items.Clear();
+            listEpisode.Items.Clear();
             
-            //XDocument doc = XDocument.Load("Feed.xml");
             string category = cbCategory.SelectedItem.ToString();
-            
-            var doc = new XmlDocument();
-            doc.Load("Feed.xml");
-            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+            XDocument doc = XDocument.Load("Feed.xml");
+            var values = doc.Descendants("FeedList").Descendants("Feed")
 
-            foreach (XmlNode node in selectedNodes)
-            {
-                if (node.SelectSingleNode("Category").InnerText == category)
-                {
-                    XmlNode feedItem = node.SelectSingleNode("Namn");
-                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
-                    {
-                        listFlow.Items.Add(feedItem.ChildNodes.Item(i).LastChild.InnerText);
-                    }
-                }
-            }
+                         .Where(i => i.Element("Category").Value == category)
+                         .Select(i => i.Element("Namn").Value)
+                         .Single();
+
+            listFlow.Items.Add(values);
 
             
-            //values.ToList().ForEach(b => b.());
-           
-
-            //listFlow.Items.Add(values);
         }
-
-       
-
-            
 
 
         }
