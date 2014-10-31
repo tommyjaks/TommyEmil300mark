@@ -45,10 +45,11 @@ namespace Logic.Service
 
        public void saveCatgories(string tbCategory)
        {
-          
-            createCategories = repository.Load(path);
-          
+           createCategories = repository.Load(path);
            repository.Save(createCategories, path);
+          
+          
+         
           
                
            

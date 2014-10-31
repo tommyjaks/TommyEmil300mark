@@ -26,6 +26,8 @@ namespace Logic.Service
             repository.Save(createFeeds, path);
            
            
+           
+           
                 
             
          
@@ -54,9 +56,9 @@ namespace Logic.Service
         public void EditCategoryInFeedXmlFile(string selectedCategory, string newNode)
         {
             string xmlFile = "Feed.xml";
-            string chooseNode = "ArrayOfFeedItem/FeedItem";
-            string chooseSingleNode = "CategoryName";
-            string elementToCreate = "CategoryName";
+            string chooseNode = "ListOfFeeds/FeedList/Feed";
+            string chooseSingleNode = "Category";
+            string elementToCreate = "Category";
 
            
             repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);

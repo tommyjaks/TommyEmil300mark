@@ -25,9 +25,12 @@ namespace Logic.Readers
             foreach (SyndicationItem item in feed.Items)
             {
                 var feedItem = new FeedItem();
+                
                 feedItem.Id = item.Id;
                 feedItem.Title = item.Title.Text;
                 feedItem.Link = item.Links.LastOrDefault().GetAbsoluteUri().ToString();
+                feedItem.Date = item.PublishDate.ToString();
+                feedItem.Uppspelad = "Nej";
                 
 
                 
@@ -44,7 +47,7 @@ namespace Logic.Readers
 
                 }
                 
-               
+              
                 rssFlow.Add(feedItem);
                 
             }

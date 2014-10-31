@@ -37,7 +37,9 @@ namespace CSharpProject.Views
 
         private void listFlow_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            listEpisode.UnselectAll();
             listEpisode.Items.Clear();
+           
             string flow = listFlow.SelectedItem.ToString();
             var doc = new XmlDocument();
             doc.Load("Feed.xml");
@@ -77,6 +79,7 @@ namespace CSharpProject.Views
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+
             listFlow.Items.Clear();
             listEpisode.Items.Clear();
             
@@ -94,6 +97,27 @@ namespace CSharpProject.Views
         }
 
         private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            
+            //string episode = listEpisode.SelectedItem.ToString();
+            //XDocument doc = XDocument.Load("Feed.xml");
+            //var values = doc.Descendants("Feed").Descendants("FeedItem")
+
+            //             .Where(i => i.Element("Title").Value == episode)
+            //             .Select(i => i.Element("Date").Value)
+            //             .Single();
+
+            //var values2 = doc.Descendants("Feed").Descendants("FeedItem")
+
+            //             .Where(i => i.Element("Title").Value == episode)
+            //             .Select(i => i.Element("Uppspelad").Value)
+            //             .Single();
+
+            //lblDate.Content = values;
+            //lblPlayed.Content = values2;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string episode = listEpisode.SelectedItem.ToString();
             XDocument doc = XDocument.Load("Feed.xml");
