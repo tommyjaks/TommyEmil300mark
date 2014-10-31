@@ -54,29 +54,25 @@ namespace CSharpProject.Views
                         listEpisode.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
                     }
                 }
-            }
-             
-                
-
-              
+            }      
                 
         }
 
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //string path = "http://traffic.libsyn.com/sweclockers/sweclockers_podcast_20140418.mp3";
-            string flow = listEpisode.SelectedItem.ToString();
-            XDocument doc = XDocument.Load("Feed.xml");
            
-
-            var values = doc.Descendants("Feed")
+            string flow = listEpisode.SelectedItem.ToString();
+                
+            XDocument doc = XDocument.Load("Feed.xml");
+            var values = doc.Descendants("Feed").Descendants("FeedItem")
+                            
                          .Where(i => i.Element("Title").Value == flow)
                          .Select(i => i.Element("Link").Value)
-                         .ToString();
-            
+                         .Single();
+
             Process.Start("wmplayer.exe", values);
-            
+
         }
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -96,7 +92,7 @@ namespace CSharpProject.Views
                     XmlNode feedItem = node.SelectSingleNode("Namn");
                     for (int i = 0; i < feedItem.ChildNodes.Count; i++)
                     {
-                        listFlow.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[3].InnerText);
+                        listFlow.Items.Add(feedItem.ChildNodes.Item(i).LastChild.InnerText);
                     }
                 }
             }
@@ -105,7 +101,7 @@ namespace CSharpProject.Views
             //values.ToList().ForEach(b => b.());
            
 
-           // listFlow.Items.Add(values);
+            //listFlow.Items.Add(values);
         }
 
        
