@@ -23,9 +23,11 @@
         <Label Content="Flöden:" Height="28" Canvas.Left="29" Canvas.Top="179" Width="100"/>
         <Label Content="Avsnitt:" Height="26" Canvas.Left="217" Canvas.Top="181" Width="128"/>
         <Label Content="Sortera efter kategori:" Height="27" Canvas.Left="29" Canvas.Top="106" Width="177"/>
-        <Button Content="Spela upp" x:Name="BtnPlay" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340" Click="Button_Click"/>
-        <Label Content="Info:" Height="25" Canvas.Left="444" Canvas.Top="21" Width="119"/>
-        <Label x:Name="lblDate" Content="datum" Height="27" Canvas.Left="444" Canvas.Top="46" Width="177"/>
-        <Label x:Name="lblPlayed" Content=">" Height="27" Canvas.Left="444" Canvas.Top="73" Width="177"/>
+        <Button Content="Spela upp" x:Name="BtnPlay" Height="61" Canvas.Left="221" Canvas.Top="420" Width="340" Click="Button_Click" BorderBrush="Black" Background="#FFECECEC"/>
+        <Label Content="Info:" Height="25" Canvas.Left="333" Canvas.Top="108" Width="119"/>
+        <Label x:Name="lblDate" Content=" " Height="27" Canvas.Left="384" Canvas.Top="133" Width="177"/>
+        <Label x:Name="lblPlayed" Content=" " Height="27" Canvas.Left="404" Canvas.Top="160" Width="177"/>
+        <Label x:Name="lblDate_Copy" Content="Datum:" Height="27" Canvas.Left="333" Canvas.Top="133" Width="53"/>
+        <Label x:Name="lblDate_Copy1" Content="Uppspelad:" Height="27" Canvas.Left="333" Canvas.Top="160" Width="71"/>
     </Canvas>
 </Window>
