@@ -96,28 +96,7 @@ namespace CSharpProject.Views
             
         }
 
-        private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            
-            //string episode = listEpisode.SelectedItem.ToString();
-            //XDocument doc = XDocument.Load("Feed.xml");
-            //var values = doc.Descendants("Feed").Descendants("FeedItem")
-
-            //             .Where(i => i.Element("Title").Value == episode)
-            //             .Select(i => i.Element("Date").Value)
-            //             .Single();
-
-            //var values2 = doc.Descendants("Feed").Descendants("FeedItem")
-
-            //             .Where(i => i.Element("Title").Value == episode)
-            //             .Select(i => i.Element("Uppspelad").Value)
-            //             .Single();
-
-            //lblDate.Content = values;
-            //lblPlayed.Content = values2;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
             string episode = listEpisode.SelectedItem.ToString();
             XDocument doc = XDocument.Load("Feed.xml");
@@ -136,6 +115,9 @@ namespace CSharpProject.Views
             lblDate.Content = values;
             lblPlayed.Content = values2;
         }
+
+  
+
 
 
         }
