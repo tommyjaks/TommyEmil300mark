@@ -67,7 +67,7 @@ namespace CSharpProject.Views
             string flow = listEpisode.SelectedItem.ToString();
                 
             XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("Feed").Descendants("FeedItem")
+            var values = doc.Descendants("FeedItem")
                             
                          .Where(i => i.Element("Title").Value == flow)
                          .Select(i => i.Element("Link").Value)
