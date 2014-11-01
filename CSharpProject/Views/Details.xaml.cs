@@ -41,24 +41,10 @@ namespace CSharpProject.Views
             listEpisode.Items.Clear();
             if (listFlow.SelectedItem != null)
             {
-
+                ListView episode = listEpisode;
                 string flow = listFlow.SelectedItem.ToString();
-                var doc = new XmlDocument();
-                doc.Load("Feed.xml");
-
-                XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
-
-                foreach (XmlNode node in selectedNodes)
-                {
-                    if (node.SelectSingleNode("Namn").InnerText == flow)
-                    {
-                        XmlNode feedItem = node.SelectSingleNode("Items");
-                        for (int i = 0; i < feedItem.ChildNodes.Count; i++)
-                        {
-                            listEpisode.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
-                        }
-                    }
-                }
+               
+                fillFeed.SelectMultipleFeeds(episode, flow);
             }
         }
 

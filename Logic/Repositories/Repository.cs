@@ -65,6 +65,12 @@ namespace Logic.Repositories
         {
             XmlHandler.SelectSingleFeedItem(lv, xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
         }
+
+        public void SelectMultipleFeedNames(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
+            string selectedItem, string singleNode)
+        {
+            XmlHandler.SelectMultipleFeedNames(lv,xmlFile,selectNodes,singleNodeToCompare,selectedItem,singleNode);
+        }
         public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
             XmlHandler.Play(xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);

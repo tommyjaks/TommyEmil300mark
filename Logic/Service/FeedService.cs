@@ -81,6 +81,15 @@ namespace Logic.Service
             repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
         }
 
+        public void SelectMultipleFeeds(ListView lv, string selectedItem)
+        {
+            string selectNodes = "ListOfFeeds/FeedList/Feed";
+            string singleNodeToCompare = "Namn";
+            string singleNode = "Items";
+            
+            repository.SelectMultipleFeedNames(lv, path, selectNodes, singleNodeToCompare,selectedItem,singleNode);
+        }
+
         public void Play(string selectedListItem)
         {
             string chooseFirstDesc = "FeedItem";
@@ -99,6 +108,7 @@ namespace Logic.Service
 
             repository.Update(path, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
         }
+
 
     }
 }

@@ -155,6 +155,28 @@ namespace Data
             lv.Items.Add(values);
         }
 
+        public void SelectMultipleFeedNames(ListView lv, string xmlFile,string selectNodes, string singleNodeToCompare, string selectedItem, string singleNode )
+        {
+            
+            var doc = new XmlDocument();
+            doc.Load(xmlFile);
+
+            XmlNodeList selectedNodes = doc.SelectNodes(selectNodes);
+
+            foreach (XmlNode node in selectedNodes)
+            {
+                if (node.SelectSingleNode(singleNodeToCompare).InnerText == selectedItem)
+                {
+                    XmlNode feedItem = node.SelectSingleNode(singleNode);
+                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+                    {
+                        lv.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
+                    }
+                }
+            }
+        }
+
+
         public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
             XDocument doc = XDocument.Load(xmlFile);
