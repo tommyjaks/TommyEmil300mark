@@ -59,7 +59,11 @@ namespace Logic.Repositories
 
         public void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement)
         {
-            XmlHandler.removeData(selectedFeed, path, selectedNodeToRemove, selectedElement);
+            XmlHandler.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
+        }
+        public void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc, string selectedListItem, string compareWithNode, string selectNode)
+        {
+            XmlHandler.SelectSingleFeedItem(lv, xmlFile, chooseFirstDesc, chooseNextDesc, selectedListItem, compareWithNode, selectNode);
         }
 
         public T Add(T item)
@@ -78,7 +82,7 @@ namespace Logic.Repositories
             
         }
 
-        public void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
+        public void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
         {
             XmlHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
         }
@@ -87,10 +91,7 @@ namespace Logic.Repositories
             XmlHandler.FyllListView(lv, xmlFil, valjNoder, singleNodeFill);
         }
 
-        public void SelectSingleItemInFeed()
-        {
-            
-        }
+      
 
 
 

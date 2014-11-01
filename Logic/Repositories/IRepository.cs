@@ -14,8 +14,12 @@ namespace Logic.Repositories
         void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string elementToCreate, string newNode);
         void Delete(T item);
         void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement);
+
+        void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc,
+            string selectedListItem, string compareWithNode, string selectNode);
+
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
-        void fillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
+        void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
         void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory);
         T Add(T item);
         T Find(Guid id);

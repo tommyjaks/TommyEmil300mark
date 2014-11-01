@@ -112,7 +112,7 @@ namespace Data
 
         }
 
-        public void removeData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement)
+        public void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement)
         {
 
             XDocument doc = XDocument.Load(path);
@@ -141,6 +141,18 @@ namespace Data
                 }
         }
 
+        public void SelectSingleFeedItem(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc, string selectedListItem, string compareWithNode, string selectNode)
+        {
+            
+            XDocument doc = XDocument.Load(xmlFile);
+            var values = doc.Descendants(chooseFirstDesc).Descendants(chooseNextDesc)
+
+                        .Where(i => i.Element(compareWithNode).Value == selectedListItem)
+                        .Select(i => i.Element(selectNode).Value)
+                        .Single();
+            
+            lv.Items.Add(values);
+        }
 
 
             
