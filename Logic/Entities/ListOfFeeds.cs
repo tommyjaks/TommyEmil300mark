@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Logic.Entities
 {
 
-    public class ListOfFeeds : IEntity
+    public class ListOfFeeds : List
     {
-        public Guid Id { get; set; }
+        public new Guid Id { get; set; }
         public List<Feed> FeedList{ get; set; }
 
         public ListOfFeeds()
