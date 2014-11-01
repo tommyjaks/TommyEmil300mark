@@ -15,7 +15,7 @@ namespace Logic.Repositories
         void Delete(T item);
         void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement);
 
-        void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc,
+        void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc,
             string selectedListItem, string compareWithNode, string selectNode);
 
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);

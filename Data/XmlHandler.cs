@@ -141,11 +141,11 @@ namespace Data
                 }
         }
 
-        public void SelectSingleFeedItem(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc, string selectedListItem, string compareWithNode, string selectNode)
+        public void SelectSingleFeedItem(ListView lv, string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
             
             XDocument doc = XDocument.Load(xmlFile);
-            var values = doc.Descendants(chooseFirstDesc).Descendants(chooseNextDesc)
+            var values = doc.Descendants(chooseFirstDesc)
 
                         .Where(i => i.Element(compareWithNode).Value == selectedListItem)
                         .Select(i => i.Element(selectNode).Value)

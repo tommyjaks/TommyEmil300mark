@@ -61,9 +61,9 @@ namespace Logic.Repositories
         {
             XmlHandler.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
         }
-        public void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc, string chooseNextDesc, string selectedListItem, string compareWithNode, string selectNode)
+        public void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
-            XmlHandler.SelectSingleFeedItem(lv, xmlFile, chooseFirstDesc, chooseNextDesc, selectedListItem, compareWithNode, selectNode);
+            XmlHandler.SelectSingleFeedItem(lv, xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
         }
 
         public T Add(T item)

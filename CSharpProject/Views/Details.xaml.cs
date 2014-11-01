@@ -92,8 +92,6 @@ namespace CSharpProject.Views
                          .Single();
 
             listFlow.Items.Add(values);
-
-            
         }
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)

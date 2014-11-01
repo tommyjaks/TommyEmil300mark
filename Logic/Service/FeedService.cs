@@ -20,8 +20,6 @@ namespace Logic.Service
 
         public void getRssItems(string url, string name, string category)
         {
-            string path = "Feed.xml";
-
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
             var feed = new Feed()
@@ -31,32 +29,24 @@ namespace Logic.Service
                 Namn = name,
                 Category = category,
                 
-                Items = feedReader.Read(url)
-               
-
+                Items = feedReader.Read(url)      
             };
-        createFeeds.AddFeedToList(feed);
-           
-        
-
-        
-           
-
+            createFeeds.AddFeedToList(feed);
             repository.Save(createFeeds, path);
         }
         public void EditCategoryInFeedXmlFile(string selectedCategory, string newNode)
         {
-            string xmlFile = "Feed.xml";
+            
             string chooseNode = "ListOfFeeds/FeedList/Feed";
             string chooseSingleNode = "Category";
             string elementToCreate = "Category";
 
            
-            repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
+            repository.Update(path, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
         }
         public void SetFeed(ComboBox feed)
         {
-            string path = "Feed.xml";
+           
 
             string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
             string nodeToFill = "Namn";
@@ -81,21 +71,14 @@ namespace Logic.Service
 
         public void GetFeed(ListView feed)
         {
-          
-
             string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
             string nodeToFill = "Namn";
             repository.FillListView(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public void SelectSingleFeed(ListView feed, string selectListItem)
+        public void SelectSingleFeed(ListView feed,string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
         {
-            string chooseFirstDesc = "";
-            string chooseNextDesc = "";
-            string compareWithNode = "";
-            string selectNode = "";
-
-            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, chooseNextDesc, selectListItem, compareWithNode, selectNode);
+            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
         }
 
     }
