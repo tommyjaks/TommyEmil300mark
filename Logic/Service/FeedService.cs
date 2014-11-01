@@ -93,9 +93,9 @@ namespace Logic.Service
         {
             string selectNodes = "ListOfFeeds/FeedList/Feed";
             string singleNodeToCompare = "Category";
-            string singleNode = "Namn";
+            
 
-            repository.SelectMultiplePlace(lv, path, selectNodes, singleNodeToCompare, selectedItem, singleNode);
+            repository.SelectMultiplePlace(lv, path, selectNodes, singleNodeToCompare, selectedItem);
         }
 
         public void Play(string selectedListItem)

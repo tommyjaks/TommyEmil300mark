@@ -176,7 +176,7 @@ namespace Data
             }
         }
 
-        public void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare, string selectedItem, string singleNode)
+        public void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare, string selectedItem)
         {
 
             var doc = new XmlDocument();
@@ -184,17 +184,13 @@ namespace Data
 
             XmlNodeList selectedNodes = doc.SelectNodes(selectNodes);
 
-            foreach (XmlNode node in selectedNodes)
+            foreach (XmlElement node in selectedNodes)
             {
                 if (node.SelectSingleNode(singleNodeToCompare).InnerText == selectedItem)
                 {
-                    XmlNode feedItem = node.SelectSingleNode(singleNode);
-                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
-                    {
-                      
-                        lv.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[2].InnerText);
-                        
-                    }
+  
+                       lv.Items.Add(node.SelectSingleNode("Namn").InnerText);
+ 
                 }
             }
         }

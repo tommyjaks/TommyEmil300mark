@@ -61,27 +61,17 @@ namespace CSharpProject.Views
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
            
-                listFlow.Items.Clear();
+                
                 listEpisode.Items.Clear();
-                //ListView feed = listFlow;
-                //string selectItem = cbCategory.SelectedItem.ToString();
+                ListView feed = listFlow;
+                string selectItem = cbCategory.SelectedItem.ToString();
 
-                //if (cbCategory.SelectedItem != null)
-                //{
-                //    fillFeed.SortMultiplePlace(feed, selectItem);
-                //}
-                listFlow.Items.Clear();
-                listEpisode.Items.Clear();
-
-                string category = cbCategory.SelectedItem.ToString();
-                XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("Feed")
-
-                .Where(i => i.Element("Category").Value == category)
-                .Select(i => i.Element("Namn").Value)
-                .Max();
-                 
-                listFlow.Items.Add(values);
+                if (cbCategory.SelectedItem != null)
+                {
+                    listFlow.Items.Clear();
+                    fillFeed.SortMultiplePlace(feed, selectItem);
+                }
+          
         }
 
         private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
