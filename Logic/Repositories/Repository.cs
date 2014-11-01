@@ -12,17 +12,10 @@ using ListView = System.Windows.Controls.ListView;
 
 namespace Logic.Repositories
 {
-    ////public class FeedRepository : Repository<Feed>
-    //{
-    //    public void GetFeed()
-    //    {
-    //        GetAll().Where(b => b.Items != null);
-    //    }   
-    //}
-    
+ 
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected XmlHandler<T> XmlHandler = new XmlHandler<T>();  
+        internal XmlHandler<T> XmlHandler = new XmlHandler<T>();  
 
         public void Save(T value, string path)
         {
@@ -32,7 +25,7 @@ namespace Logic.Repositories
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                MessageBox.Show(ex.Message);
             }
         }
 
