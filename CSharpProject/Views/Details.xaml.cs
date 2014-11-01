@@ -37,7 +37,7 @@ namespace CSharpProject.Views
 
         private void listFlow_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            listEpisode.UnselectAll();
+            listInfo.Items.Clear();
             listEpisode.Items.Clear();
             if (listFlow.SelectedItem != null)
             {
@@ -60,16 +60,28 @@ namespace CSharpProject.Views
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+           
+                listFlow.Items.Clear();
+                listEpisode.Items.Clear();
+                //ListView feed = listFlow;
+                //string selectItem = cbCategory.SelectedItem.ToString();
 
-            listFlow.Items.Clear();
-            listEpisode.Items.Clear();
-            ListView feed = listFlow;
-            string selectListItem = cbCategory.SelectedItem.ToString();            
-            string chooseFirstDesc = "Feed";
-            string compareWithNode = "Category";
-            string selectNode = "Namn";
-            
-            fillFeed.SelectSingleFeed(feed, chooseFirstDesc,selectListItem,compareWithNode,selectNode);
+                //if (cbCategory.SelectedItem != null)
+                //{
+                //    fillFeed.SortMultiplePlace(feed, selectItem);
+                //}
+                listFlow.Items.Clear();
+                listEpisode.Items.Clear();
+
+                string category = cbCategory.SelectedItem.ToString();
+                XDocument doc = XDocument.Load("Feed.xml");
+            var values = doc.Descendants("Feed")
+
+                .Where(i => i.Element("Category").Value == category)
+                .Select(i => i.Element("Namn").Value)
+                .Max();
+                 
+                listFlow.Items.Add(values);
         }
 
         private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

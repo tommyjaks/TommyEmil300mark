@@ -23,6 +23,8 @@ namespace Logic.Repositories
 
         void SelectMultipleFeedNames(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
             string selectedItem, string singleNode);
+        void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
+            string selectedItem, string singleNode);
 
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);

@@ -76,7 +76,7 @@ namespace Logic.Service
             repository.FillListView(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public void SelectSingleFeed(ListView feed,string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
+        public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
         {
             repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
         }
@@ -88,6 +88,14 @@ namespace Logic.Service
             string singleNode = "Items";
             
             repository.SelectMultipleFeedNames(lv, path, selectNodes, singleNodeToCompare,selectedItem,singleNode);
+        }
+        public void SortMultiplePlace(ListView lv, string selectedItem)
+        {
+            string selectNodes = "ListOfFeeds/FeedList/Feed";
+            string singleNodeToCompare = "Category";
+            string singleNode = "Namn";
+
+            repository.SelectMultiplePlace(lv, path, selectNodes, singleNodeToCompare, selectedItem, singleNode);
         }
 
         public void Play(string selectedListItem)

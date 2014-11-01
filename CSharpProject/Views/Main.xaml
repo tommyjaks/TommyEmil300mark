@@ -21,7 +21,7 @@
         <ComboBox x:Name="cbCategory" Height="34" Canvas.Left="397" Canvas.Top="134" Width="136" Background="Black" BorderBrush="#FFEEEEEE" DropDownOpened="cbCategory_DropDownOpened_1"/>
         <Label Content="Ange kategori:" Height="40" Canvas.Left="397" Canvas.Top="89" Width="136" FontSize="16"/>
         <Button x:Name="btnCategory" Content="Kategorier"  Canvas.Left="690" Canvas.Top="46" Width="114" Click="btnCategory_Click" FontFamily="Khmer UI" FontSize="16" Height="56" Background="White" BorderBrush="Black"/>
-        <Button Content="podcaster" Height="76" Canvas.Left="274" Canvas.Top="201" Width="186" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="White" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1">
+        <Button Content="podcaster" Height="76" Canvas.Left="274" Canvas.Top="201" Width="186" FontFamily="Khmer UI" FontSize="16" Foreground="#FF323232" Background="#FFFFB887" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1" BorderBrush="White">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -30,12 +30,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Button.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.BorderBrush>
         </Button>
         <Label Content="RSS" Height="93" Canvas.Left="25" Canvas.Top="316" Width="315" FontFamily="Vrinda" FontSize="72" Background="White" Foreground="#FF7E7E7E" FontWeight="Bold"/>
         <Label Content="READER" Height="57" Canvas.Left="170" Canvas.Top="352" Width="185" FontFamily="Vrinda" FontSize="36" Background="White" Foreground="#FFE6A77C" HorizontalAlignment="Left"/>
