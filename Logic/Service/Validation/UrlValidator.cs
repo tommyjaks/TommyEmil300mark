@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Windows.Controls;
+using TextBox = System.Windows.Controls.TextBox;
 
 
 namespace Logic.Service.Validation
@@ -24,12 +26,17 @@ namespace Logic.Service.Validation
             return resultat;
         }
 
-        //public bool CheckIfEmpty(TextBox tb,string url)
-        //{
-        //    bool resultat = false;
+        public bool EmptyTextBox(TextBox tb)
+        {
+            bool resultat = true;
+            if (String.IsNullOrEmpty(tb.Text))
+            {
+                MessageBox.Show("Textboxen är tom");
+                resultat = false;
+            }
+            return resultat;
 
-        //    if(tb != CheckIfEmpty)
-        //}
+        }
     }
 
    
