@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logic;
 using Logic.Service;
-
+using Logic.Service.Validation;
 
 
 namespace CSharpProject.Views
@@ -33,24 +33,34 @@ namespace CSharpProject.Views
         private void btnAddCategory_Click(object sender, RoutedEventArgs e)
         {
            
+             var validate = new UrlValidator();
+            TextBox category = tbCategory;
           
-            var tbText = tbCategory.Text;
-            fillCategory.saveCatgories(tbText);
+            if (validate.EmptyTextBox(category))
+            {
+                var tbText = tbCategory.Text;
+                fillCategory.saveCatgories(tbText);
+            }
         }
 
         private void btnEditName_Click(object sender, RoutedEventArgs e)
         {
+               var validate = new UrlValidator();
+             TextBox url = tbNewCategoryName;
             
-            FeedService changeXmlCategory = new FeedService();
-            var newCategoryName = tbNewCategoryName.Text;
-            var selectedItem = cbCategory.SelectedItem.ToString();
+            if (validate.EmptyTextBox(url))
+            {
+                FeedService changeXmlCategory = new FeedService();
+                var newCategoryName = tbNewCategoryName.Text;
+                var selectedItem = cbCategory.SelectedItem.ToString();
 
-            fillCategory.editCategory(selectedItem, newCategoryName);
-            changeXmlCategory.EditCategoryInFeedXmlFile(selectedItem, newCategoryName);
-            cbCategory.Items.Clear();
+                fillCategory.editCategory(selectedItem, newCategoryName);
+                changeXmlCategory.EditCategoryInFeedXmlFile(selectedItem, newCategoryName);
+                cbCategory.Items.Clear();
+            }
 
 
-            
+
         }
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)

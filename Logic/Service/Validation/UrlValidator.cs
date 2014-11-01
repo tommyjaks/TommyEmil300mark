@@ -28,11 +28,15 @@ namespace Logic.Service.Validation
 
         public bool EmptyTextBox(TextBox tb)
         {
-            bool resultat = true;
-            if (String.IsNullOrEmpty(tb.Text))
+            bool resultat;
+            if (String.IsNullOrWhiteSpace(tb.Text))
             {
-                MessageBox.Show("Textboxen är tom");
+                MessageBox.Show("Det finns ett fält som inte är ifyllt.");
                 resultat = false;
+            }
+            else
+            {
+                resultat = true;
             }
             return resultat;
 

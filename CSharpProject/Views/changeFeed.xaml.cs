@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logic.Service;
+using Logic.Service.Validation;
 
 namespace CSharpProject.Views
 {
@@ -46,12 +47,18 @@ namespace CSharpProject.Views
 
         private void btnEditCategory_Click(object sender, RoutedEventArgs e)
         {
-            var selectedFeed = cbFeed.SelectedItem.ToString();
-            var newName = tbName.Text;
-            var newUrl = tbUrl.Text;
-            var newCategory = cbCategories.SelectedItem.ToString();
+             var validate = new UrlValidator();
+             TextBox url = tbUrl;
+            TextBox name = tbName;
+            if (validate.EmptyTextBox(url) && validate.EmptyTextBox(name))
+            {
+                var selectedFeed = cbFeed.SelectedItem.ToString();
+                var newName = tbName.Text;
+                var newUrl = tbUrl.Text;
+                var newCategory = cbCategories.SelectedItem.ToString();
 
-            serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newCategory);
+                serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newCategory);
+            }
         }
 
         private void btnRemoveFeed_Click(object sender, RoutedEventArgs e)

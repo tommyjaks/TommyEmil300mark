@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Windows;
 using System.Windows.Forms;
 using Logic;
@@ -40,17 +41,32 @@ namespace CSharpProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(cbCategory.SelectedItem != null){
-            var minUrl = tbURL.Text;
-            //TextBox url = tbURL;
-            //TextBox flowName = tbFlowName;
-            var name = tbFlowName.Text;
-            var category = cbCategory.SelectedItem.ToString();
-            var urlValidate = new UrlValidator();
-            urlValidate.Validate(minUrl);
-          
-            getFeeds.getRssItems(minUrl, name, category);
-                MessageBox.Show("Podcast tillagd!");
+            if (cbCategory.SelectedItem != null)
+            {
+                var minUrl = tbURL.Text;
+                
+                TextBox flowName = tbFlowName;
+                var name = tbFlowName.Text;
+                var category = cbCategory.SelectedItem.ToString();
+                var urlValidate = new UrlValidator();
+
+                if (urlValidate.Validate(minUrl) &&
+                    urlValidate.EmptyTextBox(flowName) == true)
+                {
+                    try
+                    {
+                        getFeeds.getRssItems(minUrl, name, category);
+                        MessageBox.Show("Podcast tillagd!");
+                    }
+                    catch (Exception ez)
+                    {
+                        MessageBox.Show("Din url verkar inte gå att ladda. Felmeddelande:" + ez.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du måste ange en kategori för att spara!");
             }
         }
 
