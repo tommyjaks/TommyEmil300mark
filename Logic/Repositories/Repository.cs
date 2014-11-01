@@ -86,8 +86,11 @@ namespace Logic.Repositories
         {
             XmlHandler.FyllListView(lv, xmlFil, valjNoder, singleNodeFill);
         }
-    
 
+        public void SelectSingleItemInFeed()
+        {
+            
+        }
 
 
 

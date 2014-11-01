@@ -24,14 +24,6 @@ namespace Logic.Service
 
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
-           
-           
-           
-           
-                
-            
-         
-
             var feed = new Feed()
             {
                 Url = url,
@@ -41,7 +33,6 @@ namespace Logic.Service
                 
                 Items = feedReader.Read(url)
                
-
 
             };
         createFeeds.AddFeedToList(feed);
@@ -97,6 +88,10 @@ namespace Logic.Service
             repository.FillListView(feed, path, valjEnstakaNod, nodeToFill);
         }
 
+        public void SelectSingleFeed()
+        {
+            
+        }
 
     }
 }

@@ -23,6 +23,13 @@ namespace Logic.Service.Validation
             }
             return resultat;
         }
+
+        //public bool CheckIfEmpty(TextBox tb,string url)
+        //{
+        //    bool resultat = false;
+
+        //    if(tb != CheckIfEmpty)
+        //}
     }
 
    

@@ -31,23 +31,7 @@ namespace Logic.Readers
                 feedItem.Link = item.Links.LastOrDefault().GetAbsoluteUri().ToString();
                 feedItem.Date = item.PublishDate.ToString();
                 feedItem.Uppspelad = "Nej";
-                
-
-                
-                try
-                {
-
-                    
-
-                }
-                catch (Exception)
-                {
-                 
-
-
-                }
-                
-              
+        
                 rssFlow.Add(feedItem);
                 
             }
