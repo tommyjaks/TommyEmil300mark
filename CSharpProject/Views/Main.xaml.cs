@@ -1,16 +1,9 @@
 ﻿
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Policy;
 using System.Windows;
-using System.Windows.Forms;
-using Logic;
 using Logic.Entities;
 using Logic.Repositories;
-
 using Logic.Service.Validation;
-using Logic.Readers;
 using Logic.Service;
 using ComboBox = System.Windows.Controls.ComboBox;
 using MessageBox = System.Windows.MessageBox;
@@ -26,17 +19,10 @@ namespace CSharpProject.Views
         private ListOfFeeds skapaFeeds = new ListOfFeeds();
         private Repository<ListOfFeeds> xml2 = new Repository<ListOfFeeds>(); 
 
-       
-      
         
         public MainWindow()
         {
-
-          
             InitializeComponent();
-            
-            
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -75,8 +61,6 @@ namespace CSharpProject.Views
             new Window1().Show();
             
         }
-
-   
 
         private void cbCategory_DropDownOpened_1(object sender, EventArgs e)
         {
