@@ -44,18 +44,6 @@ namespace CSharpProject.Views
             var urlValidate = new UrlValidator();
             urlValidate.Validate(minUrl);
             getFeeds.getRssItems(minUrl, name, category);
-
-        
-            
-            
-
-
-
-
-
-            // FeedService.getRssItems();
-
-
         }
 
         private void btnCategory_Click(object sender, RoutedEventArgs e)
@@ -82,18 +70,6 @@ namespace CSharpProject.Views
         {
             new Details().Show();
         }
-
-        //private void FormMovieLookUp_Load_1(object sender, EventArgs e)
-        //{
-        //    string path = "yolo.xml";
-        //ComboBox yoloBox = cbCategory;
-        // string valjEnstakaNod = "ArrayOfFeedItem/FeedItem";
-        //           string nodeToFill = "Title";
-        //           repository.fillComboBox(yoloBox, path, valjEnstakaNod, nodeToFill);
-        //}
-       
-         
-         
        }
     }
         
