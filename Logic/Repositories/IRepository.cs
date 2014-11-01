@@ -18,6 +18,9 @@ namespace Logic.Repositories
         void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc,
             string selectedListItem, string compareWithNode, string selectNode);
 
+        void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode,
+            string selectNode);
+
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
         void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -152,6 +153,18 @@ namespace Data
                         .Single();
             
             lv.Items.Add(values);
+        }
+
+        public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
+        {
+            XDocument doc = XDocument.Load(xmlFile);
+            var values = doc.Descendants(chooseFirstDesc)
+
+                        .Where(i => i.Element(compareWithNode).Value == selectedListItem)
+                        .Select(i => i.Element(selectNode).Value)
+                        .Single();
+
+            Process.Start("wmplayer.exe", values);
         }
 
 

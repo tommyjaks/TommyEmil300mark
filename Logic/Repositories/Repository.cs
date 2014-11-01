@@ -65,6 +65,10 @@ namespace Logic.Repositories
         {
             XmlHandler.SelectSingleFeedItem(lv, xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
         }
+        public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
+        {
+            XmlHandler.Play(xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
+        }
 
         public T Add(T item)
         {

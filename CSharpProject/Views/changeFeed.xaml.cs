@@ -22,6 +22,7 @@ namespace CSharpProject.Views
     {
         CategoryService serviceCategory = new CategoryService();
         FeedService serviceFeeds = new FeedService();
+
         public changeFeed()
         {
             InitializeComponent();

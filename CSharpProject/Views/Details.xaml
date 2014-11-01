@@ -20,7 +20,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340" >
+        <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340" SelectionChanged="listEpisode_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -35,6 +35,15 @@
         <Label x:Name="lblPlayed" Content=" " Height="27" Canvas.Left="404" Canvas.Top="160" Width="177"/>
         <Label x:Name="lblDate_Copy" Content="Datum:" Height="27" Canvas.Left="333" Canvas.Top="133" Width="53"/>
         <Label x:Name="lblDate_Copy1" Content="Uppspelad:" Height="27" Canvas.Left="333" Canvas.Top="160" Width="71"/>
-        <Button Content="Visa Info" x:Name="BtnShow" Height="30" Canvas.Left="221" Canvas.Top="147" Width="94"  BorderBrush="Black" Background="White" Click="BtnShow_Click"/>
+        <ListView x:Name="listInfo" Height="68" Canvas.Left="333" Canvas.Top="113" Width="228">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Info:" Height="26" Canvas.Left="333" Canvas.Top="87" Width="128"/>
+        <Label Content="Datum:" Height="26" Canvas.Left="286" Canvas.Top="133" Width="47"/>
+        <Label Content="Uppspelad:" Height="26" Canvas.Left="263" Canvas.Top="155" Width="70"/>
     </Canvas>
 </Window>

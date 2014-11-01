@@ -81,5 +81,24 @@ namespace Logic.Service
             repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
         }
 
+        public void Play(string selectedListItem)
+        {
+            string chooseFirstDesc = "FeedItem";
+            string compareWithNode = "Title";
+            string selectNode = "Link";
+
+            repository.Play(path,chooseFirstDesc,selectedListItem,compareWithNode,selectNode);
+        }
+        public void EditPlayedStatus(string selectedCategory, string newNode)
+        {
+
+            string chooseNode = "ListOfFeeds/FeedList/Feed/FeedItem";
+            string chooseSingleNode = "Title";
+            string elementToCreate = "Uppspelad";
+
+
+            repository.Update(path, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
+        }
+
     }
 }

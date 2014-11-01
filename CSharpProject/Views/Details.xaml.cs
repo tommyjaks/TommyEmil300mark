@@ -39,42 +39,37 @@ namespace CSharpProject.Views
         {
             listEpisode.UnselectAll();
             listEpisode.Items.Clear();
-           
-            string flow = listFlow.SelectedItem.ToString();
-            var doc = new XmlDocument();
-            doc.Load("Feed.xml");
-            
-            XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
- 
-            foreach (XmlNode node in selectedNodes)
+            if (listFlow.SelectedItem != null)
             {
-                if (node.SelectSingleNode("Namn").InnerText == flow)
+
+                string flow = listFlow.SelectedItem.ToString();
+                var doc = new XmlDocument();
+                doc.Load("Feed.xml");
+
+                XmlNodeList selectedNodes = doc.SelectNodes("ListOfFeeds/FeedList/Feed");
+
+                foreach (XmlNode node in selectedNodes)
                 {
-                    XmlNode feedItem = node.SelectSingleNode("Items");
-                    for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+                    if (node.SelectSingleNode("Namn").InnerText == flow)
                     {
-                        listEpisode.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
+                        XmlNode feedItem = node.SelectSingleNode("Items");
+                        for (int i = 0; i < feedItem.ChildNodes.Count; i++)
+                        {
+                            listEpisode.Items.Add(feedItem.ChildNodes.Item(i).ChildNodes[1].InnerText);
+                        }
                     }
                 }
-            }      
-                
+            }
         }
 
         
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {          
             string flow = listEpisode.SelectedItem.ToString();
-                
-            XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("FeedItem")
-                            
-                         .Where(i => i.Element("Title").Value == flow)
-                         .Select(i => i.Element("Link").Value)
-                         .Single();
+            fillFeed.Play(flow);
 
-            Process.Start("wmplayer.exe", values);
-
+            string newNode = "Ja";
+            fillFeed.EditPlayedStatus(flow,newNode);
         }
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -82,36 +77,30 @@ namespace CSharpProject.Views
 
             listFlow.Items.Clear();
             listEpisode.Items.Clear();
+            ListView feed = listFlow;
+            string selectListItem = cbCategory.SelectedItem.ToString();            
+            string chooseFirstDesc = "Feed";
+            string compareWithNode = "Category";
+            string selectNode = "Namn";
             
-            string category = cbCategory.SelectedItem.ToString();
-            XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("Feed")
-
-                         .Where(i => i.Element("Category").Value == category)
-                         .Select(i => i.Element("Namn").Value)
-                         .Single();
-
-            listFlow.Items.Add(values);
+            fillFeed.SelectSingleFeed(feed, chooseFirstDesc,selectListItem,compareWithNode,selectNode);
         }
 
-        private void BtnShow_Click(object sender, RoutedEventArgs e)
+        private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            string episode = listEpisode.SelectedItem.ToString();
-            XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("FeedItem")
+            if(listEpisode.SelectedItem != null){
+            listInfo.Items.Clear();
+            string selectListItem = listEpisode.SelectedItem.ToString();
+            ListView feed = listInfo;
 
-                         .Where(i => i.Element("Title").Value == episode)
-                         .Select(i => i.Element("Date").Value)
-                         .Single();
+            string chooseFirstDesc = "FeedItem";
+            string compareWithNode = "Title";
+            string selectNode = "Date";
+            fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
 
-            var values2 = doc.Descendants("FeedItem")
-
-                         .Where(i => i.Element("Title").Value == episode)
-                         .Select(i => i.Element("Uppspelad").Value)
-                         .Single();
-
-            lblDate.Content = values;
-            lblPlayed.Content = values2;
+            string selectNode2 = "Uppspelad";
+            fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+            }
         }
 
   
