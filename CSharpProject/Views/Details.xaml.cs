@@ -21,7 +21,7 @@ namespace CSharpProject.Views
 
         private CategoryService fillCategories = new CategoryService();
         private FeedService fillFeed = new FeedService();
-        private PlayUrl sounds = new PlayUrl();
+        
 
         public Details()
         {
@@ -85,7 +85,7 @@ namespace CSharpProject.Views
             
             string category = cbCategory.SelectedItem.ToString();
             XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("FeedList").Descendants("Feed")
+            var values = doc.Descendants("Feed")
 
                          .Where(i => i.Element("Category").Value == category)
                          .Select(i => i.Element("Namn").Value)
@@ -100,13 +100,13 @@ namespace CSharpProject.Views
         {
             string episode = listEpisode.SelectedItem.ToString();
             XDocument doc = XDocument.Load("Feed.xml");
-            var values = doc.Descendants("Feed").Descendants("FeedItem")
+            var values = doc.Descendants("FeedItem")
 
                          .Where(i => i.Element("Title").Value == episode)
                          .Select(i => i.Element("Date").Value)
                          .Single();
 
-            var values2 = doc.Descendants("Feed").Descendants("FeedItem")
+            var values2 = doc.Descendants("FeedItem")
 
                          .Where(i => i.Element("Title").Value == episode)
                          .Select(i => i.Element("Uppspelad").Value)
