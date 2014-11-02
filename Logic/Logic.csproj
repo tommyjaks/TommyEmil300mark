@@ -65,6 +65,7 @@
     <Compile Include="Service\Validation\FeedValidator.cs" />
     <Compile Include="Service\Validation\UrlValidator.cs" />
     <Compile Include="Entities\ValidationException.cs" />
+    <Compile Include="testasaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

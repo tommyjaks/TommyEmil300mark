@@ -206,6 +206,21 @@ namespace Data
             Process.Start("wmplayer.exe", values);
         }
 
+        public void EditSingleNode(string xml, string desc, string selectNodeToCompare, string selectItem, string nodeToUpdate, string status)
+        {
+            XDocument xmlDoc = XDocument.Load(xml);
+          
+                var items = (from item in xmlDoc.Descendants(desc)
+                    where item.Element(selectNodeToCompare).Value == selectItem
+                    select item).ToList();
+
+                foreach (XElement itemElement in items)
+                {
+                    itemElement.SetElementValue(nodeToUpdate, status);
+                }
+             xmlDoc.Save(xml);
+            
+        }
 
             
         }

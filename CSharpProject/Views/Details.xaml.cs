@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -53,15 +54,14 @@ namespace CSharpProject.Views
         {          
             string flow = listEpisode.SelectedItem.ToString();
             fillFeed.Play(flow);
+           
+            fillFeed.EditPlayedStatus(flow);
+            refreshInfoList();
 
-            string newNode = "Ja";
-            fillFeed.EditPlayedStatus(flow,newNode);
         }
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-           
-                
                 listEpisode.Items.Clear();
                 ListView feed = listFlow;
                 string selectItem = cbCategory.SelectedItem.ToString();
@@ -76,18 +76,25 @@ namespace CSharpProject.Views
 
         private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if(listEpisode.SelectedItem != null){
-            listInfo.Items.Clear();
-            string selectListItem = listEpisode.SelectedItem.ToString();
-            ListView feed = listInfo;
+            refreshInfoList();
+        }
+        
 
-            string chooseFirstDesc = "FeedItem";
-            string compareWithNode = "Title";
-            string selectNode = "Date";
-            fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+        private void refreshInfoList()
+        {
+            if (listEpisode.SelectedItem != null)
+            {
+                listInfo.Items.Clear();
+                string selectListItem = listEpisode.SelectedItem.ToString();
+                ListView feed = listInfo;
 
-            string selectNode2 = "Uppspelad";
-            fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+                string chooseFirstDesc = "FeedItem";
+                string compareWithNode = "Title";
+                string selectNode = "Date";
+                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+
+                string selectNode2 = "Uppspelad";
+                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
             }
         }
 
