@@ -27,7 +27,7 @@ namespace CSharpProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (cbCategory.SelectedItem != null)
+            if (cbCategory.SelectedItem != null && cbInterval.SelectedItem != null)
             {
                 var minUrl = tbURL.Text;
 
