@@ -61,11 +61,9 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Service\FeedService.cs" />
-    <Compile Include="Service\PlayUrl.cs" />
     <Compile Include="Service\Validation\FeedValidator.cs" />
     <Compile Include="Service\Validation\UrlValidator.cs" />
     <Compile Include="Entities\ValidationException.cs" />
-    <Compile Include="testasaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

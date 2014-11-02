@@ -42,7 +42,18 @@ namespace Data
                 return Xml.Deserialize(streamReader) as T;
             }
         }
+        public void FyllListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
+        {
+            var doc = new XmlDocument();
+            doc.Load(xmlFil);
+            var nodeList = doc.SelectNodes(valjNoder);
 
+            foreach (XmlNode node in nodeList)
+                if (!lv.Items.Contains(node.SelectSingleNode(singleNodeFill).InnerText))
+                {
+                    lv.Items.Add(node.SelectSingleNode(singleNodeFill).InnerText);
+                }
+        }
 
         public void FyllCombobox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
         {
@@ -130,18 +141,7 @@ namespace Data
         }
 
 
-        public void FyllListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
-        {
-            var doc = new XmlDocument();
-            doc.Load(xmlFil);
-            var nodeList = doc.SelectNodes(valjNoder);
-
-            foreach (XmlNode node in nodeList)
-                if (!lv.Items.Contains(node.SelectSingleNode(singleNodeFill).InnerText))
-                {
-                    lv.Items.Add(node.SelectSingleNode(singleNodeFill).InnerText);
-                }
-        }
+        
 
         public void SelectSingleFeedItem(ListView lv, string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
