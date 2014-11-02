@@ -5,14 +5,14 @@
         Title="changeFeed" Height="445.747" Width="637.312">
     <Canvas>
         <ComboBox x:Name="cbFeed" Height="34" Canvas.Left="49" Canvas.Top="175" Width="168" DropDownOpened="cbFeed_DropDownOpened" />
-        <Label Content="Välj en feed att ändra" Canvas.Left="49" Canvas.Top="130" Width="137"/>
+        <Label Content="Välj ett flöde att ändra:" Canvas.Left="49" Canvas.Top="130" Width="137"/>
         <Label Content="Nytt Namn" Canvas.Left="324" Canvas.Top="130" Width="137"/>
         <Label Content="Ny Url" Canvas.Left="324" Canvas.Top="184" Width="137"/>
         <Label Content="Ny kategori" Canvas.Left="324" Canvas.Top="284" Width="137" RenderTransformOrigin="0.286,1.573"/>
         <ComboBox x:Name="cbCategories" Height="34" Canvas.Left="409" Canvas.Top="276" Width="168" DropDownOpened="cbCategories_DropDownOpened" />
         <Button x:Name="btnEditCategory" Content="Ändra flöde"  Height="55" Width="168"  Canvas.Left="409" Canvas.Top="320" Click="btnEditCategory_Click" Background="#FF70BB68" BorderBrush="White"/>
-        <TextBox x:Name="tbName" Height="25" Canvas.Left="409" TextWrapping="Wrap" Text="Ange ett nytt namn.." Canvas.Top="134" Width="168" Foreground="#FFAEAEAE"/>
-        <TextBox x:Name="tbUrl" Height="25" Canvas.Left="409" TextWrapping="Wrap" Text="Ange en ny url.." Canvas.Top="184" Width="168" Foreground="#FFB4B4B4"/>
+        <TextBox x:Name="tbName" Height="25" Canvas.Left="409" TextWrapping="Wrap"  Canvas.Top="134" Width="168" Foreground="#FFAEAEAE"/>
+        <TextBox x:Name="tbUrl" Height="25" Canvas.Left="409" TextWrapping="Wrap"  Canvas.Top="184" Width="168" Foreground="#FFB4B4B4"/>
         <Button x:Name="btnRemoveFeed" Content="Ta bort flöde" Height="42" Canvas.Left="49" Canvas.Top="250" Width="95" Click="btnRemoveFeed_Click" Background="#FFFB5F5F" BorderBrush="White" />
         <Label Content="Hantera Flöden" Height="66" Canvas.Left="49" Canvas.Top="24" Width="333" FontSize="48" FontFamily="Ebrima"/>
         <ComboBox x:Name="cbInterval" Canvas.Left="409" Canvas.Top="240" Width="168" DropDownOpened="cbInterval_DropDownOpened"/>
