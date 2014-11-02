@@ -2,19 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSharpProject.Views.changeFeed"
-        Title="changeFeed" Height="415.896" Width="617.91">
+        Title="changeFeed" Height="415.896" Width="637.312">
     <Canvas>
-        <ComboBox x:Name="cbFeed" Height="34" Canvas.Left="216" Canvas.Top="43" Width="168" DropDownOpened="cbFeed_DropDownOpened" />
-        <Label Content="Välj en feed att ändra" Canvas.Left="33" Canvas.Top="43" Width="137"/>
-        <Label Content="Nytt Namn" Canvas.Left="33" Canvas.Top="104" Width="137"/>
-        <Label Content="Ny Url" Canvas.Left="33" Canvas.Top="176" Width="137"/>
-        <Label Content="Ny kategori" Canvas.Left="33" Canvas.Top="268" Width="137"/>
-        <ComboBox x:Name="cbCategories" Height="34" Canvas.Left="216" Canvas.Top="268" Width="168" DropDownOpened="cbCategories_DropDownOpened" />
-        <Button x:Name="btnEditCategory" Content="Ändra
-                " Height="27" Width="95"  Canvas.Left="216" Canvas.Top="332" Click="btnEditCategory_Click"/>
-        <TextBox x:Name="tbName" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange ett nytt namn" Canvas.Top="103" Width="168"/>
-        <TextBox x:Name="tbUrl" Height="25" Canvas.Left="216" TextWrapping="Wrap" Text="Ange en ny url" Canvas.Top="175" Width="168"/>
-        <Button x:Name="btnRemoveFeed" Content="Ta bort feed" Height="27" Canvas.Left="455" Canvas.Top="43" Width="95" Click="btnRemoveFeed_Click" />
+        <ComboBox x:Name="cbFeed" Height="34" Canvas.Left="49" Canvas.Top="175" Width="168" DropDownOpened="cbFeed_DropDownOpened" />
+        <Label Content="Välj en feed att ändra" Canvas.Left="49" Canvas.Top="130" Width="137"/>
+        <Label Content="Nytt Namn" Canvas.Left="324" Canvas.Top="130" Width="137"/>
+        <Label Content="Ny Url" Canvas.Left="324" Canvas.Top="184" Width="137"/>
+        <Label Content="Ny kategori" Canvas.Left="324" Canvas.Top="250" Width="137"/>
+        <ComboBox x:Name="cbCategories" Height="34" Canvas.Left="409" Canvas.Top="250" Width="168" DropDownOpened="cbCategories_DropDownOpened" />
+        <Button x:Name="btnEditCategory" Content="Ändra flöde"  Height="55" Width="168"  Canvas.Left="409" Canvas.Top="303" Click="btnEditCategory_Click" Background="#FF70BB68" BorderBrush="White"/>
+        <TextBox x:Name="tbName" Height="25" Canvas.Left="409" TextWrapping="Wrap" Text="Ange ett nytt namn.." Canvas.Top="134" Width="168" Foreground="#FFAEAEAE"/>
+        <TextBox x:Name="tbUrl" Height="25" Canvas.Left="409" TextWrapping="Wrap" Text="Ange en ny url.." Canvas.Top="184" Width="168" Foreground="#FFB4B4B4"/>
+        <Button x:Name="btnRemoveFeed" Content="Ta bort flöde" Height="42" Canvas.Left="49" Canvas.Top="242" Width="95" Click="btnRemoveFeed_Click" Background="#FFFB5F5F" BorderBrush="White" />
+        <Label Content="Hantera Flöden" Height="66" Canvas.Left="244" Canvas.Top="30" Width="333" FontSize="48" FontFamily="Ebrima"/>
 
     </Canvas>
 </Window>
