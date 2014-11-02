@@ -3,15 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window1" Height="398.435" Width="647.855">
     <Canvas>
-        <Label Content="Lägg till en kategori:" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="123" Canvas.Left="25" Canvas.Top="116"/>
-        <TextBox x:Name="tbCategory" Height="34" Canvas.Left="25" TextWrapping="Wrap" Text="Ange en kategori.." Canvas.Top="152" Width="168" Foreground="#FFAEACAC"/>
+        <Label Content="Lägg till en kategori:" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="123" Canvas.Left="25" Canvas.Top="110"/>
+        <TextBox x:Name="tbCategory" Height="34" Canvas.Left="25" TextWrapping="Wrap" Text="Ange en kategori.." Canvas.Top="144" Width="168" Foreground="#FFAEACAC"/>
         <ComboBox x:Name="cbCategory" Height="34" Canvas.Left="320" Canvas.Top="144" Width="168" SelectionChanged="cbCategory_SelectionChanged" DropDownOpened="cbCategory_DropDownOpened"/>
         <Label Content="Ange kategori att hantera:" Height="29" Canvas.Left="321" Canvas.Top="110" Width="167"/>
         <Button Content="Ta bort" Height="52" Canvas.Left="321" Canvas.Top="268" Width="93" Click="Button_Click" Background="#FFFF6262" BorderBrush="White"/>
         <TextBox x:Name="tbNewCategoryName" Height="34" Canvas.Left="321" TextWrapping="Wrap" Text="" Canvas.Top="202" Width="169"/>
         <Button x:Name="btnEditName" Content="Ändra namn" Height="34" Canvas.Left="517" Canvas.Top="202" Width="95" Click="btnEditName_Click" BorderBrush="Black" Background="White"/>
-        <Button x:Name="btnAddCategory" Content="Lägg till" Height="53" Canvas.Left="25" Canvas.Top="205" Width="167" Click="btnAddCategory_Click" Background="#FF8BE87C" BorderBrush="White"/>
-        <Label Content="Kategorier" Height="72" Canvas.Left="25" Canvas.Top="10" Width="235" FontSize="48" FontFamily="Ebrima"/>
+        <Button x:Name="btnAddCategory" Content="Lägg till" Height="53" Canvas.Left="25" Canvas.Top="202" Width="167" Click="btnAddCategory_Click" Background="#FF8BE87C" BorderBrush="White"/>
+        <Label Content="Kategorier" Height="77" Canvas.Left="25" Canvas.Top="10" Width="235" FontSize="48" FontFamily="Ebrima"/>
         <Label  Height="225" Canvas.Left="255" Canvas.Top="110" Width="3" Background="#FFE2E2E2">
             <Label.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
