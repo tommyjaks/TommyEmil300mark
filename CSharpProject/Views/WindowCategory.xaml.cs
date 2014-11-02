@@ -24,12 +24,13 @@ namespace CSharpProject.Views
            
              var validate = new UrlValidator();
             TextBox category = tbCategory;
-          
+
             if (validate.EmptyTextBox(category))
             {
                 var tbText = tbCategory.Text;
                 fillCategory.saveCatgories(tbText);
             }
+           
         }
 
         private void btnEditName_Click(object sender, RoutedEventArgs e)
@@ -77,8 +78,15 @@ namespace CSharpProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var selectedCategoryToRemove = cbCategory.SelectedItem.ToString();
-            fillCategory.removeData(selectedCategoryToRemove);
+            try
+            {
+                var selectedCategoryToRemove = cbCategory.SelectedItem.ToString();
+                fillCategory.removeData(selectedCategoryToRemove);
+            }
+            catch (Exception ez)
+            {
+                MessageBox.Show("Välj en kategori! ");
+            }
         }
     }
 }

@@ -4,7 +4,7 @@
         Title="Window1" Height="398.435" Width="647.855">
     <Canvas>
         <Label Content="Lägg till en kategori:" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="123" Canvas.Left="25" Canvas.Top="110"/>
-        <TextBox x:Name="tbCategory" Height="34" Canvas.Left="25" TextWrapping="Wrap" Text="Ange en kategori.." Canvas.Top="146" Width="168" Foreground="#FFAEACAC"/>
+        <TextBox x:Name="tbCategory" Height="34" Canvas.Left="25" TextWrapping="Wrap"  Canvas.Top="146" Width="168" Foreground="#FFAEACAC"/>
         <ComboBox x:Name="cbCategory" Height="34" Canvas.Left="320" Canvas.Top="144" Width="168" SelectionChanged="cbCategory_SelectionChanged" DropDownOpened="cbCategory_DropDownOpened"/>
         <Label Content="Ange kategori att hantera:" Height="29" Canvas.Left="321" Canvas.Top="110" Width="167"/>
         <Button Content="Ta bort" Height="52" Canvas.Left="321" Canvas.Top="268" Width="93" Click="Button_Click" Background="#FFFF6262" BorderBrush="White"/>
