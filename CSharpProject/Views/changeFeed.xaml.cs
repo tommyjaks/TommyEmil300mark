@@ -37,6 +37,7 @@ namespace CSharpProject.Views
 
         private void btnEditCategory_Click(object sender, RoutedEventArgs e)
         {
+
              var validate = new UrlValidator();
              TextBox url = tbUrl;
             TextBox name = tbName;
