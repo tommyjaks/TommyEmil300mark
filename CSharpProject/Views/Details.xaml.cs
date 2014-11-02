@@ -12,6 +12,7 @@ using Logic.Service;
 using WMPLib;
 using ComboBox = System.Windows.Controls.ComboBox;
 using ListView = System.Windows.Controls.ListView;
+using MessageBox = System.Windows.MessageBox;
 
 
 namespace CSharpProject.Views
@@ -51,13 +52,19 @@ namespace CSharpProject.Views
 
         
         private void Button_Click(object sender, RoutedEventArgs e)
-        {          
-            string flow = listEpisode.SelectedItem.ToString();
-            fillFeed.Play(flow);
-           
-            fillFeed.EditPlayedStatus(flow);
-            refreshInfoList();
+        {
+            try
+            {
+                string flow = listEpisode.SelectedItem.ToString();
+                fillFeed.Play(flow);
 
+                fillFeed.EditPlayedStatus(flow);
+                refreshInfoList();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Du måste välja en podcast att spela upp. "+" Felmeddelande: " + ex.Message);
+            }
         }
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
