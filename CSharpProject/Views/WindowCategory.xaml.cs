@@ -34,7 +34,7 @@ namespace CSharpProject.Views
 
         private void btnEditName_Click(object sender, RoutedEventArgs e)
         {
-               var validate = new UrlValidator();
+             var validate = new UrlValidator();
              TextBox url = tbNewCategoryName;
             
             if (validate.EmptyTextBox(url))
@@ -54,10 +54,6 @@ namespace CSharpProject.Views
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
-
-
             if (cbCategory.SelectedIndex == -1)
             {
                 tbNewCategoryName.Text = string.Empty;
