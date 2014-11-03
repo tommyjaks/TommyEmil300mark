@@ -10,7 +10,7 @@ namespace Logic.Entities
         public Guid Id { get; set; }
         public string Category { get; set; }
         public string Namn { get; set; }
-        
+        public string UppdateInterval { get; set; }
         
         
         public List<FeedItem> Items { get; set; }

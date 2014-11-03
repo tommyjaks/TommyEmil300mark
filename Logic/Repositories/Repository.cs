@@ -74,6 +74,12 @@ namespace Logic.Repositories
             XmlHandler.Play(xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
         }
 
+        public void EditSingleNode(string xml, string desc, string selectNodeToCompare, string selectItem, string nodeToUpdate,
+            string status)
+        {
+            XmlHandler.EditSingleNode(xml, desc, selectNodeToCompare, selectItem, nodeToUpdate, status);
+        }
+
         public T Add(T item)
         {
             throw new NotImplementedException();

@@ -18,7 +18,7 @@ namespace Logic.Service
       
         
 
-        public void getRssItems(string url, string name, string category)
+        public void getRssItems(string url, string name, string category, string selectedUpdateInterval)
         {
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
@@ -28,7 +28,7 @@ namespace Logic.Service
                 Id = Guid.NewGuid(),
                 Namn = name,
                 Category = category,
-                
+                UppdateInterval = selectedUpdateInterval,
                 Items = feedReader.Read(url)      
             };
             createFeeds.AddFeedToList(feed);
@@ -106,15 +106,15 @@ namespace Logic.Service
 
             repository.Play(path,chooseFirstDesc,selectedListItem,compareWithNode,selectNode);
         }
-        public void EditPlayedStatus(string selectedCategory, string newNode)
+        public void EditPlayedStatus(string selectedItem)
         {
 
-            string chooseNode = "ListOfFeeds/FeedList/Feed/FeedItem";
+            string chooseNode = "FeedItem";
             string chooseSingleNode = "Title";
             string elementToCreate = "Uppspelad";
+            string status = "Ja";
 
-
-            repository.Update(path, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
+            repository.EditSingleNode(path,chooseNode,chooseSingleNode,selectedItem,elementToCreate,status);
         }
 
 
