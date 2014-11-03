@@ -35,13 +35,14 @@ namespace CSharpProject.Views
                 var name = tbFlowName.Text;
                 var category = cbCategory.SelectedItem.ToString();
                 var urlValidate = new UrlValidator();
+                var uppdateringsinterval = cbInterval.SelectedItem.ToString();
 
                 if (urlValidate.Validate(minUrl) &&
                     urlValidate.EmptyTextBox(flowName) == true)
                 {
                     try
                     {
-                        getFeeds.getRssItems(minUrl, name, category);
+                        getFeeds.getRssItems(minUrl, name, category, uppdateringsinterval);
                         MessageBox.Show("Podcast tillagd!");
                     }
                     catch (Exception ez)
@@ -60,6 +61,15 @@ namespace CSharpProject.Views
             cbCategory.Items.Clear();
             ComboBox cbBoxBox = cbCategory;
             fillCategories.GetCategory(cbBoxBox);
+        }
+
+        private void cbInterval_DropDownOpened(object sender, EventArgs e)
+        {
+            cbInterval.Items.Clear();
+            cbInterval.Items.Add("10");
+            cbInterval.Items.Add("30");
+            cbInterval.Items.Add("60");
+
         }
     }
 }

@@ -11,7 +11,7 @@
         <TextBox x:Name="tbURL" TextWrapping="Wrap" Background="#FFF3F1F1" FontSize="18" Margin="25,48,331,214" Grid.ColumnSpan="2"/>
         <Label Content="Ange namn för flödet:" FontSize="16" Margin="25,85,94.682,178"/>
         <TextBox x:Name="tbFlowName" TextWrapping="Wrap" Background="#FFF1F1F1" FontSize="18" Margin="25,134,331,126" Grid.ColumnSpan="2"/>
-        <ComboBox BorderBrush="#FFE4E4E4" Margin="70.318,48,138,212" Grid.Column="1">
+        <ComboBox x:Name="cbInterval" BorderBrush="#FFE4E4E4" Margin="70.318,48,138,212" Grid.Column="1"  DropDownOpened="cbInterval_DropDownOpened">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
