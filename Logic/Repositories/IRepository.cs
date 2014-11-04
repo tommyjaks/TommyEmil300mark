@@ -31,7 +31,7 @@ namespace Logic.Repositories
 
         void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill);
         void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed);
-        void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory);
+        void UpdateFeed(string path, string selectedFeed, string newName, string newUrl,string interval, string newCategory);
         T Add(T item);
         T Find(Guid id);
         void GetAll();

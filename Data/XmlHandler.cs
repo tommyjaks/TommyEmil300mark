@@ -86,7 +86,7 @@ namespace Data
                 }
               
             }
-        public void updateFeed(string path, string selectedFeed, string newName, string  newUrl, string newCategory)
+        public void updateFeed(string path, string selectedFeed, string newName, string  newUrl, string newUpdateInterval, string newCategory)
         {
             var doc = new XmlDocument();
             doc.Load(path);
@@ -99,11 +99,12 @@ namespace Data
                 {
                     XmlNode feedName = node.SelectSingleNode("Namn");
                     XmlNode feedUrl = node.SelectSingleNode("Url");
-                   
+                    XmlNode feedUpdateInterval = node.SelectSingleNode("UppdateInterval");
                     XmlNode feedSelectedCategory = node.SelectSingleNode("Category");
                     feedUrl.InnerText = newUrl;
                     feedSelectedCategory.InnerText = newCategory;
                     feedName.InnerText = newName;
+                    feedUpdateInterval.InnerText = newUpdateInterval;
                     
                
                 

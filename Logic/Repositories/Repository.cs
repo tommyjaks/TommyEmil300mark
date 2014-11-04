@@ -40,9 +40,9 @@ namespace Logic.Repositories
          
         }
 
-        public void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string newCategory)
+        public void UpdateFeed(string path, string selectedFeed, string newName, string newUrl, string interval, string newCategory)
         {
-            XmlHandler.updateFeed(path, selectedFeed, newName, newUrl, newCategory);
+            XmlHandler.updateFeed(path, selectedFeed, newName, newUrl, interval, newCategory);
         }
 
         public void Delete(T item)

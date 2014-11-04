@@ -47,8 +47,8 @@ namespace CSharpProject.Views
                 var newName = tbName.Text;
                 var newUrl = tbUrl.Text;
                 var newCategory = cbCategories.SelectedItem.ToString();
-
-                serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newCategory);
+                var newUpdateinterval = cbInterval.SelectedItem.ToString();
+                serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newUpdateinterval, newCategory);
             }
         }
 
@@ -57,6 +57,14 @@ namespace CSharpProject.Views
             var selectedFeedToRemove= cbFeed.SelectedItem.ToString();
            
             serviceFeeds.GetFeedToRemove(selectedFeedToRemove);
+        }
+
+        private void cbInterval_DropDownOpened(object sender, EventArgs e)
+        {
+            cbInterval.Items.Clear();
+            cbInterval.Items.Add("10");
+            cbInterval.Items.Add("30");
+            cbInterval.Items.Add("60");
         }
     }
 }

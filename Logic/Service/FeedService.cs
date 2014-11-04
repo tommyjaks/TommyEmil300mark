@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
+using System.ServiceModel.Syndication;
+using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Xml;
+using System.Xml.Linq;
 using Data;
 using Logic.Entities;
 using Logic.Readers;
@@ -20,8 +26,9 @@ namespace Logic.Service
 
         public void getRssItems(string url, string name, string category, string selectedUpdateInterval)
         {
-            createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
+            createFeeds = repository.Load(path);
+            
             var feed = new Feed()
             {
                 Url = url,
@@ -53,11 +60,11 @@ namespace Logic.Service
             repository.FillComboBox(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public void getFeedUpdateInfo(string selectedFeed, string newName, string newUrl, string newCategory)
+        public void getFeedUpdateInfo(string selectedFeed, string newName, string newUrl,string interval, string newCategory)
         {
             
 
-            repository.UpdateFeed(path, selectedFeed, newName, newUrl, newCategory);
+            repository.UpdateFeed(path, selectedFeed, newName, newUrl, interval, newCategory);
         }
 
         public void GetFeedToRemove(string selectedFeed)
@@ -116,6 +123,8 @@ namespace Logic.Service
 
             repository.EditSingleNode(path,chooseNode,chooseSingleNode,selectedItem,elementToCreate,status);
         }
+
+        
 
 
     }
