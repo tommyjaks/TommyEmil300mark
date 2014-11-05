@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using ComboBox = System.Windows.Controls.ComboBox;
 using MessageBox = System.Windows.MessageBox;
@@ -12,9 +8,7 @@ using Logic.Service.Validation;
 
 namespace CSharpProject.Views
 {
-    /// <summary>
-    /// Interaction logic for AddFeed.xaml
-    /// </summary>
+
     public partial class AddFeed : Window
     {
         CategoryService fillCategories = new CategoryService();
@@ -43,6 +37,8 @@ namespace CSharpProject.Views
                     {
                         getFeeds.getRssItems(minUrl, name, category,selectedUpdateInterval);
                         MessageBox.Show("Podcast tillagd!");
+                        tbFlowName.Clear();
+                        tbURL.Clear();
                     }
                     catch (Exception ez)
                     {
