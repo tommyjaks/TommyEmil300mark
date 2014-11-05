@@ -96,13 +96,13 @@ namespace Logic.Repositories
             
         }
 
-        public void FillComboBox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
+        public void FillSomething(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
         {
-            XmlHandler.FyllCombobox(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
+            XmlHandler.FillSomething(cb,  xmlFil, valjNoder, valjEnstakaNodAttFyllaBoxMed);
         }
-        public void FillListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
+        public void FillSomething(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
         {
-            XmlHandler.FyllListView(lv, xmlFil, valjNoder, singleNodeFill);
+            XmlHandler.FillSomething(lv, xmlFil, valjNoder, singleNodeFill);
         }
 
       

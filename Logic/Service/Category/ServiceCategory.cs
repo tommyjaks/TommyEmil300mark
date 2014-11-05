@@ -26,7 +26,7 @@ namespace Logic.Service
 
             string valjEnstakaNod = "ListOfCategories/CategoryList/Category";
             string nodeToFill = "CategoryName";
-            repository.FillComboBox(Category, path, valjEnstakaNod, nodeToFill);
+            repository.FillSomething(Category, path, valjEnstakaNod, nodeToFill);
         }
 
        public List<Category> setCategories(string tbCategory)

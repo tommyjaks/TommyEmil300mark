@@ -40,7 +40,7 @@ namespace Data
                 return Xml.Deserialize(streamReader) as T;
             }
         }
-        public void FyllListView(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
+        public void FillSomething(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Data
             }
         }
 
-        public void FyllCombobox(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
+        public void FillSomething(ComboBox cb, string xmlFil, string valjNoder, string valjEnstakaNodAttFyllaBoxMed)
         {
 
             var doc = new XmlDocument();

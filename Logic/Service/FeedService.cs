@@ -60,7 +60,7 @@ namespace Logic.Service
 
             string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
             string nodeToFill = "Namn";
-            repository.FillComboBox(feed, path, valjEnstakaNod, nodeToFill);
+            repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
         }
 
         public void getFeedUpdateInfo(string selectedFeed, string newName, string newUrl,string interval, string newCategory)
@@ -83,7 +83,7 @@ namespace Logic.Service
         {
             string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
             string nodeToFill = "Namn";
-            repository.FillListView(feed, path, valjEnstakaNod, nodeToFill);
+            repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
         }
 
         public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
