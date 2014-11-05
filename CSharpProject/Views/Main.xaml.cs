@@ -1,5 +1,5 @@
 ﻿
-
+using Logic.Service;
 using System.Windows;
 
 
@@ -12,7 +12,9 @@ namespace CSharpProject.Views
         
         public MainWindow()
         {
+           
             InitializeComponent();
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,6 +37,8 @@ namespace CSharpProject.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             new Details().Show();
+            var getRssFeedsUpdateOnSetTimerValue = new IntervalHandler.IntervalUpdateValues();
+            getRssFeedsUpdateOnSetTimerValue.UpdateXmlFileWithSetIntervalForFile();
         }
        }
     }
