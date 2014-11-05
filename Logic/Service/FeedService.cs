@@ -26,8 +26,9 @@ namespace Logic.Service
 
         public void getRssItems(string url, string name, string category, string selectedUpdateInterval)
         {
-            repository.Save(createFeeds, path);
             createFeeds = repository.Load(path);
+            repository.Save(createFeeds, path);
+            
            
            
             

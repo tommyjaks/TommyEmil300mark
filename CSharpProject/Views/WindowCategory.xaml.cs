@@ -83,7 +83,7 @@ namespace CSharpProject.Views
                 var selectedCategoryToRemove = cbCategory.SelectedItem.ToString();
                 fillCategory.removeData(selectedCategoryToRemove);
             }
-            catch (Exception ez)
+            catch (Exception)
             {
                 MessageBox.Show("Välj en kategori! ");
             }

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
@@ -58,7 +56,7 @@ namespace Data
             }
             catch (Exception e)
             {
-                MessageBox.Show("Du har förstört programmet! ");
+                MessageBox.Show(e.Message);
             }
         }
 

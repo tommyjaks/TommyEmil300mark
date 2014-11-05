@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Timers;
 using System.Windows;
 using System.Xml.Linq;
@@ -27,7 +26,7 @@ namespace Logic.Service
                 GetUpdatedListOfFeeds();
                 StartUpdateIntervalTimer();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Ett oväntat fel har uppstått, var snäll och kontakta din RssReader-operatör omgående. ");
             }
@@ -38,17 +37,22 @@ namespace Logic.Service
 
         private async void SearchForNewFeedItems(object sender, ElapsedEventArgs elapsedEventArgs)
         {
-            for (int index = 0; index < ListMadeOfFeeds.Count; index++)
+
+            try
             {
-                var rssUrl = ListMadeOfFeeds[index];
-                await instanceOfRssReader.UpdateFeedsWithSelectedUrl(rssUrl);
+                foreach (var rssUrl in ListMadeOfFeeds)
+                {
+                    await instanceOfRssReader.UpdateFeedsWithSelectedUrl(rssUrl);
+                }
+            }
+            catch (Exception xe)
+            {
+                MessageBox.Show("Ett oväntat fel har uppstått, var snäll och kontakta din RssReader-operatör omgående. " +xe.Message);
+                
             }
         }
 
-       public void yolo()
-       {
-           
-       }
+
        public void GetUpdatedListOfFeeds()
         {
             try
@@ -59,7 +63,7 @@ namespace Logic.Service
                 ListMadeOfFeeds = document.Descendants("Feed").Where(x => x.Element("UppdateInterval").Value == Interval.ToString()).ToList().Select(y => y.Element("Url").Value).ToList(); 
                     
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Ett oväntat fel har uppstått, var snäll och kontakta din RssReader-operatör omgående. ");
             }
