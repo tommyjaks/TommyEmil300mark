@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 using System.ServiceModel.Syndication;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using Data;
 using Logic.Entities;
 using Logic.Readers;
 using Logic.Repositories;
+using ComboBox = System.Windows.Controls.ComboBox;
+using ListView = System.Windows.Controls.ListView;
 
 namespace Logic.Service
 {
@@ -28,10 +31,7 @@ namespace Logic.Service
         {
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
-            
-           
-           
-            
+
             var feed = new Feed()
             {
                 Url = url,
@@ -86,11 +86,28 @@ namespace Logic.Service
             repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
+        public string SelectSingleFeed( string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
         {
-            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+            var load = repository.SelectSingleItemInFeed(path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+            return load;
         }
 
+        //public void TestFeedSelection()
+        //{
+        //    var load = repository.Load(path);
+        //    var list = from lv1 in load
+        //        where lv1 == "Title"
+        //        select lv1;
+
+        //    StringBuilder sb = new StringBuilder();
+        //    foreach (string s in list)
+        //    {
+        //        sb.Append(s + Environment.NewLine);
+        //    }
+
+        //    MessageBox.Show(sb.ToString(), "Found Bird");
+
+        //}
         public void SelectMultipleFeeds(ListView lv, string selectedItem)
         {
             string selectNodes = "ListOfFeeds/FeedList/Feed";
@@ -99,13 +116,14 @@ namespace Logic.Service
             
             repository.SelectMultipleFeedNames(lv, path, selectNodes, singleNodeToCompare,selectedItem,singleNode);
         }
-        public void SortMultiplePlace(ListView lv, string selectedItem)
+        public string SortMultiplePlace(string selectedItem)
         {
             string selectNodes = "ListOfFeeds/FeedList/Feed";
             string singleNodeToCompare = "Category";
             
 
-            repository.SelectMultiplePlace(lv, path, selectNodes, singleNodeToCompare, selectedItem);
+            var load = repository.SelectMultiplePlace(path, selectNodes, singleNodeToCompare, selectedItem);
+            return load;
         }
 
         public void Play(string selectedListItem)

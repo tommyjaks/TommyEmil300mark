@@ -47,31 +47,13 @@ namespace Logic.Service
        {
            createCategories = repository.Load(path);
            repository.Save(createCategories, path);
-          
-          
-         
-          
-               
-           
-
            var newCategory = new Category()
-
-
            {
                Id = Guid.NewGuid(),
                CategoryName =  tbCategory
-         
-
-
-
            };
            createCategories.AddCategory(newCategory);
-           repository.Save(createCategories, path);
-
-
-
-
-         
+           repository.Save(createCategories, path);   
        }
 
        public void editCategory(string selectedCategory, string newNode)
