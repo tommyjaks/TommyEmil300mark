@@ -37,7 +37,10 @@ namespace CSharpProject.Views
                 cbCategory.Items.Add(item.CategoryName);
             }
 
-            ListView listOfFeed = listFlow;
+            foreach (Category item in loadxml)
+            {
+                listBx.Items.Add(item.CategoryName);
+            }
            
 
         }

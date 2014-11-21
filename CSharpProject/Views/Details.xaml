@@ -13,13 +13,6 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <ListView x:Name="listFlow" Height="267" Canvas.Left="29" Canvas.Top="214" Width="129" SelectionChanged="listFlow_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <ListView x:Name="listEpisode" Height="186" Canvas.Left="221" Canvas.Top="214" Width="340" SelectionChanged="listEpisode_SelectionChanged" >
             <ListView.View>
                 <GridView>
@@ -45,5 +38,6 @@
         <Label Content="Info:" Height="26" Canvas.Left="333" Canvas.Top="87" Width="128"/>
         <Label Content="Datum:" Height="26" Canvas.Left="286" Canvas.Top="133" Width="47"/>
         <Label Content="Uppspelad:" Height="26" Canvas.Left="263" Canvas.Top="155" Width="70"/>
+        <ListBox x:Name="listBx" Height="186" Canvas.Left="29" Canvas.Top="214" Width="129"/>
     </Canvas>
 </Window>
