@@ -29,7 +29,12 @@ namespace Logic.Service
         {
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
-
+           
+          
+            
+           
+           
+            
             var feed = new Feed()
             {
                 Url = url,
@@ -84,10 +89,9 @@ namespace Logic.Service
             repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public string SelectSingleFeed( string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
+        public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
         {
-            var load = repository.SelectSingleItemInFeed(path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
-            return load;
+            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
         }
 
         public void SelectMultipleFeeds(ListView lv, string selectedItem)

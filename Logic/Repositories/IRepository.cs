@@ -23,7 +23,7 @@ namespace Logic.Repositories
 
         void SelectMultipleFeedNames(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
             string selectedItem, string singleNode);
-        void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
+        string SelectMultiplePlace(string xmlFile, string selectNodes, string singleNodeToCompare,
             string selectedItem);
 
         void EditSingleNode(string xml, string desc, string selectNodeToCompare, string selectItem, string nodeToUpdate,

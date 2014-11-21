@@ -102,15 +102,14 @@ namespace Logic.Service
            return repository.Load(path);
        }
 
-       public void ManiPulateCategory(string categoryToRemove)
+       public void RemoveCategory(string categoryToManipulate)
        {
            createCategories = repository.Load(path);
 
-           
-           foreach (Category item in createCategories)
-           {
-              
-               }
+
+           createCategories.RemoveAll(category => category.CategoryName == categoryToManipulate);
+
+           repository.Save(createCategories, path);
            }
        }
     }

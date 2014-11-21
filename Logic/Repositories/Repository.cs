@@ -54,9 +54,9 @@ namespace Logic.Repositories
         {
             XmlHandler.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
         }
-        public string SelectSingleItemInFeed( string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
+        public string SelectSingleItemInFeed(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
-            var load = XmlHandler.SelectSingleFeedItem(xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
+           var load =  XmlHandler.SelectSingleFeedItem(xmlFile, chooseFirstDesc, selectedListItem, compareWithNode, selectNode);
             return load;
         }
 
@@ -65,10 +65,11 @@ namespace Logic.Repositories
         {
             XmlHandler.SelectMultipleFeedNames(lv,xmlFile,selectNodes,singleNodeToCompare,selectedItem,singleNode);
         }
-        public void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
+        public string SelectMultiplePlace(string xmlFile, string selectNodes, string singleNodeToCompare,
           string selectedItem)
         {
-            XmlHandler.SelectMultiplePlace(lv, xmlFile, selectNodes, singleNodeToCompare, selectedItem);
+            var load = XmlHandler.SelectMultiplePlace(xmlFile, selectNodes, singleNodeToCompare, selectedItem);
+            return load;
         }
         public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {

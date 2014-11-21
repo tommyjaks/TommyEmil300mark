@@ -149,7 +149,7 @@ namespace Data
 
         
 
-        public string SelectSingleFeedItem( string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
+        public string SelectSingleFeedItem(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
             
             XDocument doc = XDocument.Load(xmlFile);
@@ -183,12 +183,12 @@ namespace Data
             }
         }
 
-        public void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare, string selectedItem)
+        public string SelectMultiplePlace(string xmlFile, string selectNodes, string singleNodeToCompare, string selectedItem)
         {
 
             var doc = new XmlDocument();
             doc.Load(xmlFile);
-
+            var load = "";
             XmlNodeList selectedNodes = doc.SelectNodes(selectNodes);
 
             foreach (XmlElement node in selectedNodes)
@@ -196,10 +196,10 @@ namespace Data
                 if (node.SelectSingleNode(singleNodeToCompare).InnerText == selectedItem)
                 {
   
-                       lv.Items.Add(node.SelectSingleNode("Namn").InnerText);
- 
+                       load += (node.SelectSingleNode("Namn").InnerText);
                 }
             }
+            return load;
         }
         public void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode, string selectNode)
         {
