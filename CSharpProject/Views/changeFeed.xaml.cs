@@ -28,8 +28,11 @@ namespace CSharpProject.Views
         private void cbCategories_DropDownOpened(object sender, EventArgs e)
         {
             cbCategories.Items.Clear();
-            ComboBox cbBoxBox = cbCategories;
-            serviceCategory.GetCategory(cbBoxBox);
+            var loadxml = serviceCategory.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategories.Items.Add(item.CategoryName);
+            }
         }
 
         private void cbFeed_DropDownOpened(object sender, EventArgs e)
@@ -58,6 +61,9 @@ namespace CSharpProject.Views
                     var newCategory = cbCategories.SelectedItem.ToString();
                     var newUpdateinterval = cbInterval.SelectedItem.ToString();
           
+                    serviceFeeds.EditFeed(selectedFeed,newName,newCategory,newUrl,newUpdateinterval);
+
+
                     MessageBox.Show("Flödet har ändrats");
                     tbName.Clear();
                     tbUrl.Clear();
@@ -75,6 +81,7 @@ namespace CSharpProject.Views
             try
             {
                 var selectedFeedToRemove = cbFeed.SelectedItem.ToString();
+                serviceFeeds.RemoveFeed(selectedFeedToRemove);
                     
                 
             }

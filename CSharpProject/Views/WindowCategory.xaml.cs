@@ -42,10 +42,10 @@ namespace CSharpProject.Views
             
             if (validate.EmptyTextBox(url))
             {
-                FeedService changeXmlCategory = new FeedService();
+                
                 var newCategoryName = tbNewCategoryName.Text;
-                var selectedItem = cbCategory.SelectedItem.ToString();
-
+                var categoryName = cbCategory.SelectedItem.ToString();
+                fillCategory.EditCategory(categoryName, newCategoryName);
                 cbCategory.Items.Clear();
             }
 
@@ -83,7 +83,7 @@ namespace CSharpProject.Views
             try
             {
                 var categoryToManipulate = cbCategory.SelectedItem.ToString();
-               // fillcategoryservice.RemoveCategory(categoryToManipulate);
+               fillcategoryservice.RemoveCategory(categoryToManipulate);
             }
             catch (Exception)
             {
