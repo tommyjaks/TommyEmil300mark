@@ -1,15 +1,8 @@
 ﻿
 using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
+using Logic.Entities;
 using Logic.Service;
-using WMPLib;
 using ComboBox = System.Windows.Controls.ComboBox;
 using ListView = System.Windows.Controls.ListView;
 using MessageBox = System.Windows.MessageBox;
@@ -29,14 +22,29 @@ namespace CSharpProject.Views
         {
             InitializeComponent();
 
-            ComboBox cbBoxBox = cbCategory;
-            fillCategories.GetCategory(cbBoxBox);
+      
+            cbCategory.Items.Clear();
+            var loadxml = fillCategories.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategory.Items.Add(item.CategoryName);
+            }
+        
+       
+           
+            var loadxml2 = fillCategories.GetAllCategories();
+            foreach (Category item in loadxml2)
+            {
+                listFlow.Items.Add(item.CategoryName);
+            }
+        
 
-            ListView listOfFeed = listFlow;
-            fillFeed.GetFeed(listOfFeed);
+            //ListView listOfFeed = listFlow;
+            //fillFeed.GetFeed(listOfFeed);
 
         }
 
+       
         private void listFlow_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             listInfo.Items.Clear();
@@ -69,15 +77,16 @@ namespace CSharpProject.Views
 
         private void cbCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-                listEpisode.Items.Clear();
-                ListView feed = listFlow;
-                string selectItem = cbCategory.SelectedItem.ToString();
+          
+            listEpisode.Items.Clear();
+            ListView feed = listFlow;
+            string selectItem = cbCategory.SelectedItem.ToString();
 
-                if (cbCategory.SelectedItem != null)
-                {
-                    listFlow.Items.Clear();
-                    fillFeed.SortMultiplePlace(feed, selectItem);
-                }
+            if (cbCategory.SelectedItem != null)
+            {
+                listFlow.Items.Clear();
+                fillFeed.SortMultiplePlace(feed, selectItem);
+            }
           
         }
 
@@ -98,11 +107,24 @@ namespace CSharpProject.Views
                 string chooseFirstDesc = "FeedItem";
                 string compareWithNode = "Title";
                 string selectNode = "Date";
-                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
-
+                var load = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+                feed.Items.Add(load);
                 string selectNode2 = "Uppspelad";
-                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+                var load2 = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+                feed.Items.Add(load2);
             }
+        }
+
+        private void cbCategory_DropDownOpened(object sender, EventArgs e)
+        {
+            
+            cbCategory.Items.Clear();
+            var loadxml = fillCategories.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategory.Items.Add(item.CategoryName);
+            }
+        
         }
 
   

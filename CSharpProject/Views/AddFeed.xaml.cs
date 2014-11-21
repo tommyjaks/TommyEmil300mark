@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Logic.Entities;
 using ComboBox = System.Windows.Controls.ComboBox;
 using MessageBox = System.Windows.MessageBox;
 using TextBox = System.Windows.Controls.TextBox;
@@ -35,7 +36,7 @@ namespace CSharpProject.Views
                 {
                     try
                     {
-                        getFeeds.getRssItems(minUrl, name, category,selectedUpdateInterval);
+                        getFeeds.GetRssItems(minUrl, name,category,selectedUpdateInterval);
                         MessageBox.Show("Podcast tillagd!");
                         tbFlowName.Clear();
                         tbURL.Clear();
@@ -54,8 +55,11 @@ namespace CSharpProject.Views
         private void cbCategory_DropDownOpened_1(object sender, EventArgs e)
         {
             cbCategory.Items.Clear();
-            ComboBox cbBoxBox = cbCategory;
-            fillCategories.GetCategory(cbBoxBox);
+            var loadxml = fillCategories.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategory.Items.Add(item.CategoryName);
+            }
         }
 
         private void cbInterval_DropDownOpened(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace CSharpProject.Views
             if (validate.EmptyTextBox(category))
             {
                 var tbText = tbCategory.Text;
-                fillCategory.saveCatgories(tbText);
+                fillCategory.SaveCatgories(tbText);
             }
            
         }

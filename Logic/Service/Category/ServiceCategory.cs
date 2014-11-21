@@ -13,8 +13,9 @@ namespace Logic.Service
    
    public class CategoryService
     {
-        private Repository<ListOfCategories> repository = new Repository<ListOfCategories>();
-        private ListOfCategories createCategories = new ListOfCategories();
+       public Repository<Category> repository = new Repository<Category>();
+       public List<Category> createCategories = new List<Category>();
+      
        private string path = "Category.xml";
 
 
@@ -43,16 +44,17 @@ namespace Logic.Service
 
        }
 
-       public void saveCatgories(string tbCategory)
+       public void SaveCatgories(string tbCategory)
        {
            createCategories = repository.Load(path);
            repository.Save(createCategories, path);
-          
-          
-         
-          
-               
            
+           
+
+
+
+
+
 
            var newCategory = new Category()
 
@@ -65,7 +67,9 @@ namespace Logic.Service
 
 
            };
-           createCategories.AddCategory(newCategory);
+           
+           createCategories.Add(newCategory);
+           
            repository.Save(createCategories, path);
 
 
@@ -92,5 +96,23 @@ namespace Logic.Service
 
            repository.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
        }
+
+       public List<Category> GetAllCategories()
+       {
+           return repository.Load(path);
+       }
+
+       public void ManiPulateCategory(string categoryToRemove)
+       {
+           createCategories = repository.Load(path);
+
+           
+           foreach (Category item in createCategories)
+           {
+              
+               }
+           }
+       }
     }
-}
+
+

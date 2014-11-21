@@ -16,22 +16,20 @@ namespace Logic.Service
 {
     public class FeedService
     {
-        private Repository<ListOfFeeds> repository = new Repository<ListOfFeeds>();
-        private ListOfFeeds createFeeds = new ListOfFeeds();
-        private RssReader feedReader = new RssReader();
+       public Repository<Feed> repository = new Repository<Feed>();
+        public List<Feed> createFeeds = new List<Feed>();
+
+       public RssReader feedReader = new RssReader();
         string path = "Feed.xml";
         
       
         
 
-        public void getRssItems(string url, string name, string category, string selectedUpdateInterval)
+        public void GetRssItems(string url, string name,string category, string selectedUpdateInterval)
         {
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
-            
-           
-           
-            
+
             var feed = new Feed()
             {
                 Url = url,
@@ -41,8 +39,8 @@ namespace Logic.Service
                 UppdateInterval = selectedUpdateInterval,
                 Items = feedReader.Read(url)      
             };
-            createFeeds.AddFeedToList(feed);
-            repository.Save(createFeeds, path);
+            createFeeds.Add(feed);
+           repository.Save(createFeeds, path);
         }
         public void EditCategoryInFeedXmlFile(string selectedCategory, string newNode)
         {
@@ -86,9 +84,10 @@ namespace Logic.Service
             repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
         }
 
-        public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
+        public string SelectSingleFeed( string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
         {
-            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+            var load = repository.SelectSingleItemInFeed(path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+            return load;
         }
 
         public void SelectMultipleFeeds(ListView lv, string selectedItem)
@@ -127,7 +126,10 @@ namespace Logic.Service
             repository.EditSingleNode(path,chooseNode,chooseSingleNode,selectedItem,elementToCreate,status);
         }
 
-        
+        public List<Feed> GetAllFeeds()
+        {
+            return repository.Load(path);
+        }
 
 
     }

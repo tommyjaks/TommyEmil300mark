@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Forms;
+using Logic.Entities;
 using Logic.Service;
 using Logic.Service.Validation;
 using ComboBox = System.Windows.Controls.ComboBox;
@@ -34,8 +35,11 @@ namespace CSharpProject.Views
         private void cbFeed_DropDownOpened(object sender, EventArgs e)
         {
             cbFeed.Items.Clear();
-            ComboBox cbBox = cbFeed;
-            serviceFeeds.SetFeed(cbBox);
+            var loadxml = serviceFeeds.GetAllFeeds();
+            foreach (Feed item in loadxml)
+            {
+                cbFeed.Items.Add(item.Namn);
+            }
         }
 
         private void btnEditCategory_Click(object sender, RoutedEventArgs e)
