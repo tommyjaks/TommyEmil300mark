@@ -30,11 +30,6 @@ namespace Logic.Service
             createFeeds = repository.Load(path);
             repository.Save(createFeeds, path);
            
-          
-            
-           
-           
-            
             var feed = new Feed()
             {
                 Url = url,
@@ -47,89 +42,7 @@ namespace Logic.Service
             createFeeds.Add(feed);
            repository.Save(createFeeds, path);
         }
-        public void EditCategoryInFeedXmlFile(string selectedCategory, string newNode)
-        {
-            
-            string chooseNode = "ListOfFeeds/FeedList/Feed";
-            string chooseSingleNode = "Category";
-            string elementToCreate = "Category";
-
-           
-            repository.Update(path, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
-        }
-        public void SetFeed(ComboBox feed)
-        {
-           
-
-            string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
-            string nodeToFill = "Namn";
-            repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
-        }
-
-        public void getFeedUpdateInfo(string selectedFeed, string newName, string newUrl,string interval, string newCategory)
-        {
-            
-
-            repository.UpdateFeed(path, selectedFeed, newName, newUrl, interval, newCategory);
-        }
-
-        public void GetFeedToRemove(string selectedFeed)
-        {
-            string selectedNodeToRemove = "Feed";
-            string selectedElement = "Namn";
-
-            repository.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);  
-        }
-
-
-        public void GetFeed(ListView feed)
-        {
-            string valjEnstakaNod = "ListOfFeeds/FeedList/Feed";
-            string nodeToFill = "Namn";
-            repository.FillSomething(feed, path, valjEnstakaNod, nodeToFill);
-        }
-
-        public void SelectSingleFeed(ListView feed, string chooseFirstDesc ,string selectListItem, string compareWithNode, string selectNode)
-        {
-            repository.SelectSingleItemInFeed(feed, path, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
-        }
-
-        public void SelectMultipleFeeds(ListView lv, string selectedItem)
-        {
-            string selectNodes = "ListOfFeeds/FeedList/Feed";
-            string singleNodeToCompare = "Namn";
-            string singleNode = "Items";
-            
-            repository.SelectMultipleFeedNames(lv, path, selectNodes, singleNodeToCompare,selectedItem,singleNode);
-        }
-        public void SortMultiplePlace(ListView lv, string selectedItem)
-        {
-            string selectNodes = "ListOfFeeds/FeedList/Feed";
-            string singleNodeToCompare = "Category";
-            
-
-            repository.SelectMultiplePlace(lv, path, selectNodes, singleNodeToCompare, selectedItem);
-        }
-
-        public void Play(string selectedListItem)
-        {
-            string chooseFirstDesc = "FeedItem";
-            string compareWithNode = "Title";
-            string selectNode = "Link";
-
-            repository.Play(path,chooseFirstDesc,selectedListItem,compareWithNode,selectNode);
-        }
-        public void EditPlayedStatus(string selectedItem)
-        {
-
-            string chooseNode = "FeedItem";
-            string chooseSingleNode = "Title";
-            string elementToCreate = "Uppspelad";
-            string status = "Ja";
-
-            repository.EditSingleNode(path,chooseNode,chooseSingleNode,selectedItem,elementToCreate,status);
-        }
-
+  
         public List<Feed> GetAllFeeds()
         {
             return repository.Load(path);
