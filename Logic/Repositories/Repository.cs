@@ -15,9 +15,9 @@ namespace Logic.Repositories
  
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        internal XmlHandler<T> XmlHandler = new XmlHandler<T>();  
+        internal XmlHandler<T> XmlHandler = new XmlHandler<T>();
 
-        public void Save(T value, string path)
+        public void Save(List<T> value, string path)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Logic.Repositories
             }
         }
 
-        public T Load(string path)
+        public List<T> Load(string path)
         {
            return XmlHandler.Load(path);
         }

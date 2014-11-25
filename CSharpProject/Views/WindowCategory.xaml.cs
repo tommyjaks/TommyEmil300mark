@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using Logic.Entities;
 using Logic.Service;
 using Logic.Service.Validation;
 
@@ -13,6 +14,7 @@ namespace CSharpProject.Views
     public partial class Window1 : Window
     {
         CategoryService fillCategory = new CategoryService();
+        CategoryService fillcategoryservice = new CategoryService();
         public Window1()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace CSharpProject.Views
             if (validate.EmptyTextBox(category))
             {
                 var tbText = tbCategory.Text;
-                fillCategory.saveCatgories(tbText);
+                fillCategory.SaveCatgories(tbText);
             }
            
         }
@@ -68,11 +70,13 @@ namespace CSharpProject.Views
         private void cbCategory_DropDownOpened(object sender, EventArgs e)
         {
             cbCategory.Items.Clear();
-           
-            ComboBox cbBoxBox = cbCategory;
-            fillCategory.GetCategory(cbBoxBox);
-            string selected = cbCategory.Text;
-            tbNewCategoryName.Text = selected;
+
+            //cbCategory.Items.Clear();
+            var loadxml = fillCategory.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategory.Items.Add(item.CategoryName);
+            }
 
         }
 
@@ -80,8 +84,8 @@ namespace CSharpProject.Views
         {
             try
             {
-                var selectedCategoryToRemove = cbCategory.SelectedItem.ToString();
-                fillCategory.removeData(selectedCategoryToRemove);
+                var categoryToManipulate = cbCategory.SelectedItem.ToString();
+               // fillcategoryservice.RemoveCategory(categoryToManipulate);
             }
             catch (Exception)
             {

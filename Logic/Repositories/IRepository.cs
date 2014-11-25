@@ -9,8 +9,8 @@ namespace Logic.Repositories
 {
     internal interface IRepository<T> where T : IEntity
     {
-        void Save(T items, string path);
-        T Load(string path);
+        void Save(List<T> items, string path);
+        List<T> Load(string path);
         void Update(string xmlFile, string chooseNode, string chooseSingleNode, string selectedCategory, string elementToCreate, string newNode);
         void Delete(T item);
         void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement);

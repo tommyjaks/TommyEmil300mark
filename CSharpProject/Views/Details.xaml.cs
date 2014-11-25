@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using Logic.Entities;
 using Logic.Service;
 using WMPLib;
 using ComboBox = System.Windows.Controls.ComboBox;
@@ -29,8 +30,12 @@ namespace CSharpProject.Views
         {
             InitializeComponent();
 
-            ComboBox cbBoxBox = cbCategory;
-            fillCategories.GetCategory(cbBoxBox);
+            cbCategory.Items.Clear();
+            var loadxml = fillCategories.GetAllCategories();
+            foreach (Category item in loadxml)
+            {
+                cbCategory.Items.Add(item.CategoryName);
+            }
 
             ListView listOfFeed = listFlow;
             fillFeed.GetFeed(listOfFeed);

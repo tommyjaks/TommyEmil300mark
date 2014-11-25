@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -22,10 +23,10 @@ namespace Data
         public XmlHandler()
         {
            
-            Xml = new XmlSerializer(typeof (T));
+            Xml = new XmlSerializer(typeof (List<T>));
         }
 
-        public void SaveXml(T datatyp, string path)
+        public void SaveXml(List<T> datatyp, string path)
         {
             using (var streamWriter = new StreamWriter(path))
             {
@@ -33,11 +34,11 @@ namespace Data
             }
         }
 
-        public T Load(string path)
+        public List<T> Load(string path)
         {
             using (var streamReader = new StreamReader(path))
             {
-                return Xml.Deserialize(streamReader) as T;
+                return Xml.Deserialize(streamReader) as List<T>;
             }
         }
         public void FillSomething(ListView lv, string xmlFil, string valjNoder, string singleNodeFill)
