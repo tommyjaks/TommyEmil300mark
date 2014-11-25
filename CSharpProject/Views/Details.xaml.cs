@@ -64,7 +64,7 @@ namespace CSharpProject.Views
                 fillFeed.Play(flow);
 
                 fillFeed.EditPlayedStatus(flow);
-                refreshInfoList();
+                RefreshInfoList();
             }
             catch(Exception ex)
             {
@@ -77,22 +77,23 @@ namespace CSharpProject.Views
                 listEpisode.Items.Clear();
                 ListView feed = listFlow;
                 string selectItem = cbCategory.SelectedItem.ToString();
-
+               
                 if (cbCategory.SelectedItem != null)
                 {
                     listFlow.Items.Clear();
-                    fillFeed.SortMultiplePlace(feed, selectItem);
+                    var  load = fillFeed.SortMultiplePlace(selectItem);
+                    feed.Items.Add(load);
                 }
           
         }
 
         private void listEpisode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            refreshInfoList();
+            RefreshInfoList();
         }
         
 
-        private void refreshInfoList()
+        private void RefreshInfoList()
         {
             if (listEpisode.SelectedItem != null)
             {
@@ -103,10 +104,16 @@ namespace CSharpProject.Views
                 string chooseFirstDesc = "FeedItem";
                 string compareWithNode = "Title";
                 string selectNode = "Date";
-                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+
+                var load = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+                
+                feed.Items.Add(load);
+
 
                 string selectNode2 = "Uppspelad";
-                fillFeed.SelectSingleFeed(feed, chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+                var load2 = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+
+                feed.Items.Add(load2);
             }
         }
 

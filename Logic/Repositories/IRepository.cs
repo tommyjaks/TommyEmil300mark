@@ -15,7 +15,7 @@ namespace Logic.Repositories
         void Delete(T item);
         void RemoveData(string selectedFeed, string path, string selectedNodeToRemove, string selectedElement);
 
-        void SelectSingleItemInFeed(ListView lv, string xmlFile, string chooseFirstDesc,
+        string SelectSingleItemInFeed(string xmlFile, string chooseFirstDesc,
             string selectedListItem, string compareWithNode, string selectNode);
 
         void Play(string xmlFile, string chooseFirstDesc, string selectedListItem, string compareWithNode,
@@ -23,7 +23,7 @@ namespace Logic.Repositories
 
         void SelectMultipleFeedNames(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
             string selectedItem, string singleNode);
-        void SelectMultiplePlace(ListView lv, string xmlFile, string selectNodes, string singleNodeToCompare,
+        string SelectMultiplePlace(string xmlFile, string selectNodes, string singleNodeToCompare,
             string selectedItem);
 
         void EditSingleNode(string xml, string desc, string selectNodeToCompare, string selectItem, string nodeToUpdate,
