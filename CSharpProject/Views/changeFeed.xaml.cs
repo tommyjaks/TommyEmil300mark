@@ -57,7 +57,7 @@ namespace CSharpProject.Views
                     var newUrl = tbUrl.Text;
                     var newCategory = cbCategories.SelectedItem.ToString();
                     var newUpdateinterval = cbInterval.SelectedItem.ToString();
-                    serviceFeeds.getFeedUpdateInfo(selectedFeed, newName, newUrl, newUpdateinterval, newCategory);
+          
                     MessageBox.Show("Flödet har ändrats");
                     tbName.Clear();
                     tbUrl.Clear();
@@ -75,7 +75,7 @@ namespace CSharpProject.Views
             try
             {
                 var selectedFeedToRemove = cbFeed.SelectedItem.ToString();
-                    serviceFeeds.GetFeedToRemove(selectedFeedToRemove);
+                    
                 
             }
             catch (Exception ex)

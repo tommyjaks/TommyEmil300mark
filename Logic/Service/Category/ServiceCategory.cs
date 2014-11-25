@@ -48,14 +48,7 @@ namespace Logic.Service
        {
            createCategories = repository.Load(path);
            repository.Save(createCategories, path);
-           
-           
-
-
-
-
-
-
+          
            var newCategory = new Category()
 
 
@@ -63,40 +56,16 @@ namespace Logic.Service
                Id = Guid.NewGuid(),
                CategoryName =  tbCategory
          
-
-
-
            };
            
            createCategories.Add(newCategory);
            
            repository.Save(createCategories, path);
 
-
-
-
          
        }
 
-       public void editCategory(string selectedCategory, string newNode)
-    {
-        string xmlFile = "Category.xml";
-        string chooseNode = "ListOfCategories/CategoryList/Category";
-        string chooseSingleNode = "CategoryName";
-           string elementToCreate = "CategoryName";
-        
-
-        repository.Update(xmlFile, chooseNode, chooseSingleNode, selectedCategory, elementToCreate, newNode);
-    }
-
-       public void removeData(string selectedFeed)
-       {
-           string selectedNodeToRemove = "Category";
-           string selectedElement = "CategoryName";
-
-           repository.RemoveData(selectedFeed, path, selectedNodeToRemove, selectedElement);
-       }
-
+      
        public List<Category> GetAllCategories()
        {
            return repository.Load(path);

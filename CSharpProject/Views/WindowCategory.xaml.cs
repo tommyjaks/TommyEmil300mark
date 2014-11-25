@@ -46,8 +46,6 @@ namespace CSharpProject.Views
                 var newCategoryName = tbNewCategoryName.Text;
                 var selectedItem = cbCategory.SelectedItem.ToString();
 
-                fillCategory.editCategory(selectedItem, newCategoryName);
-                changeXmlCategory.EditCategoryInFeedXmlFile(selectedItem, newCategoryName);
                 cbCategory.Items.Clear();
             }
 

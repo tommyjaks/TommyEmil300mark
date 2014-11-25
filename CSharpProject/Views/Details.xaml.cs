@@ -38,7 +38,7 @@ namespace CSharpProject.Views
             }
 
             ListView listOfFeed = listFlow;
-            fillFeed.GetFeed(listOfFeed);
+           
 
         }
 
@@ -51,7 +51,7 @@ namespace CSharpProject.Views
                 ListView episode = listEpisode;
                 string flow = listFlow.SelectedItem.ToString();
                
-                fillFeed.SelectMultipleFeeds(episode, flow);
+               
             }
         }
 
@@ -61,9 +61,7 @@ namespace CSharpProject.Views
             try
             {
                 string flow = listEpisode.SelectedItem.ToString();
-                fillFeed.Play(flow);
-
-                fillFeed.EditPlayedStatus(flow);
+             
                 RefreshInfoList();
             }
             catch(Exception ex)
@@ -81,8 +79,8 @@ namespace CSharpProject.Views
                 if (cbCategory.SelectedItem != null)
                 {
                     listFlow.Items.Clear();
-                    var  load = fillFeed.SortMultiplePlace(selectItem);
-                    feed.Items.Add(load);
+              
+                   
                 }
           
         }
@@ -105,15 +103,14 @@ namespace CSharpProject.Views
                 string compareWithNode = "Title";
                 string selectNode = "Date";
 
-                var load = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode);
+               
                 
-                feed.Items.Add(load);
+               
 
 
                 string selectNode2 = "Uppspelad";
-                var load2 = fillFeed.SelectSingleFeed(chooseFirstDesc, selectListItem, compareWithNode, selectNode2);
+               
 
-                feed.Items.Add(load2);
             }
         }
 
