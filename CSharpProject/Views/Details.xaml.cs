@@ -35,9 +35,15 @@ namespace CSharpProject.Views
             foreach (Category item in loadxml)
             {
                 cbCategory.Items.Add(item.CategoryName);
+            
+            }
+            var loadFeedxml = fillFeed.GetAllFeeds();
+            foreach (Feed item in loadFeedxml)
+            {
+                listFlow.Items.Add(item.Namn);
             }
 
-            ListView listOfFeed = listFlow;
+          
            
 
         }
